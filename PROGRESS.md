@@ -89,6 +89,24 @@ what recruiters look at.
 
 ---
 
+## Git cheat-sheet (everyday routine)
+
+Run these in Terminal from the project folder (`cd ~/Documents/Claude/amharic-news`).
+
+| Step | Command | What it does |
+|---|---|---|
+| 1. Look | `git status` | Lists what changed since the last snapshot (red = not yet picked). |
+| 2. See details | `git diff` | Shows the exact lines changed (press `q` to exit). |
+| 3. Pick | `git add PROGRESS.md` (or `git add .` for everything) | Puts changes into the next snapshot ("staging"; shown green). |
+| 4. Save | `git commit -m "Short description of what and why"` | Saves the snapshot on your Mac. |
+| 5. Upload | `git push` | Sends your new snapshots to GitHub. |
+| History | `git log --oneline` | Lists snapshots, newest first (press `q` to exit). |
+| Undo a pick | `git restore --staged FILE` | Takes a file back out of the next snapshot (keeps your edits). |
+
+Good commit messages: start with a verb, say *what* changed — "Add validate.py for editorial rules",
+"Fix overflow on story cards". One topic per commit.
+Never `git add` the `.env` file (`.gitignore` already blocks it).
+
 ## Decisions made
 
 - 10 Nov 2026 — Never auto-post; the owner reviews and posts manually (safety + credibility).
