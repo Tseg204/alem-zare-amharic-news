@@ -1,0 +1,222 @@
+{
+  "date_gc": "2026-11-10",
+  "searched_at": "2026-11-10T12:00",
+  "candidates": [
+    {
+      "id": "ukraine-russia-abu-dhabi-talks",
+      "title_en": "US-brokered Russia–Ukraine talks open in Abu Dhabi",
+      "summary_en": "Delegations from Russia, Ukraine and the United States began a two-day round of talks in Abu Dhabi on Tuesday 10 November, the first three-way meeting since February. Ukraine's team is led by Rustem Umerov, Russia's by Vladimir Medinsky, and the US side by envoys Steve Witkoff and Jared Kushner; the first day lasted nearly four hours.",
+      "category": "world",
+      "horn_of_africa": false,
+      "sources": [
+        {"outlet": "AP (via NBC News)", "url": "https://www.nbcnews.com/world/ukraine/us-mediated-talks-ending-war-russia-ukraine-begin-abu-dhabi-rcna608499", "published": "2026-11-10"},
+        {"outlet": "ABC News", "url": "https://abcnews.com/International/russia-ukraine-us-meet-abu-dhabi-talks-trump/story?id=137970621", "published": "2026-11-10"},
+        {"outlet": "Euronews", "url": "https://www.euronews.com/2026/11/10/whos-who-from-ukraine-and-russia-at-the-abu-dhabi-peace-talks", "published": "2026-11-10"}
+      ],
+      "selected": true,
+      "story": 1,
+      "reason": "Biggest world story of the day. The 9 Nov edition (and the earlier 10 Nov draft) only announced the talks; the real news now is that they have actually started, with named delegations and a first day of nearly four hours. Only conflict story selected.",
+      "key_facts_en": [
+        "Talks opened on Tuesday 10 November in Abu Dhabi and are planned for two days (10–11 Nov) — AP/NBC News, Euronews",
+        "First three-way US–Russia–Ukraine meeting since February 2026 (Euronews: nine months after the last US-mediated round) — AP/NBC News, Euronews, ABC News",
+        "First day lasted nearly four hours; talks to resume Wednesday — AP/NBC News (single source)",
+        "Delegation heads: Ukraine Rustem Umerov, Russia Vladimir Medinsky, US envoys Steve Witkoff and Jared Kushner — AP/NBC News, ABC News, Euronews",
+        "Russia demands Ukraine withdraw from four regions (Donetsk, Luhansk, Zaporizhzhia, Kherson); Ukraine rejects giving up territory — AP/NBC News, ABC News",
+        "Overnight before the talks Ukraine's air force reported 162 Russian drones and one ballistic missile — AP/NBC News, ABC News",
+        "Kushner said he saw ideas to bridge the differences; Umerov said Ukrainians are waiting for the war to end — AP/NBC News (single source; use only as reported speech if at all)"
+      ]
+    },
+    {
+      "id": "ethiopia-gdp-rebasing",
+      "title_en": "Ethiopia's economy revised up nearly 60% to about $201 billion after GDP rebasing",
+      "summary_en": "Ethiopia has updated the base year of its national accounts from 2015/16 to 2024/25, which raises the measured size of its 2024/25 economy by about 59% to roughly $201 billion, according to a government presentation reported on 5 November. Officials say the change reflects better measurement of activity such as digital payments, ride-hailing and solar power, not a sudden jump in output.",
+      "category": "economy",
+      "horn_of_africa": true,
+      "sources": [
+        {"outlet": "Reuters (via CNBC Africa)", "url": "https://www.cnbcafrica.com/2026/ethiopia-revises-economy-up-nearly-60-to-201-billion-after-gdp-rebasing", "published": "2026-11-05"},
+        {"outlet": "BusinessDay (Nigeria)", "url": "https://businessday.ng/africa/article/ethiopias-economy-rises-59-after-gdp-rebasing-reshaping-debt-tax-outlook/", "published": "2026-11-05"},
+        {"outlet": "Reuters (via Sowetan)", "url": "https://www.sowetan.co.za/news/africa/2026-11-05-ethiopias-economy-revised-up-by-60-after-gdp-rebasing/", "published": "2026-11-05"}
+      ],
+      "selected": true,
+      "story": 2,
+      "reason": "Ethiopia story that touches daily life and the diaspora (economy, debt, taxes) and is constructive/neutral to report. Not in either earlier edition. Note: first reported 5 Nov, so older than the 48-hour window — picked because no fresher Ethiopia-specific story could be confirmed by 2+ sources; analysis pieces were still appearing this week.",
+      "key_facts_en": [
+        "2024/25 GDP revised to $201.42 billion, up 59.2% ('nearly 60%') — Reuters (CNBC Africa, Sowetan), BusinessDay",
+        "Base year moved from 2015/16 to 2024/25 — Reuters (CNBC Africa, Sowetan), BusinessDay",
+        "2025/26 economy estimated at about $210.7 billion — Reuters (CNBC Africa), BusinessDay",
+        "In birr: 2024/25 nominal GDP from 15.09 trillion to 24.03 trillion birr — BusinessDay (single fetched source; also reported by The Africa Report per search, not opened)",
+        "Newly captured activity includes digital financial services, ride-sharing platforms and solar installations — Reuters (CNBC Africa, Sowetan)",
+        "The debt itself is unchanged but the debt-to-GDP ratio falls; tax-to-GDP (previously nearly 7%) could fall unless tax collection rises — Reuters (CNBC Africa), BusinessDay",
+        "Ministry of National Strategy: the rise reflects better measurement, the economy did not grow overnight — BusinessDay (single source)",
+        "Caution: the presentation did not state which exchange rate the dollar figures use — Reuters (CNBC Africa). A claimed new continental ranking is NOT established by the sources opened; do not put a rank on the card."
+      ]
+    },
+    {
+      "id": "sudan-shelter-crisis",
+      "title_en": "UN: 15.4 million people in Sudan need emergency shelter as aid warehouses run empty",
+      "summary_en": "UN refugee agency UNHCR and the International Organization for Migration warned in Geneva on 6 November that about 15.4 million people in Sudan need emergency shelter, but funding shortfalls let agencies target only about one in ten of them. IOM's head in Sudan said its warehouses are now empty.",
+      "category": "Africa",
+      "horn_of_africa": true,
+      "sources": [
+        {"outlet": "Africanews", "url": "https://www.africanews.com/2026/11/06/un-says-struggling-to-help-millions-fleeing-sudan-war-find-shelter/", "published": "2026-11-06"},
+        {"outlet": "Reuters (via TimesLIVE)", "url": "https://www.timeslive.co.za/news/africa/2026-11-06-millions-of-displaced-sudanese-risk-losing-shelter-as-funds-run-low-un-warns/", "published": "2026-11-06"},
+        {"outlet": "allAfrica (All of Africa Today)", "url": "https://allafrica.com/stories/202611090111.html", "published": "2026-11-09"}
+      ],
+      "selected": true,
+      "story": 3,
+      "reason": "Horn of Africa humanitarian story with clear UN figures, reportable neutrally without graphic detail; Sudan is Ethiopia's neighbour. UN statement was 6 Nov but was still leading regional round-ups on 9 Nov. Counted as the second (and last) conflict-related story.",
+      "key_facts_en": [
+        "About 15.4 million people need emergency shelter and household items — Africanews, Reuters (TimesLIVE), allAfrica",
+        "Funding shortfalls mean agencies can target only about 10% of those in need — Africanews, Reuters (TimesLIVE), allAfrica",
+        "IOM's warehouses in Sudan are now completely empty (IOM Sudan chief Mohamed Refaat) — Africanews, Reuters (TimesLIVE)",
+        "About 8.6 million people are displaced inside Sudan — Africanews, Reuters (TimesLIVE)",
+        "More than 5.2 million people have returned home, often to damaged houses — Reuters (TimesLIVE), allAfrica",
+        "2026 humanitarian plan needs $2.9 billion and is less than half funded (allAfrica: 47%) — Africanews, allAfrica",
+        "Shelter appeal: only about a third of the $179 million needed this year is funded — Africanews (single fetched source)",
+        "War between the army and the RSF since April 2023 — Africanews, allAfrica",
+        "Caution: IOM's '40,000' distributed is 'tents' in Africanews but 'tonnes' in Reuters — do not use this figure"
+      ]
+    },
+    {
+      "id": "egypt-giza-train-collision",
+      "title_en": "Train collision near Cairo kills at least seven",
+      "summary_en": "On Sunday 8 November a passenger train heading to Fayoum hit the rear of a stopped Cairo–Aswan passenger train in the al-Ayyat district of Giza, south of Cairo, killing at least seven people and injuring more than 100. President Abdel Fattah el-Sisi ordered an urgent investigation.",
+      "category": "Africa",
+      "horn_of_africa": false,
+      "sources": [
+        {"outlet": "Al Jazeera", "url": "https://www.aljazeera.com/news/2026/11/8/train-crash-kills-four-injures-dozens-near-egypts-cairo-city", "published": "2026-11-08"},
+        {"outlet": "Al-Monitor (AFP reporting)", "url": "https://www.al-monitor.com/originals/2026/11/egypt-train-collision-kills-7-injures-112-health-ministry", "published": "2026-11-08"},
+        {"outlet": "Ahram Online", "url": "https://english.ahram.org.eg/News/582012.aspx", "published": "2026-11-08"}
+      ],
+      "selected": true,
+      "story": 4,
+      "reason": "Major African news event within the window, confirmed by several outlets, can be reported without graphic detail. Egypt matters to the Ethiopian audience (Nile region).",
+      "key_facts_en": [
+        "Sunday 8 November, al-Ayyat district, Giza province, south of Cairo — Al Jazeera, Al-Monitor",
+        "At least 7 killed (Health Ministry; early reports said 4) — Al Jazeera, Al-Monitor, allAfrica",
+        "More than 100 injured — Al Jazeera (125+), Al-Monitor (112), Ahram (112, per search snippet); use 'more than 100'",
+        "A Fayoum-bound passenger train hit the rear of a stopped Aswan-bound train on the Cairo–Aswan line — Al Jazeera, Al-Monitor",
+        "Six carriages overturned — Al Jazeera, Al-Monitor (witness)",
+        "President el-Sisi ordered an urgent investigation; prosecutors opened an inquiry — Al Jazeera, Al-Monitor",
+        "Ahram Online could not be opened (403); its figures come from the search snippet only"
+      ]
+    },
+    {
+      "id": "athens-marathon-ethiopian-sweep",
+      "title_en": "Ethiopians win both Athens Marathon races with course records",
+      "summary_en": "Ethiopian runners won the men's and women's races at the 43rd Athens Authentic Marathon on Sunday 8 November, both in course-record times. Siyum Manazot Taferi won the men's race and Yatane Kormose Dusa the women's, each followed by a fellow Ethiopian in second place.",
+      "category": "sport",
+      "horn_of_africa": true,
+      "sources": [
+        {"outlet": "Greek Reporter", "url": "https://greekreporter.com/2026/11/08/athens-marathon-taferi-course-record/", "published": "2026-11-08"},
+        {"outlet": "Greek City Times", "url": "https://greekcitytimes.com/2026/11/08/athens-authentic-marathon-2026-course-records/", "published": "2026-11-08"},
+        {"outlet": "Watch Athletics", "url": "https://www.watchathletics.com/article/13864/taferi-and-dusha-lead-ethiopian-sweep-at-2026-athens-marathon", "published": "2026-11-08"}
+      ],
+      "selected": true,
+      "story": 5,
+      "reason": "Constructive, proud-moment story for Ethiopians at home and abroad; sport adds category variety. Within the 48-hour window.",
+      "key_facts_en": [
+        "Sunday 8 November, 43rd Athens Authentic Marathon — Greek Reporter, Greek City Times",
+        "Men: Siyum Manazot Taferi (Ethiopia) won in 2:10:03, a course record — Greek Reporter, Greek City Times",
+        "Old men's record 2:10:34 by Kenya's Edwin Kiptoo (2023), i.e. 31 seconds faster — Greek Reporter, Greek City Times",
+        "Men's second: Assefa Tefera Mengisa (Ethiopia) 2:10:18 — Greek Reporter, Greek City Times",
+        "Women: Yatane Kormose Dusa (Ethiopia) won in 2:30:04, a course record (old 2:31:06 from 2010) — Greek City Times; win + record also in Watch Athletics headline (page could not be opened, 403)",
+        "Women's second: Tsiyon Abebe Temesgen (Ethiopia) 2:30:29 — Greek City Times (single source)",
+        "About 25,000 runners in the full marathon — Greek Reporter (single source)",
+        "Caution: name spellings differ between outlets (Siyum/Siyoum, Manazot/Manazut, Kormoshe/Kormose, Dusha/Dusa); the writer should check Amharic spellings"
+      ]
+    },
+    {
+      "id": "senegal-migrant-boat",
+      "title_en": "Migrant boat sinks off northern Senegal",
+      "summary_en": "A migrant boat sank off the Loumpoul dunes in Kebemer department, northwestern Senegal, around 7–8 November; the interior ministry counted at least 21 dead while the Senegalese press agency later reported at least 34. The route leads to Spain's Canary Islands.",
+      "category": "Africa",
+      "horn_of_africa": false,
+      "sources": [
+        {"outlet": "Al Jazeera", "url": "https://aljazeera.com/news/2026/11/8/at-least-21-dead-as-small-boat-sinks-off-senegal", "published": "2026-11-08"},
+        {"outlet": "TimesLIVE", "url": "https://www.timeslive.co.za/news/africa/2026-11-08-at-least-21-dead-after-migrant-boat-sinks-off-senegal-coast/", "published": "2026-11-08"}
+      ],
+      "selected": false,
+      "reason": "Left out: death toll still disputed (21 vs 34) and a second Africa disaster story next to the Egypt crash would make the edition too heavy."
+    },
+    {
+      "id": "iran-trump-qatar-talks",
+      "title_en": "Trump says renewed strikes on Iran look unlikely after Qatar talks",
+      "summary_en": "After talks with Qatar's prime minister on 9 November, President Trump said further US strikes on Iran did not seem necessary but that the US was ready if needed; Iranian officials denied that negotiations were taking place.",
+      "category": "world",
+      "horn_of_africa": false,
+      "sources": [
+        {"outlet": "Axios", "url": "https://www.axios.com/2026/11/09/trump-iran-war-qatar-negotiations-attacks-unlikely", "published": "2026-11-09"},
+        {"outlet": "Reuters", "url": "https://www.reuters.com/world/middle-east/trump-says-qatar-saudi-arabia-want-peaceful-solution-iran-us-ready-strikes-if-2026-11-09/", "published": "2026-11-09"}
+      ],
+      "selected": false,
+      "reason": "Left out: would be a third conflict story; the same development is already on the earlier 10 Nov draft card; I could not open either source page (only seen via the Just Security round-up), so not verified by me."
+    },
+    {
+      "id": "ethiopia-sudan-consulates",
+      "title_en": "Ethiopia and Sudan close each other's consulates amid drone accusations",
+      "summary_en": "After Sudan complained to the UN Security Council and the AU on 1 November that drones used by the RSF were launched from Ethiopian territory, Ethiopia ordered Sudan's consulate in Asosa closed and Sudan shut Ethiopia's consulate in Gedaref; Ethiopia denies supporting the RSF.",
+      "category": "Africa",
+      "horn_of_africa": true,
+      "sources": [
+        {"outlet": "Al Jazeera", "url": "https://aljazeera.com/news/2026/11/4/sudan-ethiopia-order-tit-for-tat-diplomatic-expulsions", "published": "2026-11-04"},
+        {"outlet": "Al Jazeera", "url": "https://aljazeera.com/news/2026/11/2/sudan-files-complaints-against-ethiopia-with-un-over-deadly-drone-spree", "published": "2026-11-02"},
+        {"outlet": "Agenzia Nova", "url": "https://www.agenzianova.com/en/news/Sudan-escalates-tensions-with-Ethiopia-as-military-operations-intensify/", "published": "2026-11-04"}
+      ],
+      "selected": false,
+      "reason": "Left out: events of 1–4 November (outside the window), rests on contested allegations, and the sources found are mostly one outlet; very sensitive to report briefly on a card."
+    },
+    {
+      "id": "somalia-hirshabelle-capital",
+      "title_en": "Somalia's president says HirShabelle capital will go to Hiiraan region",
+      "summary_en": "President Hassan Sheikh Mohamud said on 8 November that the HirShabelle state capital is allocated to the Hiiraan region (Beledweyne) to ease local grievances, but that the move needs a constitutional process by the state.",
+      "category": "Africa",
+      "horn_of_africa": true,
+      "sources": [
+        {"outlet": "Dawan Africa", "url": "https://www.dawan.africa/news/hirshabelle-capital-given-to-hiran-but-move-requires-process-somali-president-says", "published": "2026-11-08"},
+        {"outlet": "allAfrica (All of Africa Today)", "url": "https://allafrica.com/stories/202611090111.html", "published": "2026-11-09"}
+      ],
+      "selected": false,
+      "reason": "Left out: local Somali administrative dispute, hard to explain on one card and of limited interest to a general audience; Horn quota already met."
+    },
+    {
+      "id": "brazil-fossil-fuel-roadmap-cop31",
+      "title_en": "Brazil brings first global fossil-fuel phase-out roadmap to COP31",
+      "summary_en": "Brazil published a voluntary global roadmap for moving away from coal, oil and gas on 3 November, to be discussed at the COP31 climate talks in Antalya, Turkey, which opened on 9 November.",
+      "category": "climate",
+      "horn_of_africa": false,
+      "sources": [
+        {"outlet": "Euronews", "url": "https://www.euronews.com/2026/11/04/the-transition-is-inevitable-brazil-releases-first-global-roadmap-for-phasing-out-fossil-f", "published": "2026-11-04"},
+        {"outlet": "Climate Home News", "url": "https://climatechangenews.com/2026/11/03/brazils-fossil-fuel-roadmap-sketches-out-first-global-timetable", "published": "2026-11-03"}
+      ],
+      "selected": false,
+      "reason": "Left out: roadmap released 3 Nov; COP31 is already a card in the earlier 10 Nov draft. Good fallback climate story if the owner wants one."
+    },
+    {
+      "id": "nvidia-ceo-lawsuit",
+      "title_en": "Nvidia shareholders sue over allegations involving CEO Jensen Huang",
+      "summary_en": "Nvidia shareholders filed a class action on 9 November alleging the company hid matters linked to CEO Jensen Huang's private life; President Trump said the FBI is looking into it. Nvidia shares fell.",
+      "category": "tech",
+      "horn_of_africa": false,
+      "sources": [
+        {"outlet": "POLITICO", "url": "https://www.politico.com/news/2026/11/09/nvidia-sued-jensen-huang-alleged-spy-affair-01157660", "published": "2026-11-09"},
+        {"outlet": "New York Times", "url": "https://www.nytimes.com/2026/11/09/us/politics/trump-jensen-huang-spy.html", "published": "2026-11-09"}
+      ],
+      "selected": false,
+      "reason": "Left out: rests on unproven allegations about a person's private life (close to gossip), facts still moving; sources not opened."
+    },
+    {
+      "id": "south-africa-local-elections",
+      "title_en": "ANC records its worst-ever local election result",
+      "summary_en": "South Africa's electoral commission declared the 2026 local elections free and fair; the ANC won about 30.8% and the DA about 24.6%, leaving many councils without a majority.",
+      "category": "Africa",
+      "horn_of_africa": false,
+      "sources": [
+        {"outlet": "allAfrica (All of Africa Today)", "url": "https://allafrica.com/stories/202611090111.html", "published": "2026-11-09"},
+        {"outlet": "Africanews", "url": "https://www.africanews.com/feed", "published": "2026-11-08"}
+      ],
+      "selected": false,
+      "reason": "Left out: already a card in the 9 Nov edition; no substantial new development."
+    }
+  ]
+}

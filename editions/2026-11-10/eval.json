@@ -1,0 +1,179 @@
+{
+  "stories": [
+    {
+      "story": 1,
+      "headline_draft": "የዩክሬን–ሩሲያ ድርድር በአቡ ዳቢ ተጀመረ",
+      "fields": {
+        "headline": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        },
+        "body": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        },
+        "note": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        },
+        "stats": {
+          "changed": false,
+          "kind": null
+        },
+        "speech": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        }
+      },
+      "photo_changed": false,
+      "replaced": false
+    },
+    {
+      "story": 2,
+      "headline_draft": "የኢትዮጵያ ኢኮኖሚ በአዲስ ስሌት 201 ቢሊዮን ዶላር ደረሰ",
+      "fields": {
+        "headline": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        },
+        "body": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        },
+        "note": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        },
+        "stats": {
+          "changed": false,
+          "kind": null
+        },
+        "speech": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        }
+      },
+      "photo_changed": false,
+      "replaced": false
+    },
+    {
+      "story": 3,
+      "headline_draft": "በሱዳን 15.4 ሚሊዮን ሰዎች መጠለያ እንደሚያስፈልጋቸው ተመድ አስታወቀ",
+      "fields": {
+        "headline": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        },
+        "body": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        },
+        "note": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        },
+        "stats": {
+          "changed": false,
+          "kind": null
+        },
+        "speech": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        }
+      },
+      "photo_changed": false,
+      "replaced": false
+    },
+    {
+      "story": 4,
+      "headline_draft": "በካይሮ አቅራቢያ በባቡር ግጭት ቢያንስ 7 ሰዎች ሞቱ",
+      "fields": {
+        "headline": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        },
+        "body": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        },
+        "note": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        },
+        "stats": {
+          "changed": false,
+          "kind": null
+        },
+        "speech": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        }
+      },
+      "photo_changed": false,
+      "replaced": false
+    },
+    {
+      "story": 5,
+      "headline_draft": "ኢትዮጵያውያን የአቴንስ ማራቶንን በክብረ ወሰን አሸነፉ",
+      "fields": {
+        "headline": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        },
+        "body": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        },
+        "note": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        },
+        "stats": {
+          "changed": false,
+          "kind": null
+        },
+        "speech": {
+          "changed": false,
+          "words_changed": 0.0,
+          "kind": null
+        }
+      },
+      "photo_changed": true,
+      "replaced": false
+    }
+  ],
+  "summary": {
+    "headlines_changed": 0.0,
+    "bodies_changed": 0.0,
+    "notes_changed": 0.0,
+    "stats_changed": 0.0,
+    "speech_changed": 0.0,
+    "avg_body_words_changed": 0.0,
+    "untouched_stories": 4,
+    "stories_replaced": 0,
+    "photos_changed": 1,
+    "kinds_of_fixes": {}
+  },
+  "edition": "2026-11-10",
+  "approved": true,
+  "evaluated_at": "2026-11-10 18:16"
+}

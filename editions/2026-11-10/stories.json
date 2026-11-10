@@ -1,4 +1,5 @@
 {
+  "status": "approved",
   "brand": "ዓለም ዛሬ",
   "tagline": "ዕለታዊ የዓለም ዜና በአማርኛ",
   "date_et": "ኅዳር 1, 2019 ዓ.ም",
@@ -9,125 +10,149 @@
     "ያጋሩ",
     "አስተያየት ይስጡ"
   ],
-  "lead": 4,
+  "lead": 5,
   "stories": [
     {
       "category": "ዓለም አቀፍ",
       "color": "#4FA3FF",
       "icon": "🕊️",
-      "headline": "የዩክሬን–ሩሲያ የሰላም ድርድር በአቡ ዳቢ እየተካሄደ ነው",
-      "body": "ከ9 ወራት መቋረጥ በኋላ የአሜሪካ፣ የሩሲያ እና የዩክሬን ልዑካን ኅዳር 1–2 በአቡ ዳቢ ይደራደራሉ። ዋናው አጀንዳ ለዩክሬን የሚሰጥ የድህረ-ጦርነት የጸጥታ ዋስትና ነው።",
+      "headline": "የዩክሬን–ሩሲያ ድርድር በአቡ ዳቢ ተጀመረ",
+      "body": "የአሜሪካ፣ የሩሲያ እና የዩክሬን ልዑካን ከ9 ወራት በኋላ የመጀመሪያ የሆነውን የሦስትዮሽ ድርድር ማክሰኞ ኅዳር 1 በአቡ ዳቢ ጀምረዋል። ሩሲያ ዩክሬን ከአራት ክልሎች እንድትወጣ ስትጠይቅ፣ ዩክሬን ግን ሩሲያ ያልያዘችውን ግዛት አሳልፋ እንደማትሰጥ ገልጻለች።",
       "stats": [],
-      "note": "ሩሲያ መላውን የዶኔትስክ ክልል ስትጠይቅ፣ ዩክሬን አሁን ያለው የጦር ግንባር ድንበር እንዲሆን ትፈልጋለች።",
-      "sources": "France 24 · Meduza · Washington Post",
-      "image": {
-        "file": "images/abudhabi.jpg",
-        "credit": "Photo: AdnanDekedek / Wikimedia Commons · CC BY-SA 4.0",
-        "source": "https://commons.wikimedia.org/wiki/File:Abu_Dhabi_Skyline_from_a_boat_tour.jpg",
-        "position": "center 45%"
-      },
+      "note": "የዩክሬንን ልዑክ ሩስተም ኡሜሮቭ፣ የሩሲያን ቭላድሚር ሜዲንስኪ፣ የአሜሪካን ደግሞ ልዩ መልዕክተኛው ስቲቭ ዊትኮፍ እና ጃሬድ ኩሽነር ይመራሉ።",
+      "sources": "AP · ABC News · Euronews",
       "speech": [
-        "የዩክሬንና የሩሲያ የሰላም ድርድር በአቡ ዳቢ እየተካሄደ ነው።",
-        "ከዘጠኝ ወራት መቋረጥ በኋላ፣ የአሜሪካ፣ የሩሲያ እና የዩክሬን ልዑካን፣ ከኅዳር አንድ እስከ ሁለት በአቡ ዳቢ ይደራደራሉ። ዋናው አጀንዳ፣ ለዩክሬን የሚሰጥ የድህረ ጦርነት የጸጥታ ዋስትና ነው።"
-      ]
+        "የዩክሬንና የሩሲያ ድርድር በአቡ ዳቢ ተጀመረ።",
+        "የአሜሪካ፣ የሩሲያ እና የዩክሬን ልዑካን፣ ከዘጠኝ ወራት በኋላ የመጀመሪያ የሆነውን የሦስትዮሽ ድርድር፣ ማክሰኞ ኅዳር አንድ በአቡ ዳቢ ጀምረዋል። ሩሲያ ዩክሬን ከአራት ክልሎች እንድትወጣ ስትጠይቅ፣ ዩክሬን ግን ሩሲያ ያልያዘችውን ግዛት አሳልፋ እንደማትሰጥ ገልጻለች።"
+      ],
+      "image": {
+        "file": "images/abu-dhabi-skyline-sunset.jpg",
+        "credit": "Photo: Robert Haandrikman / Wikimedia Commons · CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Skyline_of_Abu_Dhabi_at_sunset.jpg",
+        "position": "center 45%"
+      }
     },
     {
-      "category": "አፍሪካ · ኢትዮጵያ",
-      "color": "#FF6B5B",
-      "icon": "🏕️",
-      "headline": "በሞያሌ ግጭት ሳቢያ በሺዎች የሚቆጠሩ ወደ ኬንያ ተሰደዱ",
-      "body": "በኦሮሚያ እና በሶማሌ ክልሎች መካከል ባለ ውጥረት በሞያሌ አካባቢ የተቀሰቀሰው ግጭት ብዙዎችን አፈናቅሏል። UNHCR ወደ 36,000 የሚጠጉ ኢትዮጵያውያን ኬንያ መግባታቸውን አረጋግጧል።",
+      "category": "ኢኮኖሚ · ኢትዮጵያ",
+      "color": "#B48CFF",
+      "icon": "📈",
+      "headline": "የኢትዮጵያ ኢኮኖሚ በአዲስ ስሌት 201 ቢሊዮን ዶላር ደረሰ",
+      "body": "በመንግሥት ገለጻ መሠረት የመነሻ ዓመቱ ወደ 2017 በጀት ዓመት ሲቀየር ኢኮኖሚው በ59 በመቶ ገደማ ከፍ ብሎ ተሰልቷል። ጭማሪው አዳዲስ ዘርፎች በመካተታቸው እንጂ ምርቱ በድንገት በማደጉ አይደለም።",
       "stats": [
         [
-          "~36,000",
-          "ወደ ኬንያ የተሻገሩ (UNHCR)"
+          "$201 ቢሊዮን",
+          "የ2017 በጀት ዓመት ኢኮኖሚ"
         ],
         [
-          "$8.9M",
-          "የተመድ የእርዳታ ጥሪ"
+          "59%",
+          "በክለሳው የታየ ጭማሪ"
         ]
       ],
-      "note": "የአካባቢው ባለሥልጣናት ቁጥሩን እስከ 50,000 ያደርሱታል፤ ምግብ፣ ውሃ እና መጠለያ በአስቸኳይ ያስፈልጋል።",
-      "sources": "UNHCR · The EastAfrican · Al Jazeera",
-      "image": {
-        "file": "images/moyale.jpg",
-        "credit": "Photo: george kaguangi / Wikimedia Commons · CC BY-SA 2.0",
-        "source": "https://commons.wikimedia.org/wiki/File:Moyale_road.jpg",
-        "position": "center 60%"
-      },
+      "note": "ለምን ያገባናል? ዕዳው ባይቀየርም ከኢኮኖሚው አንጻር ያለው ድርሻ ይቀንሳል፤ ገቢ ካልጨመረ ግን የታክስ ድርሻም ሊወርድ ይችላል።",
+      "sources": "Reuters · BusinessDay",
       "speech": [
-        "በሞያሌ ግጭት ሳቢያ፣ በሺዎች የሚቆጠሩ ወደ ኬንያ ተሰደዱ።",
-        "በኦሮሚያ እና በሶማሌ ክልሎች መካከል ባለ ውጥረት፣ በሞያሌ አካባቢ የተቀሰቀሰው ግጭት ብዙዎችን አፈናቅሏል። የተባበሩት መንግሥታት የስደተኞች ኮሚሽን፣ ወደ ሠላሳ ስድስት ሺህ የሚጠጉ ኢትዮጵያውያን ኬንያ መግባታቸውን አረጋግጧል።"
-      ]
+        "የኢትዮጵያ ኢኮኖሚ በአዲስ ስሌት ሁለት መቶ አንድ ቢሊዮን ዶላር ደረሰ።",
+        "በመንግሥት ገለጻ መሠረት፣ የመነሻ ዓመቱ ወደ ሁለት ሺህ አሥራ ሰባት በጀት ዓመት ሲቀየር፣ ኢኮኖሚው በሃምሳ ዘጠኝ በመቶ ገደማ ከፍ ብሎ ተሰልቷል። ጭማሪው፣ አዳዲስ ዘርፎች በመካተታቸው እንጂ፣ ምርቱ በድንገት በማደጉ አይደለም።"
+      ],
+      "image": {
+        "file": "images/addis-ababa-skyline.jpg",
+        "credit": "Photo: Jean Rebiffé / Wikimedia Commons · CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Sunset_on_the_rising_city,_Addis_Ababa_-_Flickr_-_jeanotr.jpg",
+        "position": "center 50%"
+      }
     },
     {
-      "category": "የአየር ንብረት",
-      "color": "#3DDC97",
-      "icon": "🌡️",
-      "headline": "የተመድ የአየር ንብረት ጉባኤ COP31 በቱርክ ተከፈተ",
-      "body": "ጉባኤው ከጥቅምት 30 እስከ ኅዳር 11 በአንታሊያ ይካሄዳል፤ የዓለም መሪዎች ኅዳር 2–3 ይገናኛሉ። ከፓሪሱ ስምምነት የወጣችው አሜሪካ ይፋዊ ተደራዳሪ ልዑክ አልላከችም።",
-      "stats": [],
-      "note": "ለምን ያገባናል? ኢትዮጵያ በድርቅና በጎርፍ ክፉኛ ከሚጎዱ ሀገራት አንዷ ናት፤ የአየር ንብረት ፋይናንስ ዋና አጀንዳ ነው።",
-      "sources": "UNFCCC · CFR · Türkiye Today",
-      "image": {
-        "file": "images/antalya_expo.jpg",
-        "credit": "Photo: Hendric Stattmann / Wikimedia Commons · CC BY-SA 4.0",
-        "source": "https://commons.wikimedia.org/wiki/File:Expo_2016_Antalya_-_West_View.jpg",
-        "position": "center"
-      },
-      "speech": [
-        "ሠላሳ አንደኛው የተመድ የአየር ንብረት ጉባኤ፣ በቱርክ ተከፈተ።",
-        "ጉባኤው ከጥቅምት ሠላሳ እስከ ኅዳር አሥራ አንድ በአንታሊያ ይካሄዳል፤ የዓለም መሪዎች ደግሞ ከኅዳር ሁለት እስከ ሦስት ይገናኛሉ። ከፓሪሱ ስምምነት የወጣችው አሜሪካ፣ ይፋዊ ተደራዳሪ ልዑክ አልላከችም።"
-      ]
-    },
-    {
-      "category": "መካከለኛው ምሥራቅ",
-      "color": "#B48CFF",
-      "icon": "🌐",
-      "headline": "ትራምፕ የኢራን ጦርነት በተግባር ማብቃቱን ተናገሩ",
-      "body": "ፕሬዚዳንት ትራምፕ ከኳታር ጠቅላይ ሚኒስትር ጋር ከተወያዩ በኋላ ጦርነቱ በወታደራዊ መልኩ በተግባር ማብቃቱን ተናግረዋል። የኢራን ባለሥልጣናት ግን አስተያየቱን ውድቅ አድርገዋል።",
-      "stats": [],
-      "note": "ኳታር ጦርነቱን ለማቆም ከኢራን የቀረበ ማዕቀፍ ለትራምፕ ማቅረቧ ተዘግቧል።",
-      "sources": "AP · Al Jazeera · Arab News",
-      "image": {
-        "file": "images/white_house.jpg",
-        "credit": "Photo: Daniel Schwen / Wikimedia Commons · CC BY-SA 3.0",
-        "source": "https://commons.wikimedia.org/wiki/File:White_House_lawn.jpg",
-        "position": "center 55%"
-      },
-      "speech": [
-        "ትራምፕ፣ የኢራን ጦርነት በተግባር ማብቃቱን ተናገሩ።",
-        "ፕሬዚዳንት ትራምፕ ከኳታር ጠቅላይ ሚኒስትር ጋር ከተወያዩ በኋላ፣ ጦርነቱ በወታደራዊ መልኩ በተግባር ማብቃቱን ተናግረዋል። የኢራን ባለሥልጣናት ግን፣ አስተያየቱን ውድቅ አድርገዋል።"
-      ]
-    },
-    {
-      "category": "ቱርክ",
-      "color": "#FFC53D",
-      "icon": "🏭",
-      "headline": "በቱርክ የብረት ፋብሪካ ፍንዳታ ቢያንስ 16 ሰዎች ሞቱ",
-      "body": "ጥቅምት 30 በኢዝሚር አቅራቢያ አሊያጋ በሚገኝ የብረት ፋብሪካ ክሬን ቀልጦ በሚፈስ ብረት ምድጃ ላይ ወድቆ ፍንዳታ ደርሷል። ፕሬዚዳንት ኤርዶአን ምርመራ መጀመሩን አስታውቀዋል።",
+      "category": "አፍሪካ · ሱዳን",
+      "color": "#FF9F43",
+      "icon": "⛺",
+      "headline": "በሱዳን 15.4 ሚሊዮን ሰዎች መጠለያ እንደሚያስፈልጋቸው ተመድ አስታወቀ",
+      "body": "የተመድ የስደተኞች ኤጀንሲ እና የፍልሰት ድርጅት ጥቅምት 27 እንደገለጹት፣ በገንዘብ እጥረት ሳቢያ የሚደርሱት ከተቸገሩት 10 በመቶ ያህሉን ብቻ ነው። የፍልሰት ድርጅቱ መጋዘኖቹ ባዶ መሆናቸውን ገልጿል።",
       "stats": [
         [
-          "16+",
-          "የሞቱ ሰዎች"
+          "15.4 ሚሊዮን",
+          "መጠለያ የሚያስፈልጋቸው"
+        ],
+        [
+          "8.6 ሚሊዮን",
+          "በሀገር ውስጥ የተፈናቀሉ"
         ]
       ],
-      "note": "የነፍስ አድን ሥራው በመቀጠሉ የሟቾች ቁጥር ሊለወጥ ይችላል።",
-      "sources": "CNN · Bianet · Türkiye Today",
-      "image": {
-        "file": "images/aliaga.jpg",
-        "credit": "Photo: aokaratekin / Wikimedia Commons · CC BY-SA 3.0 · Aliağa town",
-        "source": "https://commons.wikimedia.org/wiki/File:Alia%C4%9Fa_-_www.alto.org.tr_-_panoramio.jpg",
-        "position": "center"
-      },
+      "note": "በሱዳን ጦርነቱ ከ2015 ዓ.ም ጀምሮ ቀጥሏል፤ የዘንድሮው የሰብአዊ ዕቅድ ከሚያስፈልገው 2.9 ቢሊዮን ዶላር ከግማሽ ያነሰው ብቻ ተሸፍኗል።",
+      "sources": "Africanews · Reuters · allAfrica",
       "speech": [
-        "በቱርክ የብረት ፋብሪካ በደረሰ ፍንዳታ፣ ቢያንስ አሥራ ስድስት ሰዎች ሞቱ።",
-        "ጥቅምት ሠላሳ፣ በኢዝሚር አቅራቢያ አሊያጋ በሚገኝ የብረት ፋብሪካ፣ ክሬን ቀልጦ በሚፈስ ብረት ምድጃ ላይ ወድቆ ፍንዳታ ደርሷል። ፕሬዚዳንት ኤርዶአን ምርመራ መጀመሩን አስታውቀዋል።"
-      ]
+        "በሱዳን አሥራ አምስት ነጥብ አራት ሚሊዮን ሰዎች መጠለያ እንደሚያስፈልጋቸው፣ የተባበሩት መንግሥታት ድርጅት አስታወቀ።",
+        "የተባበሩት መንግሥታት የስደተኞች ኤጀንሲ እና የፍልሰት ድርጅት፣ ጥቅምት ሃያ ሰባት እንደገለጹት፣ በገንዘብ እጥረት ሳቢያ የሚደርሱት ከተቸገሩት አሥር በመቶ ያህሉን ብቻ ነው። የፍልሰት ድርጅቱ፣ መጋዘኖቹ ባዶ መሆናቸውን ገልጿል።"
+      ],
+      "image": {
+        "file": "images/geneina-idp-camp.jpg",
+        "credit": "Photo: Sudan Envoy / Wikimedia Commons · CC BY 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Sudan_Envoy_-_IDP_camp.jpg",
+        "position": "center 50%"
+      }
+    },
+    {
+      "category": "አፍሪካ · ግብፅ",
+      "color": "#FF9F43",
+      "icon": "🚆",
+      "headline": "በካይሮ አቅራቢያ በባቡር ግጭት ቢያንስ 7 ሰዎች ሞቱ",
+      "body": "ጥቅምት 29 በጊዛ ግዛት ወደ ፋዩም ይጓዝ የነበረ የመንገደኞች ባቡር፣ ቆሞ የነበረን ሌላ ባቡር ከኋላ ገጭቷል። የጤና ሚኒስቴር እንደገለጸው ቢያንስ 7 ሰዎች ሲሞቱ ከ100 በላይ ቆስለዋል።",
+      "stats": [
+        [
+          "7+",
+          "የሞቱ ሰዎች"
+        ],
+        [
+          "100+",
+          "የቆሰሉ ሰዎች"
+        ]
+      ],
+      "note": "ፕሬዚዳንት አብዱልፈታህ አል-ሲሲ አስቸኳይ ምርመራ እንዲደረግ ያዘዙ ሲሆን፣ ዐቃቤ ሕግም ምርመራ ጀምሯል።",
+      "sources": "Al Jazeera · Al-Monitor",
+      "speech": [
+        "በካይሮ አቅራቢያ በደረሰ የባቡር ግጭት፣ ቢያንስ ሰባት ሰዎች ሞቱ።",
+        "ጥቅምት ሃያ ዘጠኝ፣ በጊዛ ግዛት ወደ ፋዩም ይጓዝ የነበረ የመንገደኞች ባቡር፣ ቆሞ የነበረን ሌላ ባቡር ከኋላ ገጭቷል። የጤና ሚኒስቴር እንደገለጸው፣ ቢያንስ ሰባት ሰዎች ሲሞቱ ከመቶ በላይ ቆስለዋል።"
+      ],
+      "image": {
+        "file": "images/egypt-train-nile.jpg",
+        "credit": "Photo: Ad Meskens / Wikimedia Commons · CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Egypt_ENR_EMD_G22W_AC.JPG",
+        "position": "center 50%"
+      }
+    },
+    {
+      "category": "ስፖርት",
+      "color": "#2EC4D6",
+      "icon": "🏃",
+      "headline": "ኢትዮጵያውያን የአቴንስ ማራቶንን በክብረ ወሰን አሸነፉ",
+      "body": "ጥቅምት 29 በተካሄደው 43ኛው የአቴንስ ማራቶን በወንዶች ማናዞት ስዩም፣ በሴቶች ያታነ ቆርሞሴ አሸንፈዋል። ሁለቱም የውድድሩን ክብረ ወሰን ያሻሻሉ ሲሆን፣ በሁለቱም ዘርፎች ሁለተኛ የወጡትም ኢትዮጵያውያን ናቸው።",
+      "stats": [
+        [
+          "2:10:03",
+          "የወንዶች አዲስ ክብረ ወሰን"
+        ],
+        [
+          "2:30:04",
+          "የሴቶች አዲስ ክብረ ወሰን"
+        ]
+      ],
+      "note": "የማናዞት ሰዓት ኬንያዊው ኤድዊን ኪፕቶ ይዞት የነበረውን የቀድሞ ክብረ ወሰን በ31 ሰከንድ አሻሽሏል።",
+      "sources": "Greek Reporter · Greek City Times",
+      "speech": [
+        "ኢትዮጵያውያን አትሌቶች የአቴንስ ማራቶንን በክብረ ወሰን አሸነፉ።",
+        "ጥቅምት ሃያ ዘጠኝ በተካሄደው አርባ ሦስተኛው የአቴንስ ማራቶን፣ በወንዶች ማናዞት ስዩም፣ በሴቶች ያታነ ቆርሞሴ አሸንፈዋል። ሁለቱም የውድድሩን ክብረ ወሰን ያሻሻሉ ሲሆን፣ በሁለቱም ዘርፎች ሁለተኛ የወጡትም ኢትዮጵያውያን ናቸው።"
+      ],
+      "image": {
+        "file": "images/panathenaic-stadium.jpg",
+        "credit": "Photo: George E. Koronaios / Wikimedia Commons · CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:The_Panathenaic_Stadium_on_April_22,_2021.jpg",
+        "position": "center 45%"
+      }
     }
   ],
   "cover_speech": [
     "ዓለም ዛሬ። ኅዳር አንድ፣ ሁለት ሺህ አሥራ ዘጠኝ ዓመተ ምሕረት።",
     "የዕለቱ አምስት ዋና ዋና የዓለም ዜናዎች።"
-  ]
+  ],
+  "approved_at": "2026-11-10 18:16",
+  "approved_hash": "85d9a66f304ae9c7"
 }

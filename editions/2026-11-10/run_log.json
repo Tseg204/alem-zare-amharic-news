@@ -13,10 +13,256 @@
       "seconds": 15.8,
       "cards": 7,
       "overflow": []
+    },
+    {
+      "time": "2026-11-10 17:41:10",
+      "stage": "validate",
+      "errors": [],
+      "warnings": 0
+    },
+    {
+      "time": "2026-11-10 17:41:28",
+      "stage": "render",
+      "seconds": 17.4,
+      "cards": 7,
+      "overflow": [
+        "03_story",
+        "04_story",
+        "05_story"
+      ]
+    },
+    {
+      "time": "2026-11-10 17:41:55",
+      "stage": "validate",
+      "errors": [],
+      "warnings": 6
+    },
+    {
+      "time": "2026-11-10 17:42:12",
+      "stage": "render",
+      "seconds": 17.2,
+      "cards": 7,
+      "overflow": [
+        "03_story",
+        "04_story"
+      ]
+    },
+    {
+      "time": "2026-11-10 17:42:27",
+      "stage": "validate",
+      "errors": [],
+      "warnings": 9
+    },
+    {
+      "time": "2026-11-10 17:42:45",
+      "stage": "render",
+      "seconds": 17.4,
+      "cards": 7,
+      "overflow": [
+        "03_story",
+        "04_story"
+      ]
+    },
+    {
+      "time": "2026-11-10 17:43:07",
+      "stage": "validate",
+      "errors": [],
+      "warnings": 10
+    },
+    {
+      "time": "2026-11-10 17:43:24",
+      "stage": "render",
+      "seconds": 16.9,
+      "cards": 7,
+      "overflow": [
+        "03_story",
+        "04_story"
+      ]
+    },
+    {
+      "time": "2026-11-10 17:43:51",
+      "stage": "validate",
+      "errors": [],
+      "warnings": 11
+    },
+    {
+      "time": "2026-11-10 17:44:08",
+      "stage": "render",
+      "seconds": 17.4,
+      "cards": 7,
+      "overflow": []
+    },
+    {
+      "time": "2026-11-10 17:50:51",
+      "stage": "video",
+      "seconds": 159.6,
+      "file": "short_DRAFT.mp4",
+      "draft": true,
+      "length_s": 127.3,
+      "voice": "ameha",
+      "music": "Long Bed Background – Extended Neutral Underscore",
+      "tts_new_clips": 5,
+      "tts_cached_clips": 2,
+      "tts_chars_sent": 1743
+    },
+    {
+      "time": "2026-11-10 17:51:02",
+      "stage": "draft saved"
+    },
+    {
+      "time": "2026-11-10 18:07:04",
+      "stage": "validate",
+      "errors": [],
+      "warnings": 0
+    },
+    {
+      "time": "2026-11-10 18:07:21",
+      "stage": "render",
+      "seconds": 16.7,
+      "cards": 7,
+      "overflow": []
+    },
+    {
+      "time": "2026-11-10 18:10:02",
+      "stage": "video",
+      "seconds": 149.1,
+      "file": "short_DRAFT.mp4",
+      "draft": true,
+      "length_s": 127.3,
+      "voice": "ameha",
+      "music": "Long Bed Background – Extended Neutral Underscore",
+      "tts_new_clips": 0,
+      "tts_cached_clips": 7,
+      "tts_chars_sent": 0
+    },
+    {
+      "time": "2026-11-10 18:16:45",
+      "stage": "approve",
+      "fingerprint": "85d9a66f304ae9c7"
+    },
+    {
+      "time": "2026-11-10 18:19:30",
+      "stage": "video",
+      "seconds": 135.9,
+      "file": "short.mp4",
+      "draft": false,
+      "length_s": 127.3,
+      "voice": "ameha",
+      "music": "Long Bed Background – Extended Neutral Underscore",
+      "tts_new_clips": 0,
+      "tts_cached_clips": 7,
+      "tts_chars_sent": 0
+    },
+    {
+      "time": "2026-11-10 18:27:38",
+      "stage": "video",
+      "seconds": 143.8,
+      "file": "short.mp4",
+      "draft": false,
+      "length_s": 127.3,
+      "voice": "ameha",
+      "music": "Long Bed Background – Extended Neutral Underscore",
+      "tts_new_clips": 0,
+      "tts_cached_clips": 7,
+      "tts_chars_sent": 0
     }
   ],
   "claude": {
-    "collected_at": "2026-11-10 16:16",
-    "sessions": []
+    "collected_at": "2026-11-10 18:10",
+    "sessions": [
+      {
+        "session": "8ae687d7-e906-4305-811c-255dab9e0793",
+        "from": "2026-11-10T17:01:47.017Z",
+        "to": "2026-11-10T18:10:30.587Z",
+        "tokens": {
+          "input": 196,
+          "output": 44253,
+          "cache_read": 11897125,
+          "cache_write": 205063,
+          "cost_usd": 4.9058
+        },
+        "subagent_tokens": {
+          "input": 260,
+          "output": 174206,
+          "cache_read": 5885251,
+          "cache_write": 546768,
+          "cost_usd": 7.3961
+        },
+        "tokens_by_model": null,
+        "web_searches": [
+          "Ethiopia GDP rebasing tax-to-GDP 7% \"grew overnight\" Ministry of National Strategy",
+          "Ethiopia rebasing tax-to-GDP ratio \"nearly 7%\" OR \"about 7%\" November 2026",
+          "Athens Marathon 2026 women's winner Kormose 2:30:04 course record",
+          "World Athletics Manazot Siyum Taferi Ethiopia marathon athlete profile",
+          "Egypt al-Ayyat train collision November 8 2026 prosecution investigation Health Ministry seven dead",
+          "Abu Dhabi talks November 10 2026 Witkoff Kushner envoys Umerov Medinsky",
+          "Athens Authentic Marathon 8 November 2026 results women Tsiyon Abebe Yatane Dusa Ethiopia",
+          "Abu Dhabi talks Witkoff Kushner Umerov Medinsky November 10",
+          "Ethiopia GDP rebasing 24.03 trillion birr Ministry of National Strategy tax-to-GDP",
+          "Ethiopia rebasing tax-to-GDP ratio \"7%\" could fall November 2026",
+          "Egypt al-Ayyat train collision prosecution investigation November 2026",
+          "Ayyat train crash public prosecution investigators site Giza Fayoum Aswan train seven killed",
+          "Athens Marathon 2026 women's winner course record 2:30:04 Ethiopia",
+          "World Athletics athlete profile Taferi Ethiopia marathon Siyoum Manazot",
+          "Abu Dhabi talks Witkoff Kushner Umerov Medinsky November 10",
+          "Egypt al-Ayyat train collision prosecution investigation November 2026",
+          "Athens Marathon 2026 women's winner Kormose Dusa course record 2:30:04",
+          "Athens Authentic Marathon 8 November 2026 Ethiopia women Dusa Tsiyon Abebe record",
+          "\"Athens\" marathon 2026 Kormoshe women's winner 2:30:04",
+          "Public Prosecution Giza train collision Fayoum Aswan investigation technical committee",
+          "commons.wikimedia.org Athens Marathon 2026 winner",
+          "Athens Marathon 2026 women's winner course record 2:30:04 Ethiopia",
+          "Egypt Giza train collision Ayyat prosecution investigation seven killed",
+          "Sudan 2026 humanitarian response plan $2.9 billion funded percent OCHA November",
+          "Abu Dhabi talks Umerov Medinsky Witkoff Kushner November 10 Reuters",
+          "news November 10 2026",
+          "Ethiopia news November 2026",
+          "Abu Dhabi Ukraine Russia talks November 10",
+          "Sudan Ethiopia consulate Asosa RSF drones November 2026",
+          "Africanews November 9 2026",
+          "Somalia OR Kenya OR \"South Sudan\" news November 9 2026",
+          "Africa news Ethiopia Sudan Somalia Kenya \"November 9, 2026\" OR \"9 November 2026\"",
+          "aljazeera.com/news/2026/11/9 Africa",
+          "Sudan 15.4 million shelter IOM warehouses empty",
+          "Giza train collision al-Ayyat November 2026",
+          "Ebola Congo WHO update November 2026",
+          "health breakthrough study November 9 2026",
+          "Ethiopian athlete marathon win November 2026",
+          "Brazil fossil fuel roadmap COP31 Antalya",
+          "Ethiopia Reuters November 10 2026",
+          "Ethiopia rebases economy GDP $201 billion",
+          "Ethiopia accuses Eritrea \"invasion\" Tigray 60 km",
+          "Addis Standard news November 9 2026",
+          "Ethiopia Ethiopian Airlines OR \"Addis Ababa\" news this week November 2026",
+          "African Union statement November 9 2026",
+          "Russia Ukraine delegations Abu Dhabi talks Kushner Medinsky Umerov",
+          "Sudan news November 10 2026",
+          "Australia AI safety regulator OpenAI agent breach health department",
+          "sunspot AR4566 solar flare November 2026",
+          "WHO report released November 2026 malaria OR tuberculosis OR vaccine",
+          "October CPI report inflation 0.4% released November 10 2026",
+          "oil prices fall Iran talks Brent November 9 2026",
+          "Senegal migrant boat sank Kebemer November 2026 dead",
+          "Australia announces AI regulator legislation November 2026 Albanese",
+          "HirShabelle capital Hiiraan Hassan Sheikh Mohamud Beledweyne",
+          "Kenya news \"10 November 2026\" OR \"November 10, 2026\"",
+          "France summons Iran ambassador supermarket freezers cyberattack IRGC",
+          "Trump Qatar prime minister Iran strikes \"unlikely\" November 9 2026"
+        ],
+        "pages_fetched": 168,
+        "subagents": [
+          "researcher",
+          "amharic-writer",
+          "fact-checker",
+          "photo-scout",
+          "fact-checker",
+          "fact-checker",
+          "fact-checker",
+          "photo-scout"
+        ],
+        "cost_estimate_usd": 12.3,
+        "cost_source": "tokens × price list"
+      }
+    ]
   }
 }

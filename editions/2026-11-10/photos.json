@@ -1,0 +1,161 @@
+{
+  "date_gc": "2026-11-10",
+  "stories": [
+    {
+      "story": 1,
+      "headline": "የዩክሬን–ሩሲያ ድርድር በአቡ ዳቢ ተጀመረ",
+      "proposals": [
+        {
+          "page": "https://commons.wikimedia.org/wiki/File:Skyline_of_Abu_Dhabi_at_sunset.jpg",
+          "download": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Skyline_of_Abu_Dhabi_at_sunset.jpg",
+          "file": "images/abu-dhabi-skyline-sunset.jpg",
+          "author": "Robert Haandrikman",
+          "licence": "CC BY 2.0",
+          "credit": "Photo: Robert Haandrikman / Wikimedia Commons · CC BY 2.0",
+          "size": "6720×3270",
+          "position": "center 45%",
+          "why": "Abu Dhabi skyline at sunset (2016, long exposure), the city hosting the talks; Flickr licence review passed"
+        },
+        {
+          "page": "https://commons.wikimedia.org/wiki/File:Abu_Dhabi_Skyline_from_a_boat_tour.jpg",
+          "download": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Abu_Dhabi_Skyline_from_a_boat_tour.jpg",
+          "file": "images/abu-dhabi-skyline.jpg",
+          "author": "AdnanDekedek",
+          "licence": "CC BY-SA 4.0",
+          "credit": "Photo: AdnanDekedek / Wikimedia Commons · CC BY-SA 4.0",
+          "size": "2976×1984",
+          "position": "center 40%",
+          "why": "Abu Dhabi skyline in daylight, seen from the sea; brighter alternative"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "story": 2,
+      "headline": "የኢትዮጵያ ኢኮኖሚ በአዲስ ስሌት 201 ቢሊዮን ዶላር ደረሰ",
+      "proposals": [
+        {
+          "page": "https://commons.wikimedia.org/wiki/File:Sunset_on_the_rising_city,_Addis_Ababa_-_Flickr_-_jeanotr.jpg",
+          "download": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Sunset_on_the_rising_city%2C_Addis_Ababa_-_Flickr_-_jeanotr.jpg",
+          "file": "images/addis-ababa-skyline.jpg",
+          "author": "Jean Rebiffé",
+          "licence": "CC BY 2.0",
+          "credit": "Photo: Jean Rebiffé / Wikimedia Commons · CC BY 2.0",
+          "size": "3936×2214",
+          "position": "center 50%",
+          "why": "Addis Ababa at sunset with new buildings and tower cranes (2015): a growing economy; Flickr review confirmed CC BY 2.0"
+        },
+        {
+          "page": "https://commons.wikimedia.org/wiki/File:Golden_opportunities_in_Ethiopia_(8757866414).jpg",
+          "download": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Golden_opportunities_in_Ethiopia_%288757866414%29.jpg",
+          "file": "images/addis-ababa-towers.jpg",
+          "author": "Simon Davis / DFID",
+          "licence": "CC BY 2.0",
+          "credit": "Photo: Simon Davis / DFID / Wikimedia Commons · CC BY 2.0",
+          "size": "4986×3324",
+          "position": "center 45%",
+          "why": "Addis Ababa skyline with new towers (2013), UK government (DFID) photo; daylight alternative. Page lists CC BY 2.0 under Licensing (summary also mentions CC BY 3.0 / OGL, all attribution-only)"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "story": 3,
+      "headline": "በሱዳን 15.4 ሚሊዮን ሰዎች መጠለያ እንደሚያስፈልጋቸው ተመድ አስታወቀ",
+      "proposals": [
+        {
+          "page": "https://commons.wikimedia.org/wiki/File:Darfur_IDPs_1_camp.jpg",
+          "download": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Darfur_IDPs_1_camp.jpg",
+          "file": "images/darfur-idp-shelters.jpg",
+          "author": "USAID",
+          "licence": "Public domain",
+          "credit": "Photo: USAID / Wikimedia Commons · Public domain",
+          "size": "1632×1224",
+          "position": "center 50%",
+          "why": "Makeshift shelters of sticks and plastic at a transit camp near Nyala, South Darfur (c. 2005, US-government work): the shelter need the story is about. Older photo; owner should check no person is in distress"
+        },
+        {
+          "page": "https://commons.wikimedia.org/wiki/File:Sudan_Envoy_-_IDP_camp.jpg",
+          "download": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Sudan_Envoy_-_IDP_camp.jpg",
+          "file": "images/geneina-idp-camp.jpg",
+          "author": "Sudan Envoy",
+          "licence": "CC BY 2.0",
+          "credit": "Photo: Sudan Envoy / Wikimedia Commons · CC BY 2.0",
+          "size": "1024×680",
+          "position": "center 50%",
+          "why": "A path through an IDP camp in El Geneina, West Darfur (2009, US Special Envoy to Sudan); Flickr review passed. Only 1024 px wide: fallback"
+        }
+      ],
+      "note": "Few recent, large, freely licensed Sudan shelter photos exist on Commons. Rejected: 'Tawila refugees setting up shelter.jpg' (2025, 1170 px; labelled CC BY-SA 2.0 but credit reads '© UNOCHA' from UN News, no licence review: licence doubtful); 2024 Arabic-titled displacement photos (identifiable people in distress). A better option could be searched on the UNHCR/IOM Flickr only if the licence there is CC BY (most are NC/ND)."
+    },
+    {
+      "story": 4,
+      "headline": "በካይሮ አቅራቢያ በባቡር ግጭት ቢያንስ 7 ሰዎች ሞቱ",
+      "proposals": [
+        {
+          "page": "https://commons.wikimedia.org/wiki/File:Egypt_ENR_EMD_G22W_AC.JPG",
+          "download": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Egypt_ENR_EMD_G22W_AC.JPG",
+          "file": "images/egypt-train-nile.jpg",
+          "author": "Ad Meskens",
+          "licence": "CC BY-SA 3.0",
+          "credit": "Photo: Ad Meskens / Wikimedia Commons · CC BY-SA 3.0",
+          "size": "2560×2062",
+          "position": "center 50%",
+          "why": "Egyptian National Railways passenger train on the Cairo–Aswan line beside the Nile (2011): the line where the crash happened, no wreckage shown"
+        },
+        {
+          "page": "https://commons.wikimedia.org/wiki/File:Egyptian_Railways_(ENR)_GE_ES30ACi.jpg",
+          "download": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Egyptian_Railways_%28ENR%29_GE_ES30ACi.jpg",
+          "file": "images/egypt-enr-locomotive.jpg",
+          "author": "Abdelrhman 1990",
+          "licence": "CC BY-SA 4.0",
+          "credit": "Photo: Abdelrhman 1990 / Wikimedia Commons · CC BY-SA 4.0",
+          "size": "4624×2608",
+          "position": "center 50%",
+          "why": "Egyptian National Railways locomotive in Alexandria station yard (2023): neutral, recent picture of Egypt's trains"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "story": 5,
+      "headline": "ኢትዮጵያውያን የአቴንስ ማራቶንን በክብረ ወሰን አሸነፉ",
+      "proposals": [
+        {
+          "page": "https://commons.wikimedia.org/wiki/File:The_Panathenaic_Stadium_on_April_22,_2021.jpg",
+          "download": "https://upload.wikimedia.org/wikipedia/commons/a/ad/The_Panathenaic_Stadium_on_April_22%2C_2021.jpg",
+          "file": "images/panathenaic-stadium.jpg",
+          "author": "George E. Koronaios",
+          "licence": "CC BY-SA 4.0",
+          "credit": "Photo: George E. Koronaios / Wikimedia Commons · CC BY-SA 4.0",
+          "size": "6000×4000",
+          "position": "center 45%",
+          "why": "The marble Panathenaic Stadium in Athens, where the Athens Marathon finishes; no runners, sharp and bright, strong for the cover (lead story)"
+        },
+        {
+          "page": "https://commons.wikimedia.org/wiki/File:Panathenaic_Stadium_and_Acropolis_from_Lycabettus,_225890.jpg",
+          "download": "https://upload.wikimedia.org/wikipedia/commons/2/24/Panathenaic_Stadium_and_Acropolis_from_Lycabettus%2C_225890.jpg",
+          "file": "images/panathenaic-stadium-acropolis.jpg",
+          "author": "Zde",
+          "licence": "CC BY-SA 4.0",
+          "credit": "Photo: Zde / Wikimedia Commons · CC BY-SA 4.0",
+          "size": "5951×3960",
+          "position": "center 50%",
+          "why": "The finish stadium seen from Lycabettus hill with the Acropolis behind (June 2022): instantly reads as Athens; no runners"
+        },
+        {
+          "page": "https://commons.wikimedia.org/wiki/File:The_tumulus_(tomb)_of_the_Athenians_at_Marathon.jpg",
+          "download": "https://upload.wikimedia.org/wikipedia/commons/b/bb/The_tumulus_%28tomb%29_of_the_Athenians_at_Marathon.jpg",
+          "file": "images/marathon-tumulus.jpg",
+          "author": "George E. Koronaios",
+          "licence": "CC0",
+          "credit": "Photo: George E. Koronaios / Wikimedia Commons · CC0",
+          "size": "5981×3987",
+          "position": "center 50%",
+          "why": "The Tomb of the Athenians on the plain of Marathon (Jan 2019), the historic landmark the race route passes in its first kilometres; quieter alternative, a grassy mound may look plain on a card"
+        }
+      ],
+      "note": "No photo of the 2026 winners (Siyum Manazot Taferi, Yatane Kormoshe Dusha) exists on Wikimedia Commons: searched Commons for the race, both names and Category:Athens Classic Marathon (newest files from 2013). Old race photos with runners left out on the owner's instruction (never runners from a different year). Not proposed: 'The Runner' glass sculpture by Kostas Varotsos (only 1600 px; modern artwork by a living artist and Greece has limited freedom of panorama, so copyright doubtful)."
+    }
+  ]
+}

@@ -1,0 +1,426 @@
+{
+  "checked_at": "2026-11-10T13:30",
+  "checked_by": "fact-checker subagent",
+  "claims": [
+    {
+      "story": 1,
+      "field": "headline",
+      "text": "የዩክሬን–ሩሲያ ድርድር በአቡ ዳቢ ተጀመረ",
+      "claim_en": "Ukraine–Russia talks began in Abu Dhabi.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "AP (via NBC News)", "url": "https://www.nbcnews.com/world/ukraine/us-mediated-talks-ending-war-russia-ukraine-begin-abu-dhabi-rcna608499", "says": "Three-way Russia–Ukraine–US talks opened in Abu Dhabi on Tuesday; two-day session, resuming Wednesday."},
+        {"outlet": "ABC News", "url": "https://abcnews.com/International/russia-ukraine-us-meet-abu-dhabi-talks-trump/story?id=137970621", "says": "US, Ukraine and Russia held trilateral talks in Abu Dhabi on Tuesday 10 November."},
+        {"outlet": "Euronews", "url": "https://www.euronews.com/2026/11/10/whos-who-from-ukraine-and-russia-at-the-abu-dhabi-peace-talks", "says": "Ukraine and Russia returned to the table in Abu Dhabi on 10–11 November."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 1,
+      "field": "body",
+      "text": "የአሜሪካ፣ የሩሲያ እና የዩክሬን ልዑካን ከ9 ወራት በኋላ የመጀመሪያ የሆነውን የሦስትዮሽ ድርድር",
+      "claim_en": "US, Russian and Ukrainian delegations held the first three-way talks in 9 months.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "AP (via NBC News)", "url": "https://www.nbcnews.com/world/ukraine/us-mediated-talks-ending-war-russia-ukraine-begin-abu-dhabi-rcna608499", "says": "First such meeting since February."},
+        {"outlet": "Euronews", "url": "https://www.euronews.com/2026/11/10/whos-who-from-ukraine-and-russia-at-the-abu-dhabi-peace-talks", "says": "First US-mediated round in nine months."},
+        {"outlet": "ABC News", "url": "https://abcnews.com/International/russia-ukraine-us-meet-abu-dhabi-talks-trump/story?id=137970621", "says": "Previous trilateral meeting was in Geneva in February 2026, little progress since."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 1,
+      "field": "body",
+      "text": "ማክሰኞ ኅዳር 1 በአቡ ዳቢ ጀምረዋል",
+      "claim_en": "Talks began on Tuesday, Hidar 1, 2019 E.C. = 10 November 2026, in Abu Dhabi.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "AP (via NBC News)", "url": "https://www.nbcnews.com/world/ukraine/us-mediated-talks-ending-war-russia-ukraine-begin-abu-dhabi-rcna608499", "says": "Talks opened Tuesday 10 November in Abu Dhabi."},
+        {"outlet": "ABC News", "url": "https://abcnews.com/International/russia-ukraine-us-meet-abu-dhabi-talks-trump/story?id=137970621", "says": "Talks on Tuesday 10 November in Abu Dhabi."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 1,
+      "field": "body",
+      "text": "ሩሲያ ዩክሬን ከአራት ክልሎች እንድትወጣ ስትጠይቅ",
+      "claim_en": "Russia demands that Ukraine withdraw from four regions.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "AP (via NBC News)", "url": "https://www.nbcnews.com/world/ukraine/us-mediated-talks-ending-war-russia-ukraine-begin-abu-dhabi-rcna608499", "says": "Russia wants Ukraine out of Donetsk, Luhansk, Zaporizhzhia and Kherson."},
+        {"outlet": "ABC News", "url": "https://abcnews.com/International/russia-ukraine-us-meet-abu-dhabi-talks-trump/story?id=137970621", "says": "Moscow wants Ukraine to withdraw from the four regions."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 1,
+      "field": "body",
+      "text": "ዩክሬን ግን ሩሲያ ያልያዘችውን ግዛት አሳልፋ እንደማትሰጥ ገልጻለች",
+      "claim_en": "Ukraine has said it will not give up territory Russia has not captured.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "AP (via NBC News)", "url": "https://www.nbcnews.com/world/ukraine/us-mediated-talks-ending-war-russia-ukraine-begin-abu-dhabi-rcna608499", "says": "Zelenskyy rejects giving up territory Russia has not taken on the battlefield."},
+        {"outlet": "ABC News", "url": "https://abcnews.com/International/russia-ukraine-us-meet-abu-dhabi-talks-trump/story?id=137970621", "says": "Kyiv refuses to cede territory Russian forces do not control."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 1,
+      "field": "note",
+      "text": "የዩክሬንን ልዑክ ሩስተም ኡሜሮቭ፣ የሩሲያን ቭላድሚር ሜዲንስኪ፣ የአሜሪካን ደግሞ ልዩ መልዕክተኛው ስቲቭ ዊትኮፍ እና ጃሬድ ኩሽነር ይመራሉ",
+      "claim_en": "Ukraine's delegation is led by Rustem Umerov, Russia's by Vladimir Medinsky, the US side by special envoy Steve Witkoff and Jared Kushner.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "AP (via NBC News)", "url": "https://www.nbcnews.com/world/ukraine/us-mediated-talks-ending-war-russia-ukraine-begin-abu-dhabi-rcna608499", "says": "Umerov heads Ukraine's team, Medinsky Russia's; US envoys Witkoff and Kushner broker the talks."},
+        {"outlet": "ABC News", "url": "https://abcnews.com/International/russia-ukraine-us-meet-abu-dhabi-talks-trump/story?id=137970621", "says": "US: Witkoff and Kushner; Ukraine led by Umerov; Russia by Kremlin aide Medinsky."},
+        {"outlet": "Euronews", "url": "https://www.euronews.com/2026/11/10/whos-who-from-ukraine-and-russia-at-the-abu-dhabi-peace-talks", "says": "Ukraine led by Umerov, Russia by Medinsky."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 2,
+      "field": "headline",
+      "text": "የኢትዮጵያ ኢኮኖሚ በአዲስ ስሌት 201 ቢሊዮን ዶላር ደረሰ",
+      "claim_en": "Under a new calculation (rebasing) Ethiopia's economy is put at $201 billion.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Reuters (via CNBC Africa)", "url": "https://www.cnbcafrica.com/2026/ethiopia-revises-economy-up-nearly-60-to-201-billion-after-gdp-rebasing", "says": "2024/25 GDP revised to $201.42 billion after rebasing, per a government presentation; exchange rate used not stated."},
+        {"outlet": "BusinessDay", "url": "https://businessday.ng/africa/article/ethiopias-economy-rises-59-after-gdp-rebasing-reshaping-debt-tax-outlook/", "says": "2024/25 nominal GDP rose to 24.03 trillion birr, about $201.42 billion."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 2,
+      "field": "stats",
+      "text": "$201 ቢሊዮን — የ2017 በጀት ዓመት ኢኮኖሚ",
+      "claim_en": "$201 billion = size of the economy in fiscal year 2017 E.C. (2024/25).",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Reuters (via CNBC Africa)", "url": "https://www.cnbcafrica.com/2026/ethiopia-revises-economy-up-nearly-60-to-201-billion-after-gdp-rebasing", "says": "$201.42 billion for 2024/2025 (= EFY 2017)."},
+        {"outlet": "BusinessDay", "url": "https://businessday.ng/africa/article/ethiopias-economy-rises-59-after-gdp-rebasing-reshaping-debt-tax-outlook/", "says": "About $201.42 billion for 2024/25."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 2,
+      "field": "body",
+      "text": "በመንግሥት ገለጻ መሠረት የመነሻ ዓመቱ ወደ 2017 በጀት ዓመት ሲቀየር ኢኮኖሚው በ59 በመቶ ገደማ ከፍ ብሎ ተሰልቷል",
+      "claim_en": "According to a government presentation, with the base year moved to fiscal year 2017 E.C. (2024/25), the economy was revised up by about 59%.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Reuters (via CNBC Africa)", "url": "https://www.cnbcafrica.com/2026/ethiopia-revises-economy-up-nearly-60-to-201-billion-after-gdp-rebasing", "says": "Base year changed from 2015/16 to 2024/25; economy revised up 59.2%, per government presentation."},
+        {"outlet": "BusinessDay", "url": "https://businessday.ng/africa/article/ethiopias-economy-rises-59-after-gdp-rebasing-reshaping-debt-tax-outlook/", "says": "Ministry of National Strategy report: 2015/16 reference year replaced by 2024/25; 59.21% upward revision."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 2,
+      "field": "stats",
+      "text": "59% — በክለሳው የታየ ጭማሪ",
+      "claim_en": "59% increase from the revision.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Reuters (via CNBC Africa)", "url": "https://www.cnbcafrica.com/2026/ethiopia-revises-economy-up-nearly-60-to-201-billion-after-gdp-rebasing", "says": "Revised up 59.2%."},
+        {"outlet": "BusinessDay", "url": "https://businessday.ng/africa/article/ethiopias-economy-rises-59-after-gdp-rebasing-reshaping-debt-tax-outlook/", "says": "59.21% upward revision."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 2,
+      "field": "body",
+      "text": "ጭማሪው አዳዲስ ዘርፎች በመካተታቸው እንጂ ምርቱ በድንገት በማደጉ አይደለም",
+      "claim_en": "The rise comes from including newly captured activities, not from a sudden jump in output.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Reuters (via CNBC Africa)", "url": "https://www.cnbcafrica.com/2026/ethiopia-revises-economy-up-nearly-60-to-201-billion-after-gdp-rebasing", "says": "Rebasing is a measurement change to capture digital financial services, ride-sharing and solar installations."},
+        {"outlet": "BusinessDay", "url": "https://businessday.ng/africa/article/ethiopias-economy-rises-59-after-gdp-rebasing-reshaping-debt-tax-outlook/", "says": "Ministry: reflects better measurement of activity already occurring (incl. informal and digital), not a surge in production; economy did not grow overnight."}
+      ],
+      "fix": "Optional wording note: sources speak of previously uncaptured or poorly measured activity (digital payments, ride-hailing, solar, informal mining/manufacturing), not strictly new sectors. Acceptable as is; 'ቀደም ሲል ያልተቆጠሩ እንቅስቃሴዎች' would be more precise."
+    },
+    {
+      "story": 2,
+      "field": "note",
+      "text": "ዕዳው ባይቀየርም ከኢኮኖሚው አንጻር ያለው ድርሻ ይቀንሳል፤ ገቢ ካልጨመረ ግን የታክስ ድርሻም ሊወርድ ይችላል",
+      "claim_en": "The debt itself does not change but its share of GDP falls; unless revenue rises, the tax-to-GDP share may also fall.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Reuters (via CNBC Africa)", "url": "https://www.cnbcafrica.com/2026/ethiopia-revises-economy-up-nearly-60-to-201-billion-after-gdp-rebasing", "says": "Debt-to-GDP and tax-to-GDP ratios both fall as nominal GDP rises."},
+        {"outlet": "BusinessDay", "url": "https://businessday.ng/africa/article/ethiopias-economy-rises-59-after-gdp-rebasing-reshaping-debt-tax-outlook/", "says": "Debt amount unchanged but ratio falls; tax-to-GDP could drop below ~7% unless collection rises."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 3,
+      "field": "headline",
+      "text": "በሱዳን 15.4 ሚሊዮን ሰዎች መጠለያ እንደሚያስፈልጋቸው ተመድ አስታወቀ",
+      "claim_en": "The UN said 15.4 million people in Sudan need shelter.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Africanews", "url": "https://www.africanews.com/2026/11/06/un-says-struggling-to-help-millions-fleeing-sudan-war-find-shelter/", "says": "UN agencies: 15.4 million people need emergency shelter."},
+        {"outlet": "Reuters (via TimesLIVE)", "url": "https://www.timeslive.co.za/news/africa/2026-11-06-millions-of-displaced-sudanese-risk-losing-shelter-as-funds-run-low-un-warns/", "says": "UNHCR and IOM: about 15.4 million need shelter."},
+        {"outlet": "allAfrica", "url": "https://allafrica.com/stories/202611090111.html", "says": "UN estimates 15.4 million urgently need shelter."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 3,
+      "field": "stats",
+      "text": "15.4 ሚሊዮን — መጠለያ የሚያስፈልጋቸው",
+      "claim_en": "15.4 million need shelter.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Africanews", "url": "https://www.africanews.com/2026/11/06/un-says-struggling-to-help-millions-fleeing-sudan-war-find-shelter/", "says": "15.4 million need emergency shelter."},
+        {"outlet": "Reuters (via TimesLIVE)", "url": "https://www.timeslive.co.za/news/africa/2026-11-06-millions-of-displaced-sudanese-risk-losing-shelter-as-funds-run-low-un-warns/", "says": "About 15.4 million."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 3,
+      "field": "body",
+      "text": "የተመድ የስደተኞች ኤጀንሲ እና የፍልሰት ድርጅት ጥቅምት 27 እንደገለጹት",
+      "claim_en": "UNHCR and IOM said this on Tikimt 27, 2019 E.C. = 6 November 2026.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Africanews", "url": "https://www.africanews.com/2026/11/06/un-says-struggling-to-help-millions-fleeing-sudan-war-find-shelter/", "says": "IOM and UNHCR statement on Friday 6 November."},
+        {"outlet": "Reuters (via TimesLIVE)", "url": "https://www.timeslive.co.za/news/africa/2026-11-06-millions-of-displaced-sudanese-risk-losing-shelter-as-funds-run-low-un-warns/", "says": "UNHCR and IOM warning, dated 6 November."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 3,
+      "field": "body",
+      "text": "በገንዘብ እጥረት ሳቢያ የሚደርሱት ከተቸገሩት 10 በመቶ ያህሉን ብቻ ነው",
+      "claim_en": "Because of funding shortages they can reach only about 10% of those in need.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Africanews", "url": "https://www.africanews.com/2026/11/06/un-says-struggling-to-help-millions-fleeing-sudan-war-find-shelter/", "says": "Funding allows reaching only 10% of those in need."},
+        {"outlet": "Reuters (via TimesLIVE)", "url": "https://www.timeslive.co.za/news/africa/2026-11-06-millions-of-displaced-sudanese-risk-losing-shelter-as-funds-run-low-un-warns/", "says": "Roughly 10% can be targeted with current funding."},
+        {"outlet": "allAfrica", "url": "https://allafrica.com/stories/202611090111.html", "says": "Only about one in ten can be helped due to funding shortages."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 3,
+      "field": "body",
+      "text": "የፍልሰት ድርጅቱ መጋዘኖቹ ባዶ መሆናቸውን ገልጿል",
+      "claim_en": "IOM said its warehouses are empty.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Africanews", "url": "https://www.africanews.com/2026/11/06/un-says-struggling-to-help-millions-fleeing-sudan-war-find-shelter/", "says": "IOM Sudan chief Mohamed Refaat said its warehouses are now completely empty."},
+        {"outlet": "Reuters (via TimesLIVE)", "url": "https://www.timeslive.co.za/news/africa/2026-11-06-millions-of-displaced-sudanese-risk-losing-shelter-as-funds-run-low-un-warns/", "says": "Refaat: warehouses completely empty."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 3,
+      "field": "stats",
+      "text": "8.6 ሚሊዮን — በሀገር ውስጥ የተፈናቀሉ",
+      "claim_en": "8.6 million internally displaced in Sudan.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Africanews", "url": "https://www.africanews.com/2026/11/06/un-says-struggling-to-help-millions-fleeing-sudan-war-find-shelter/", "says": "About 8.6 million internally displaced."},
+        {"outlet": "Reuters (via TimesLIVE)", "url": "https://www.timeslive.co.za/news/africa/2026-11-06-millions-of-displaced-sudanese-risk-losing-shelter-as-funds-run-low-un-warns/", "says": "About 8.6 million remain displaced within Sudan."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 3,
+      "field": "note",
+      "text": "በሱዳን ጦርነቱ ከ2015 ዓ.ም ጀምሮ ቀጥሏል",
+      "claim_en": "The war in Sudan has continued since 2015 E.C. (began April 2023 = Miyazia 2015 E.C.).",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Africanews", "url": "https://www.africanews.com/2026/11/06/un-says-struggling-to-help-millions-fleeing-sudan-war-find-shelter/", "says": "War between army and RSF since April 2023."},
+        {"outlet": "allAfrica", "url": "https://allafrica.com/stories/202611090111.html", "says": "War began April 2023."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 3,
+      "field": "note",
+      "text": "የዘንድሮው የሰብአዊ ዕቅድ ከሚያስፈልገው 2.9 ቢሊዮን ዶላር ከግማሽ ያነሰው ብቻ ተሸፍኗል",
+      "claim_en": "Less than half of the $2.9 billion needed for this year's humanitarian plan is funded.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Africanews", "url": "https://www.africanews.com/2026/11/06/un-says-struggling-to-help-millions-fleeing-sudan-war-find-shelter/", "says": "Less than half of the $2.9 billion overall plan funded."},
+        {"outlet": "allAfrica", "url": "https://allafrica.com/stories/202611090111.html", "says": "2026 plan requires $2.9 billion and has received 47%."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 4,
+      "field": "headline",
+      "text": "በካይሮ አቅራቢያ በባቡር ግጭት ቢያንስ 7 ሰዎች ሞቱ",
+      "claim_en": "At least 7 people died in a train collision near Cairo.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Al Jazeera", "url": "https://www.aljazeera.com/news/2026/11/8/train-crash-kills-four-injures-dozens-near-egypts-cairo-city", "says": "At least seven killed in al-Ayyat, Giza, on the outskirts of Cairo."},
+        {"outlet": "AP (via AJC)", "url": "https://www.ajc.com/news/2026/11/collision-between-2-trains-in-egypt-kills-7-and-injures-more-than-100/", "says": "Seven killed in al-Ayyat, Giza, about 52 km south of Cairo."},
+        {"outlet": "Al-Monitor (AFP)", "url": "https://www.al-monitor.com/originals/2026/11/egypt-train-collision-kills-7-injures-112-health-ministry", "says": "Seven killed south of Cairo."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 4,
+      "field": "body",
+      "text": "ጥቅምት 29 በጊዛ ግዛት ወደ ፋዩም ይጓዝ የነበረ የመንገደኞች ባቡር፣ ቆሞ የነበረን ሌላ ባቡር ከኋላ ገጭቷል",
+      "claim_en": "On Tikimt 29, 2019 E.C. = 8 November 2026, in Giza province, a Fayoum-bound passenger train hit a stopped train from behind.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Al Jazeera", "url": "https://www.aljazeera.com/news/2026/11/8/train-crash-kills-four-injures-dozens-near-egypts-cairo-city", "says": "Sunday 8 Nov: Fayoum-bound train ran into the back of a stopped Cairo–Aswan passenger train."},
+        {"outlet": "AP (via AJC)", "url": "https://www.ajc.com/news/2026/11/collision-between-2-trains-in-egypt-kills-7-and-injures-more-than-100/", "says": "Giza–Fayoum train hit the rear of a stationary Cairo–Aswan train, Sunday 8 Nov."},
+        {"outlet": "Al-Monitor (AFP)", "url": "https://www.al-monitor.com/originals/2026/11/egypt-train-collision-kills-7-injures-112-health-ministry", "says": "Railway authority: Fayoum-bound train hit the rear of the Aswan-bound train."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 4,
+      "field": "body",
+      "text": "የጤና ሚኒስቴር እንደገለጸው ቢያንስ 7 ሰዎች ሲሞቱ ከ100 በላይ ቆስለዋል",
+      "claim_en": "According to the Health Ministry, at least 7 died and more than 100 were injured.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Al Jazeera", "url": "https://www.aljazeera.com/news/2026/11/8/train-crash-kills-four-injures-dozens-near-egypts-cairo-city", "says": "Health Ministry: at least seven dead; more than 125 injured."},
+        {"outlet": "Egyptian Streets", "url": "https://egyptianstreets.com/?p=105682", "says": "Ministry of Health: at least seven dead and 112 injured."},
+        {"outlet": "AP (via AJC)", "url": "https://www.ajc.com/news/2026/11/collision-between-2-trains-in-egypt-kills-7-and-injures-more-than-100/", "says": "Health Ministry gave the toll: seven dead, at least 125 injured."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 4,
+      "field": "stats",
+      "text": "7+ — የሞቱ ሰዎች",
+      "claim_en": "At least 7 dead.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Al Jazeera", "url": "https://www.aljazeera.com/news/2026/11/8/train-crash-kills-four-injures-dozens-near-egypts-cairo-city", "says": "At least seven killed."},
+        {"outlet": "AP (via AJC)", "url": "https://www.ajc.com/news/2026/11/collision-between-2-trains-in-egypt-kills-7-and-injures-more-than-100/", "says": "Seven killed."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 4,
+      "field": "stats",
+      "text": "100+ — የቆሰሉ ሰዎች",
+      "claim_en": "More than 100 injured.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Al-Monitor (AFP)", "url": "https://www.al-monitor.com/originals/2026/11/egypt-train-collision-kills-7-injures-112-health-ministry", "says": "112 injured per the health ministry."},
+        {"outlet": "AP (via AJC)", "url": "https://www.ajc.com/news/2026/11/collision-between-2-trains-in-egypt-kills-7-and-injures-more-than-100/", "says": "At least 125 injured."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 4,
+      "field": "note",
+      "text": "ፕሬዚዳንት አብዱልፈታህ አል-ሲሲ አስቸኳይ ምርመራ እንዲደረግ ያዘዙ ሲሆን፣ ዐቃቤ ሕግም ምርመራ ጀምሯል",
+      "claim_en": "President Abdel Fattah el-Sisi ordered an urgent investigation, and prosecutors have opened an inquiry.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Al Jazeera", "url": "https://www.aljazeera.com/news/2026/11/8/train-crash-kills-four-injures-dozens-near-egypts-cairo-city", "says": "Sisi ordered an urgent investigation to hold negligent parties accountable."},
+        {"outlet": "AP (via AJC)", "url": "https://www.ajc.com/news/2026/11/collision-between-2-trains-in-egypt-kills-7-and-injures-more-than-100/", "says": "Sisi ordered a prompt investigation; Chief Prosecutor's investigators arrived at the site and inspected it."},
+        {"outlet": "Egyptian Streets", "url": "https://egyptianstreets.com/?p=105682", "says": "Prosecution team inspected the site and requested a technical committee; Sisi directed a speedy investigation."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 5,
+      "field": "headline",
+      "text": "ኢትዮጵያውያን የአቴንስ ማራቶንን በክብረ ወሰን አሸነፉ",
+      "claim_en": "Ethiopians won the Athens Marathon (men's and women's) in record times.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Greek City Times", "url": "https://greekcitytimes.com/2026/11/08/athens-authentic-marathon-2026-course-records/", "says": "Ethiopians won both races, both with new course records."},
+        {"outlet": "Athletics Illustrated", "url": "https://athleticsillustrated.com/?p=57901", "says": "Ethiopian winners in both races; men's course record, women's event record."},
+        {"outlet": "Greek Reporter", "url": "https://greekreporter.com/2026/11/08/athens-marathon-taferi-course-record/", "says": "Ethiopian Manazot Siyum Taferi won the men's race in a course record."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 5,
+      "field": "body",
+      "text": "ጥቅምት 29 በተካሄደው 43ኛው የአቴንስ ማራቶን",
+      "claim_en": "The 43rd Athens Marathon, held on Tikimt 29, 2019 E.C. = 8 November 2026.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Greek Reporter", "url": "https://greekreporter.com/2026/11/08/athens-marathon-taferi-course-record/", "says": "43rd Athens Authentic Marathon, 8 November 2026."},
+        {"outlet": "Greek City Times", "url": "https://greekcitytimes.com/2026/11/08/athens-authentic-marathon-2026-course-records/", "says": "43rd edition, Sunday 8 November 2026."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 5,
+      "field": "body",
+      "text": "በወንዶች ማናዞት ስዩም፣ በሴቶች ያታነ ቆርሞሴ አሸንፈዋል",
+      "claim_en": "Manazot Siyum won the men's race and Yatane Kormose the women's.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Greek City Times", "url": "https://greekcitytimes.com/2026/11/08/athens-authentic-marathon-2026-course-records/", "says": "Men: Manazut Siyoum Taferi; women: Yatane Kormose Dusa (both Ethiopia)."},
+        {"outlet": "Athletics Illustrated", "url": "https://athleticsillustrated.com/?p=57901", "says": "Men: Manazot Siyoum Taferi; women: Yatane Kormoshe Dusha (both Ethiopia)."},
+        {"outlet": "Greek Reporter", "url": "https://greekreporter.com/2026/11/08/athens-marathon-taferi-course-record/", "says": "Men's winner Manazot Siyum Taferi."}
+      ],
+      "fix": "Spelling note only: outlets write the women's winner as Kormose or Kormoshe (ቆርሞሴ / ቆርሞሼ); owner may confirm the Amharic spelling."
+    },
+    {
+      "story": 5,
+      "field": "body",
+      "text": "ሁለቱም የውድድሩን ክብረ ወሰን ያሻሻሉ ሲሆን",
+      "claim_en": "Both improved the race record.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Greek City Times", "url": "https://greekcitytimes.com/2026/11/08/athens-authentic-marathon-2026-course-records/", "says": "Both winners set new course records (men old 2:10:34, women old 2:31:06)."},
+        {"outlet": "Athletics Illustrated", "url": "https://athleticsillustrated.com/?p=57901", "says": "Men's course record; women's 2:30:04 beat the 2:31:06 mark from 2010 (called event record in the text)."}
+      ],
+      "fix": "Note: Watch Athletics (page not openable) reportedly says organisers SEGAS label the women's mark an event record rather than a course record. The card's wording 'የውድድሩን ክብረ ወሰን' (the race's record) fits both labels, so it is acceptable."
+    },
+    {
+      "story": 5,
+      "field": "body",
+      "text": "በሁለቱም ዘርፎች ሁለተኛ የወጡትም ኢትዮጵያውያን ናቸው",
+      "claim_en": "Second place in both races also went to Ethiopians.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Greek City Times", "url": "https://greekcitytimes.com/2026/11/08/athens-authentic-marathon-2026-course-records/", "says": "Second: Asefa Tefera Mengisha (ETH) 2:10:18; Tsiyon Abebe Temesgen (ETH) 2:30:29."},
+        {"outlet": "Athletics Illustrated", "url": "https://athleticsillustrated.com/?p=57901", "says": "Same two Ethiopian runners-up and times."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 5,
+      "field": "stats",
+      "text": "2:10:03 — የወንዶች አዲስ ክብረ ወሰን",
+      "claim_en": "2:10:03 = new men's record.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Greek Reporter", "url": "https://greekreporter.com/2026/11/08/athens-marathon-taferi-course-record/", "says": "Won in 2:10:03, a new course record."},
+        {"outlet": "Greek City Times", "url": "https://greekcitytimes.com/2026/11/08/athens-authentic-marathon-2026-course-records/", "says": "2:10:03, new course record."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 5,
+      "field": "stats",
+      "text": "2:30:04 — የሴቶች አዲስ ክብረ ወሰን",
+      "claim_en": "2:30:04 = new women's record.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Greek City Times", "url": "https://greekcitytimes.com/2026/11/08/athens-authentic-marathon-2026-course-records/", "says": "2:30:04, new course record (old 2:31:06, 2010)."},
+        {"outlet": "Athletics Illustrated", "url": "https://athleticsillustrated.com/?p=57901", "says": "2:30:04, a record beating 2:31:06 from 2010."}
+      ],
+      "fix": ""
+    },
+    {
+      "story": 5,
+      "field": "note",
+      "text": "የማናዞት ሰዓት ኬንያዊው ኤድዊን ኪፕቶ ይዞት የነበረውን የቀድሞ ክብረ ወሰን በ31 ሰከንድ አሻሽሏል",
+      "claim_en": "Manazot's time beat the previous record held by Kenya's Edwin Kiptoo by 31 seconds.",
+      "status": "verified",
+      "sources": [
+        {"outlet": "Greek Reporter", "url": "https://greekreporter.com/2026/11/08/athens-marathon-taferi-course-record/", "says": "31 seconds faster than Edwin Kiptoo's (Kenya) 2:10:34 from 2023."},
+        {"outlet": "Greek City Times", "url": "https://greekcitytimes.com/2026/11/08/athens-authentic-marathon-2026-course-records/", "says": "Previous record 2:10:34 by Kenya's Edwin Kiptoo (2023)."},
+        {"outlet": "Athletics Illustrated", "url": "https://athleticsillustrated.com/?p=57901", "says": "Beat Kiptoo's mark by 31 seconds."}
+      ],
+      "fix": ""
+    }
+  ]
+}
