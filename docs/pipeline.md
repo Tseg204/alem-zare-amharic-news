@@ -5,15 +5,21 @@ and the next stage reads only that file. This makes each step checkable on its o
 record of *why* each story and each number is on a card.
 
 ```
-1. Research      → research.json    candidate stories + source links, 5 selected
-2. Write         → stories.json     Amharic cards (headline, body, stats, note, speech)
-3. Fact-check    → factcheck.json   every number / name / date → 2+ sources → verdict
-   (separate subagent: sees only stories.json + research.json, never the writer's reasoning)
-4. Validate      → validate.py      rules + "is every number on a card fact-checked?"
-5. Render/video  → cards/, video/short_DRAFT.mp4 (red DRAFT banner)
-6. Human review  → the owner checks, edits, then runs approve.py (types "yes")
-7. Final video   → make_video.py makes short.mp4 only for approved editions; owner posts manually
+1. Research      → research.json    candidate stories + source links, 5 selected      (researcher subagent)
+2. Write         → stories.json     Amharic cards (headline, body, stats, note, speech) (amharic-writer subagent)
+3. Fact-check    → factcheck.json   every number / name / date → 2+ sources → verdict  (fact-checker subagent)
+   (sees only stories.json + research.json, never the writer's reasoning)
+4. Photos        → photos.json      freely licensed photo proposals                    (photo-scout subagent)
+                   owner picks → photos.py --use … downloads them and fills "image"
+5. Validate      → validate.py      rules + "is every number on a card fact-checked?"
+6. Render/video  → cards/, video/short_DRAFT.mp4 (red DRAFT banner)
+7. Human review  → the owner checks, edits, then runs approve.py (types "yes")
+8. Final video   → make_video.py makes short.mp4 only for approved editions; owner posts manually
 ```
+
+The whole run is packaged as the Claude Code skill `/todays-cards` (`.claude/skills/todays-cards/`).
+The main session only coordinates: it starts each subagent with the date alone, applies fact-check
+fixes, renders, and hands over. Stages 3 and 4 run at the same time (both only read stories.json).
 
 ## research.json (stage 1)
 
@@ -78,3 +84,37 @@ Rules (checked by `validate.py`):
 - Every number on a card (headline, body, stats, note) must appear in a claim of the same story → else ERROR.
 - A claim whose `text` is no longer on the card → WARNING (the card changed after the check).
 - `factcheck.json` missing → WARNING for now (editions before 10 Nov 2026 have none).
+
+## photos.json (stage 4)
+
+Written by the photo-scout subagent. Proposals only — nothing is downloaded until the owner picks.
+
+```json
+{
+  "date_gc": "2026-11-11",
+  "stories": [
+    {
+      "story": 1,
+      "headline": "…",                           // copied from stories.json, for reading the list
+      "proposals": [                             // best first; [] = nothing acceptable found
+        {
+          "page": "https://commons.wikimedia.org/wiki/File:…",   // licence page → image.source
+          "download": "https://upload.wikimedia.org/…",         // direct original file
+          "file": "images/abu-dhabi.jpg",
+          "author": "AdnanDekedek",
+          "licence": "CC BY-SA 4.0",              // CC0 | CC BY | CC BY-SA | Public domain | Unsplash | Pexels
+          "credit": "Photo: AdnanDekedek / Wikimedia Commons · CC BY-SA 4.0",
+          "size": "4000×3000",
+          "position": "center 45%",
+          "why": "Abu Dhabi skyline — the city where the talks are held"
+        }
+      ],
+      "note": ""                                 // e.g. what to search for if no proposal
+    }
+  ]
+}
+```
+
+`python3 photos.py DATE` lists the proposals; `python3 photos.py DATE --use 1=1 2=2 …` downloads the
+chosen ones (Commons / Unsplash / Pexels hosts only), scales them to ≤ 2400 px, and fills each story's
+`image` in stories.json. validate.py then checks the licence in `credit` as usual.

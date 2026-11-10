@@ -71,13 +71,13 @@ what recruiters look at.
 
 - [x] 6.1 `run_log.json` per edition: searches, sources, validation failures, time, cost (tokens + Azure TTS).
 
-## Phase 7 — Packaging & automation ← *next*
+## Phase 7 — Packaging & automation ✅ done
 
-- [ ] 7.1 Claude Code skill `/todays-cards` for the daily workflow.
-- [ ] 7.2 Subagents: researcher, fact-checker, Amharic writer, photo scout.
-- [ ] 7.3 Morning scheduled run that prepares a *draft* and notifies the owner (never auto-posts).
+- [x] 7.1 Claude Code skill `/todays-cards` for the daily workflow.
+- [x] 7.2 Subagents: researcher, fact-checker, Amharic writer, photo scout.
+- [x] 7.3 Morning scheduled run that prepares a *draft* and notifies the owner (never auto-posts).
 
-## Phase 8 — Personal use & sharing extras
+## Phase 8 — Personal use & sharing extras ← *next*
 
 - [ ] 8.1 `digest.md` per day — longer summaries + links, for reading yourself.
 - [ ] 8.2 `captions.txt` per day — ready-to-paste caption, hashtags, credits per platform.
@@ -172,3 +172,20 @@ Never `git add` the `.env` file (`.gitignore` already blocks it).
   pages fetched, subagents, and Claude Code's cost estimate (at API prices — not what a subscription pays). Checked
   against a real session: 19 searches matched exactly. 9 + 10 Nov were made before this, so no session is linked to
   them; tracking starts with the next edition (one session per day keeps the numbers clean). Next: Phase 7, step 7.1.
+- 10 Nov 2026 — Phase 7.1 + 7.2 done. Skill `.claude/skills/todays-cards/SKILL.md` = the daily workflow as one
+  command `/todays-cards [DATE] [--unattended]`: resumes at the first missing stage; main session only coordinates.
+  New subagents in `.claude/agents/`: `researcher` (→ research.json, 8–12 candidates, adds `key_facts_en` with
+  outlets), `amharic-writer` (→ stories.json from research.json only, runs validate), `photo-scout` (→ photos.json
+  proposals, licence read from the Commons file page, never downloads). Fact-checker + photo-scout run in parallel.
+  New `photos.py` (list proposals; `--use 1=1 …` downloads the owner's picks, only Commons/Unsplash/Pexels, ≤ 2400 px,
+  fills `image`) and `etdate.py` (Ethiopian date, incl. spoken form; validate.py now errors on a wrong `date_et`).
+  etdate checked on leap-year edges (New Year 12 Sep 2023, Genna 2024 = ታኅሣሥ 28). photos.py tested on a temp copy
+  (real Commons download, bad host refused). Subagents not yet tried on a real day — first run with the next edition
+  (project skills/agents load when a new session starts).
+- 10 Nov 2026 — 7.3 done: Claude desktop scheduled task "ዓለም ዛሬ morning draft" (id `alem-zare-morning-draft`,
+  every day 06:30, the app adds a few minutes → ~06:40; Auto permission mode). Runs `/todays-cards <today> --unattended`:
+  research → write → fact-check → photo proposals, then stops at the photo gate and sends a notification. Never
+  downloads photos, approves, posts or pushes. Runs only while the Claude app is open (else at next launch).
+  Owner then opens a new session: `/todays-cards DATE` → pick photos → render → video → review → approve.py.
+  Watch the first real run (tomorrow): runlog may not find the scheduled session if it runs outside the project folder.
+  Next: Phase 8, step 8.1.

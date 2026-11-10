@@ -88,6 +88,12 @@ def check_structure(d, edition, r):
                 r.error("top", f"date_gc '{d['date_gc']}' does not match the folder date {edition.name}")
     except ValueError:
         r.error("top", f"date_gc '{d.get('date_gc')}' should look like '10 Nov 2026'")
+    else:
+        # date_et is computed by etdate.py — the Ethiopian date is easy to get wrong by hand.
+        from etdate import date_et
+        want = date_et(folder_date)
+        if is_text(d.get("date_et")) and d["date_et"].strip() != want:
+            r.error("top", f"date_et '{d['date_et']}' should be '{want}' (python3 etdate.py {edition.name})")
 
     stories = d.get("stories")
     if not isinstance(stories, list):

@@ -43,6 +43,13 @@ session-log line as steps finish. The owner is new to Git: explain each command 
 - `runlog.py` — `python3 runlog.py [YYYY-MM-DD]` collects Claude Code usage for the edition (sessions that ran
   `render_cards.py --new DATE` or wrote its stories/research/factcheck JSON) into `run_log.json` and prints it.
   Scripts log their own events automatically. Do each day's edition in its own session so usage is attributed cleanly.
+- `etdate.py` — `python3 etdate.py YYYY-MM-DD` prints `date_gc`, `date_et` and the spoken date for
+  `cover_speech`. Never work out the Ethiopian date by hand; validate.py checks `date_et` against it.
+- `photos.py` — `photos.json` (photo-scout proposals) → `python3 photos.py DATE` lists them;
+  after the owner picks, `--use 1=1 2=2 …` downloads (Commons/Unsplash/Pexels only, ≤ 2400 px) and fills `image`.
+- `.claude/skills/todays-cards/` — the `/todays-cards [DATE] [--unattended]` skill: the whole daily workflow
+  below, resumable at any stage. `.claude/agents/` — subagents `researcher`, `amharic-writer`, `fact-checker`,
+  `photo-scout`; each gets only the date as its prompt.
 - `card.css` — the card style. Change the look here, not in Python.
 - `docs/` — style options and mock-ups the owner chose from (reference only).
 
@@ -61,6 +68,8 @@ Run:
   "follow us" line (`FOLLOW_TEXT` in narrate.py).
 
 ## Daily workflow (what Claude should do when asked for "today's cards")
+Run the `/todays-cards` skill — it carries out the steps below with the subagents (researcher → amharic-writer →
+fact-checker + photo-scout in parallel → photo gate → render → video → hand-over).
 Stages and hand-off files are described in `docs/pipeline.md`; each stage reads the previous file.
 1. Research: start the edition with `--new`, search the web for the most important world stories of the
    last 24–48h and write `research.json` (more candidates than needed, each with 2+ source links from
