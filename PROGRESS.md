@@ -29,7 +29,7 @@ what recruiters look at.
       `git config --global user.name "Your Name"` and `git config --global user.email "you@example.com"`
       (for privacy you can later use GitHub's "noreply" email instead — see 1.8).
 - [x] 1.5 Turn the folder into a Git repository (`git init`) and check that `.env` is ignored.
-- [ ] 1.6 First commit (the first saved snapshot).
+- [x] 1.6 First commit (the first saved snapshot).
 - [ ] 1.7 👤 Create a free account on github.com (skip if you have one).
 - [ ] 1.8 👤 Create an empty repository on GitHub (name e.g. `alem-zare-amharic-news`, Public or Private).
 - [ ] 1.9 Connect the folder to GitHub and upload ("push"). Install GitHub CLI (`gh`) and log in.
@@ -79,8 +79,8 @@ what recruiters look at.
 
 ## Phase 9 — Portfolio
 
-- [ ] 9.1 README: architecture diagram, design decisions (why human review, why separate checker…).
-- [ ] 9.2 Quality numbers from Phase 5 + a sample video / screenshots.
+- [~] 9.1 README: architecture diagram, design decisions (why human review, why separate checker…).
+- [~] 9.2 Quality numbers from Phase 5 + a sample video / screenshots.
 
 ---
 
@@ -97,3 +97,8 @@ what recruiters look at.
   Found that `git` is blocked until the Xcode licence is accepted (step 1.3).
 - 10 Nov 2026 — Owner accepted Xcode licence + set Git name/email. `git init` done (branch `main`);
   `.env` confirmed ignored, key not found in any file to be saved. 53 files (~21 MB) ready for the first commit (1.6).
+
+- 10 Nov 2026 — Added portfolio pieces: README front page (pipeline diagram, design decisions,
+  tech stack), `showcase/` sample cards, MIT `LICENSE`; `.vscode/` now ignored.
+  Made the first 6 commits, grouped by topic. Next: step 1.7 (GitHub account).
+  To-do for 9.2: upload a sample video to YouTube and link it in the README (videos are too big for Git).
