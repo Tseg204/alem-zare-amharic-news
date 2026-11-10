@@ -14,7 +14,7 @@ Legend: `[ ]` to do · `[x]` done · `[~]` started / partly done · 👤 = a ste
 
 ---
 
-## Phase 1 — Git & GitHub (version control) ← *we are here*
+## Phase 1 — Git & GitHub (version control) ✅ done
 
 *Why:* Git saves a history of every change ("snapshots" called commits), so nothing is ever lost and
 you can show how the project grew. GitHub is the website that hosts that history online and is
@@ -38,10 +38,10 @@ what recruiters look at.
 - [x] 1.9 Switch commits to GitHub's private "noreply" email (the 7 local commits currently carry the
       personal email; rewrite them *before* the first upload), then create the repository on GitHub with
       `gh repo create` (owner picks name + Public/Private) and upload ("push").
-- [ ] 1.10 Learn the daily routine: `git status` → `git add` → `git commit` → `git push`
+- [x] 1.10 Learn the daily routine: `git status` → `git add` → `git commit` → `git push`
        (Claude will do it with you a few times; cheat-sheet goes here when done).
 
-## Phase 2 — Rules checked by code (`validate.py`)
+## Phase 2 — Rules checked by code (`validate.py`) ← *next*
 
 - [ ] 2.1 Check `stories.json` structure (5 stories, required fields, 0–2 stats).
 - [ ] 2.2 Editorial rules: no «…» / quotation marks, headline ≤ ~8 words, no flag emoji.
@@ -131,3 +131,5 @@ Never `git add` the `.env` file (`.gitignore` already blocks it).
   address and all 8 commits rewritten with it (verified no personal email or Azure key in history).
   Public repo created and pushed: https://github.com/Tseg204/alem-zare-amharic-news (description + topics set).
   Next: step 1.10 — practise the daily save routine (status → add → commit → push).
+- 10 Nov 2026 — Owner ran status/add/commit/push themselves (cheat-sheet commit). Phase 1 complete.
+  Next session: Phase 2, step 2.1.
