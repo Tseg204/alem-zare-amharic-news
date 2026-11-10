@@ -179,6 +179,50 @@
       "tts_new_clips": 0,
       "tts_cached_clips": 7,
       "tts_chars_sent": 0
+    },
+    {
+      "time": "2026-11-10 22:34:12",
+      "stage": "video",
+      "seconds": 114.6,
+      "file": "short_motion.mp4",
+      "draft": false,
+      "style": "animated 1080x1350",
+      "length_s": 130.4,
+      "voice": "ameha",
+      "music": "Long Bed Background – Extended Neutral Underscore",
+      "tts_new_clips": 0,
+      "tts_cached_clips": 7,
+      "tts_chars_sent": 0
+    },
+    {
+      "time": "2026-11-10 22:37:10",
+      "stage": "video",
+      "seconds": 116.4,
+      "file": "short_motion.mp4",
+      "draft": false,
+      "style": "animated 1080x1350",
+      "mismatched_cards": [],
+      "length_s": 130.4,
+      "voice": "ameha",
+      "music": "Long Bed Background – Extended Neutral Underscore",
+      "tts_new_clips": 0,
+      "tts_cached_clips": 7,
+      "tts_chars_sent": 0
+    },
+    {
+      "time": "2026-11-10 22:40:01",
+      "stage": "video",
+      "seconds": 113.6,
+      "file": "short_motion.mp4",
+      "draft": false,
+      "style": "animated 1080x1350",
+      "mismatched_cards": [],
+      "length_s": 130.4,
+      "voice": "ameha",
+      "music": "Long Bed Background – Extended Neutral Underscore",
+      "tts_new_clips": 0,
+      "tts_cached_clips": 7,
+      "tts_chars_sent": 0
     }
   ],
   "claude": {

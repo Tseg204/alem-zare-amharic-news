@@ -45,6 +45,34 @@ def pauses(exe, mp3):
     return head_end, [b for a, b in cuts] or [head_end + 0.5]
 
 
+CHECK_LIMIT = 12.0                # mean grey-level difference (0–255) above which a card "doesn't match"
+
+
+def check(edition, names, scenes, fade, mp4, exe):
+    """Compare each card's last settled frame in the video with its still card (lower part only:
+    headline, text, stats, note, sources; the photo moves, so it is left out). Returns the cards whose
+    layout differs, e.g. a line wrapped differently and pushed the sources off the card."""
+    from PIL import Image, ImageChops, ImageStat
+    bad = []
+    with tempfile.TemporaryDirectory() as tmp:
+        for i, (name, sc) in enumerate(zip(names, scenes)):
+            still = edition / "cards" / f"{name}.jpg"
+            if not still.exists():
+                continue
+            last = i == len(names) - 1
+            t = sc["start"] + sc["dur"] - (0.1 if last else fade + 0.1)
+            f = Path(tmp) / f"{name}.png"
+            subprocess.run([exe, "-hide_banner", "-loglevel", "error", "-y", "-ss", f"{t:.3f}", "-i", str(mp4),
+                            "-frames:v", "1", str(f)], check=True)
+            a = Image.open(f).convert("L").resize((270, 338))
+            b = Image.open(still).convert("L").resize((270, 338))
+            box = (0, int(338 * 0.55), 270, int(338 * 0.97))
+            diff = ImageStat.Stat(ImageChops.difference(a.crop(box), b.crop(box))).mean[0]
+            if diff > CHECK_LIMIT:
+                bad.append((name, round(diff, 1)))
+    return bad
+
+
 def _words(txt, cls):
     return " ".join(f'<span class="{cls}">{w}</span>' for w in txt.split())
 
@@ -74,7 +102,11 @@ CSS = """
 html, body { margin:0; width:%dpx; height:%dpx; overflow:hidden; background:#0B0B0E; }
 #root { position:relative; width:%dpx; height:%dpx; overflow:hidden; }
 .scene { position:absolute; inset:0; }
-.hw, .bw, .nw { display:inline-block; }
+/* words stay inline (no boxes) so the text wraps exactly like the still card; the sweep only changes
+   opacity and glow, which work on inline text */
+/* splitting text into word spans can make a line a fraction of a pixel wider than on the still card; a line
+   that exactly filled the card would then wrap and push the sources off. 1px of slack absorbs that without changing any other line break (more slack lets extra words onto a line). */
+.headline, .lead-hl, .big, .body, .note { margin-right:-1px; }
 .numwrap, .tagwrap { position:relative; display:inline-block; }
 .num { display:inline-block; transform-origin:0%% 50%%; }
 .tag { transform-origin:50%% 50%%; }

@@ -271,3 +271,7 @@ Never `git add` the `.env` file (`.gitignore` already blocks it).
   Next: first weekly run on Sunday → check its cost (11.6); fill README Results (9.2); owner uploads a video.
 - 10 Nov 2026 — Phase 12: animated "portal" video built into make_video.py via HyperFrames (motion.py, motion/).
   Test on 10 Nov: 130 s, 1080×1350, rendered in ~2.5 min, no AI cost per render. Next: owner review (12.4).
+- 10 Nov 2026 — Fix: in the animated video card 4's headline wrapped onto a 3rd line and pushed the sources off
+  (splitting text into word spans made a line that exactly filled the card a fraction of a pixel wider). motion.py
+  now gives 1px of slack; make_video.py compares every animated card's final frame with its still card and warns
+  (run_log `mismatched_cards`). 10 Nov: all 7 cards match.

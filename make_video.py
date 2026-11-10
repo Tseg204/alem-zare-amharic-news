@@ -312,12 +312,18 @@ def make_video(edition, silent=False, voice=None, no_voice=False, out_name="shor
         print(f"Making {'animated ' if animate else ''}video from {len(cards)} cards ({total:.0f} s)"
               + (f", narration: {narrate.VOICES[voice]}" if voice else "") + "…")
         subprocess.run(args, check=True)
+        # does every animated card end up looking like its still card? (catches text that wrapped differently)
+        mismatch = motion.check(edition, names, scenes, FADE, out, exe) if animate else []
+        for n, dv in mismatch:
+            print(f"  WARNING: {n} in the video doesn't match its card (difference {dv}) — watch that card: "
+                  "a line may have wrapped differently and pushed text off the card")
 
     write_credits(edition, info, voice)
     import share
     share.write_captions(edition)     # refresh captions.txt (music credit, approval state)
     log(edition, "video", seconds=round(time.time() - started, 1), file=out.name, draft=draft,
         style="animated 1080x1350" if animate else "still 1080x1920",
+        mismatched_cards=[n for n, _ in mismatch],
         length_s=round(total, 1), voice=voice or "none", music=(info or {}).get("title", "none"),
         tts_new_clips=narrate.STATS["new_clips"], tts_cached_clips=narrate.STATS["cached_clips"],
         tts_chars_sent=narrate.STATS["chars_sent"])
