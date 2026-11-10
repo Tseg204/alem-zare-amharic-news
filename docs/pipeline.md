@@ -10,8 +10,9 @@ record of *why* each story and each number is on a card.
 3. Fact-check    → factcheck.json   every number / name / date → 2+ sources → verdict
    (separate subagent: sees only stories.json + research.json, never the writer's reasoning)
 4. Validate      → validate.py      rules + "is every number on a card fact-checked?"
-5. Render/video  → cards/, video/   render_cards.py, make_video.py
-6. Human review  → the owner checks, edits, posts manually
+5. Render/video  → cards/, video/short_DRAFT.mp4 (red DRAFT banner)
+6. Human review  → the owner checks, edits, then runs approve.py (types "yes")
+7. Final video   → make_video.py makes short.mp4 only for approved editions; owner posts manually
 ```
 
 ## research.json (stage 1)

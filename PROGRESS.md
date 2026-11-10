@@ -56,12 +56,12 @@ what recruiters look at.
 - [x] 3.3 Separate fact-checker (a Claude Code subagent that only sees the draft + sources).
 - [x] 3.4 Write the stages + hand-off files into CLAUDE.md.
 
-## Phase 4 — Human approval gate ← *next*
+## Phase 4 — Human approval gate ✅ done
 
-- [ ] 4.1 `"status": "draft" | "approved"` in `stories.json`.
-- [ ] 4.2 `make_video.py` / exports refuse to run on a draft.
+- [x] 4.1 `"status": "draft" | "approved"` in `stories.json`.
+- [x] 4.2 `make_video.py` / exports refuse to run on a draft.
 
-## Phase 5 — Measuring quality (evaluation)
+## Phase 5 — Measuring quality (evaluation) ← *next*
 
 - [ ] 5.1 Save the AI's first draft (`stories.draft.json`) before the owner edits.
 - [ ] 5.2 Script comparing draft vs approved → % of headlines/bodies changed, kinds of fixes.
@@ -103,6 +103,7 @@ Run these in Terminal from the project folder (`cd ~/Documents/Claude/amharic-ne
 | History | `git log --oneline` | Lists snapshots, newest first (press `q` to exit). |
 | Undo a pick | `git restore --staged FILE` | Takes a file back out of the next snapshot (keeps your edits). |
 
+After reviewing a day: `python3 approve.py YYYY-MM-DD` (type yes), then `python3 make_video.py YYYY-MM-DD`.
 Before rendering, `python3 validate.py` checks the day's `stories.json` (also runs automatically).
 
 Good commit messages: start with a verb, say *what* changed — "Add validate.py for editorial rules",
@@ -149,3 +150,10 @@ Never `git add` the `.env` file (`.gitignore` already blocks it).
   `.claude/agents/fact-checker.md` (sees only stories.json + research.json, can search the web, writes
   factcheck.json, never edits cards). Daily workflow in CLAUDE.md updated. Tested on a broken copy: all 7 planted
   problems reported. Not yet tried on a real day — first real run with the next edition. Next: Phase 4, step 4.1.
+- 10 Nov 2026 — Phase 4 done: `approve.py` = the owner's approval (validates first, lists the headlines, needs a
+  typed "yes", saves `status: approved` + `approved_at` + a fingerprint of stories.json and the photos). Any later edit
+  → draft again (validate.py warns). `make_video.py` makes `short.mp4` only when approved; otherwise
+  `short_DRAFT.mp4` with a red "DRAFT · NOT APPROVED" banner (needed to review the narration before approving) and
+  removes a stale short.mp4. `--new` always starts a draft. Claude is told never to run approve.py.
+  Tested on a copy of 10 Nov: no → stays draft, yes → approved → short.mp4; edit → changed → draft video with banner.
+  Existing 9 + 10 Nov editions count as drafts until approved. Next: Phase 5, step 5.1.

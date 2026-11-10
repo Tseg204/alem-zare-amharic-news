@@ -267,7 +267,9 @@ def new_edition(date):
     prev = latest_edition() if EDITIONS.exists() and any(EDITIONS.iterdir()) else None
     (ed / "images").mkdir(parents=True, exist_ok=True)
     if prev:
-        shutil.copy(prev / "stories.json", ed / "stories.json")
+        from approve import set_draft, save
+        d = json.loads((prev / "stories.json").read_text(encoding="utf-8"))
+        save(ed, set_draft(d))   # a new day always starts as a draft, never "approved"
         print(f"Created {ed} (stories.json copied from {prev.name} — replace the stories and dates)")
     else:
         print(f"Created {ed} — add a stories.json")

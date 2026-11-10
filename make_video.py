@@ -7,6 +7,10 @@ crossfade to the next card. With narration, each card stays on screen as long as
 its narration (+ short pauses) and the music plays quietly underneath.
 
     editions/2026-11-10/video/short.mp4     (written by this script)
+
+Approval gate: only an edition approved by the owner (python3 approve.py) gets video/short.mp4.
+A draft — or an approved edition edited afterwards — gets video/short_DRAFT.mp4 with a red
+"DRAFT" banner, for reviewing the narration before approval. It must never be posted.
     editions/2026-11-10/audio/              narration clips + narration.txt (the read text)
     editions/2026-11-10/credits.md          gets a "Music / voice" section
 
@@ -27,10 +31,11 @@ Render the cards first (python3 render_cards.py).
 import math, json, os, re, shutil, subprocess, sys, tempfile
 from datetime import date
 from pathlib import Path
-from PIL import Image, ImageEnhance, ImageFilter
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 
 from render_cards import ROOT, EDITIONS, latest_edition
 import narrate
+from approve import approval_state
 
 MUSIC = ROOT / "music"
 VW, VH = 1080, 1920          # video frame
@@ -120,8 +125,32 @@ def write_credits(edition, info, voice):
     f.write_text(text, encoding="utf-8")
 
 
+def draft_banner(out_png):
+    """Red 'DRAFT' banner burned into unapproved videos so they can't be posted by mistake."""
+    font = ImageFont.load_default(size=46)
+    text = "DRAFT \u00b7 NOT APPROVED"
+    w = round(font.getlength(text)) + 80
+    im = Image.new("RGBA", (w, 96), (0, 0, 0, 0))
+    ImageDraw.Draw(im).rounded_rectangle((0, 0, w - 1, 95), radius=22, fill=(200, 30, 30, 235))
+    ImageDraw.Draw(im).text((w // 2, 48), text, font=font, fill="white", anchor="mm")
+    im.save(out_png)
+
+
 def make_video(edition, silent=False, voice=None, no_voice=False, out_name="short.mp4"):
     d = json.loads((edition / "stories.json").read_text(encoding="utf-8"))
+    state = approval_state(edition, d)
+    draft = state != "approved"
+    if draft:
+        why = ("stories.json or a photo changed after approval" if state == "changed"
+               else "this edition is not approved yet")
+        print(f"  DRAFT: {why} — making a draft video with a DRAFT banner (not for posting).")
+        print(f"         After review, approve with: python3 approve.py {edition.name}")
+        if out_name == "short.mp4":
+            out_name = "short_DRAFT.mp4"
+            stale = edition / "video" / "short.mp4"
+            if stale.exists():
+                stale.unlink()   # an older final video no longer matches the stories
+                print("         (removed the old video/short.mp4 — it no longer matches the stories)")
     cards = sorted([*(edition / "cards").glob("*.jpg"), *(edition / "cards").glob("*.png")])
     if not cards:
         sys.exit(f"No cards in {edition / 'cards'} — run render_cards.py first")
@@ -198,6 +227,13 @@ def make_video(edition, silent=False, voice=None, no_voice=False, out_name="shor
             offset += durs[i - 1] - FADE
             chains.append(f"[{prev}][v{i}]xfade=transition=fade:duration={FADE}:offset={offset:.3f}[x{i}]")
             prev = f"x{i}"
+        if draft:
+            banner = Path(tmp) / "draft.png"
+            draft_banner(banner)
+            args += ["-loop", "1", "-framerate", str(FPS), "-t", f"{total:.3f}", "-i", str(banner)]
+            chains.append(f"[{prev}][{k}:v]overlay=x=(W-w)/2:y=70:shortest=1[wm]")
+            prev = "wm"
+            k += 1
 
         nxt = k
         audio_parts = []
@@ -255,7 +291,7 @@ def make_video(edition, silent=False, voice=None, no_voice=False, out_name="shor
         subprocess.run(args, check=True)
 
     write_credits(edition, info, voice)
-    print(f"video → {out}")
+    print(f"video → {out}" + ("   (DRAFT — do not post)" if draft else ""))
     if info:
         print(f"music: {info.get('title')} — {info.get('artist')} ({info.get('licence')})")
         if info.get("attribution"):

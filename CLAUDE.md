@@ -30,6 +30,10 @@ session-log line as steps finish. The owner is new to Git: explain each command 
   `speech`, date_gc = folder date, stories not still copied from yesterday; research.json has 5 selected stories with
   2+ sources; factcheck.json has no open claims and covers every number on the cards). Runs at the start of every
   render; ERRORs stop it, WARNINGs don't. Run alone: `python3 validate.py [YYYY-MM-DD]`.
+- `approve.py` — the human approval gate. Every edition is `"status": "draft"` until the owner runs
+  `python3 approve.py [YYYY-MM-DD]` and types "yes"; it stores `approved_at` + a fingerprint of the stories
+  and photos. Any later change makes it a draft again. `--revoke` = back to draft. **Claude never runs
+  approve.py and never edits `status` / `approved_*` by hand** — approval is the owner's act.
 - `card.css` — the card style. Change the look here, not in Python.
 - `docs/` — style options and mock-ups the owner chose from (reference only).
 
@@ -37,7 +41,8 @@ Run:
 - `python3 render_cards.py --new YYYY-MM-DD` — start a day (copies the latest stories.json)
 - `python3 render_cards.py [YYYY-MM-DD]` — render (default: latest edition)
 - `python3 make_video.py [YYYY-MM-DD] [--voice ameha|mekdes] [--no-voice] [--silent] [--out x.mp4]`
-  — 1080×1920 MP4 for YouTube Shorts / Reels / TikTok from the rendered cards (card on blurred
+  — approved edition → `video/short.mp4`; draft (or changed since approval) → `video/short_DRAFT.mp4`
+  with a red DRAFT banner, for review only. 1080×1920 MP4 for YouTube Shorts / Reels / TikTok from the rendered cards (card on blurred
   background, slow zoom, crossfades), with Amharic AI narration (Azure neural TTS, `narrate.py`)
   and quiet background music (default voice: Ameha, chosen by the owner 10 Nov 2026). Each card lasts as long as its narration (~100 s total).
   Writes `video/short.mp4`, `audio/` (clips + `narration.txt` = what is read) and a
@@ -66,7 +71,9 @@ Stages and hand-off files are described in `docs/pipeline.md`; each stage reads 
 5. Propose photos (see Editorial rules), render (fix any validate.py ERRORs, read its WARNINGs), fix any OVERFLOW, look at the PNGs, then make the video
    and read `audio/narration.txt` for anything the voice would read badly (abbreviations,
    symbols, Latin-letter names — spell those in Amharic in the headline/body if needed).
-6. Hand over for human review. Never present AI text as final without review.
+6. Hand over for human review (the draft video is `video/short_DRAFT.mp4`). Never present AI text as final
+   without review. Tell the owner: after checking, run `python3 approve.py YYYY-MM-DD`, then
+   `python3 make_video.py YYYY-MM-DD` to make the final `short.mp4` for posting.
 
 ## Editorial rules
 - Neutral wording; no opinion. Be especially careful with Ethiopian/regional politics.

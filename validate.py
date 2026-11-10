@@ -371,6 +371,16 @@ def check_factcheck(edition, stories, r):
             r.error(f"story {i}", f"number(s) not fact-checked: {', '.join(missing)}")
 
 
+# ---------- 4.1 approval (approve.py) ----------
+def check_approval(d, edition, r):
+    from approve import approval_state
+    status = d.get("status", "draft")
+    if status not in ("draft", "approved"):
+        r.error("top", f"'status' must be draft or approved, got {status!r}")
+    elif approval_state(edition, d) == "changed":
+        r.warn("top", "approved, but stories.json or a photo changed since — run approve.py again")
+
+
 # ---------- run ----------
 def validate(edition):
     """Check an edition folder. Returns a Report (r.errors / r.warnings)."""
@@ -388,6 +398,7 @@ def validate(edition):
     check_editorial(d, stories, r)
     check_photos(edition, stories, r)
     check_narration(d, stories, r)
+    check_approval(d, edition, r)
     check_research(edition, r)
     check_factcheck(edition, stories, r)
     return r
