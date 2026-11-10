@@ -31,11 +31,11 @@ what recruiters look at.
 - [x] 1.5 Turn the folder into a Git repository (`git init`) and check that `.env` is ignored.
 - [x] 1.6 First commit (the first saved snapshot).
 - [x] 1.7 👤 GitHub account (owner already has one).
-- [ ] 1.8 👤 Install GitHub CLI (`gh`, the GitHub command-line tool) from https://cli.github.com (macOS installer),
+- [x] 1.8 👤 Install GitHub CLI (`gh`, the GitHub command-line tool) from https://cli.github.com (macOS installer),
       then log in from Terminal: `gh auth login` → GitHub.com → HTTPS → Yes (authenticate Git) →
-      Login with a web browser. (No Homebrew on this Mac, so use the installer.)
+      Login with a web browser. (Installed via Homebrew: `/opt/homebrew/bin/gh`.)
       Optional privacy: github.com/settings/emails → tick "Keep my email addresses private".
-- [ ] 1.9 Switch commits to GitHub's private "noreply" email (the 7 local commits currently carry the
+- [x] 1.9 Switch commits to GitHub's private "noreply" email (the 7 local commits currently carry the
       personal email; rewrite them *before* the first upload), then create the repository on GitHub with
       `gh repo create` (owner picks name + Public/Private) and upload ("push").
 - [ ] 1.10 Learn the daily routine: `git status` → `git add` → `git commit` → `git push`
@@ -109,3 +109,7 @@ what recruiters look at.
   To-do for 9.2: upload a sample video to YouTube and link it in the README (videos are too big for Git).
 - 10 Nov 2026 — Step 1.7 done (has GitHub account). No `gh`, Homebrew or SSH key on the Mac; plan: install gh
   via the official installer, `gh auth login`, switch to noreply email, then create repo + push.
+- 10 Nov 2026 — gh installed (Homebrew) and logged in as Tseg204. Git email switched to the GitHub noreply
+  address and all 8 commits rewritten with it (verified no personal email or Azure key in history).
+  Public repo created and pushed: https://github.com/Tseg204/alem-zare-amharic-news (description + topics set).
+  Next: step 1.10 — practise the daily save routine (status → add → commit → push).
