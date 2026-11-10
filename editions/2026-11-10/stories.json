@@ -1,0 +1,133 @@
+{
+  "brand": "ዓለም ዛሬ",
+  "tagline": "ዕለታዊ የዓለም ዜና በአማርኛ",
+  "date_et": "ኅዳር 1, 2019 ዓ.ም",
+  "date_gc": "10 Nov 2026",
+  "cover_title": "የዕለቱ 5 ዋና ዋና የዓለም ዜናዎች",
+  "cta_lines": [
+    "ይከተሉን",
+    "ያጋሩ",
+    "አስተያየት ይስጡ"
+  ],
+  "lead": 4,
+  "stories": [
+    {
+      "category": "ዓለም አቀፍ",
+      "color": "#4FA3FF",
+      "icon": "🕊️",
+      "headline": "የዩክሬን–ሩሲያ የሰላም ድርድር በአቡ ዳቢ እየተካሄደ ነው",
+      "body": "ከ9 ወራት መቋረጥ በኋላ የአሜሪካ፣ የሩሲያ እና የዩክሬን ልዑካን ኅዳር 1–2 በአቡ ዳቢ ይደራደራሉ። ዋናው አጀንዳ ለዩክሬን የሚሰጥ የድህረ-ጦርነት የጸጥታ ዋስትና ነው።",
+      "stats": [],
+      "note": "ሩሲያ መላውን የዶኔትስክ ክልል ስትጠይቅ፣ ዩክሬን አሁን ያለው የጦር ግንባር ድንበር እንዲሆን ትፈልጋለች።",
+      "sources": "France 24 · Meduza · Washington Post",
+      "image": {
+        "file": "images/abudhabi.jpg",
+        "credit": "Photo: AdnanDekedek / Wikimedia Commons · CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Abu_Dhabi_Skyline_from_a_boat_tour.jpg",
+        "position": "center 45%"
+      },
+      "speech": [
+        "የዩክሬንና የሩሲያ የሰላም ድርድር በአቡ ዳቢ እየተካሄደ ነው።",
+        "ከዘጠኝ ወራት መቋረጥ በኋላ፣ የአሜሪካ፣ የሩሲያ እና የዩክሬን ልዑካን፣ ከኅዳር አንድ እስከ ሁለት በአቡ ዳቢ ይደራደራሉ። ዋናው አጀንዳ፣ ለዩክሬን የሚሰጥ የድህረ ጦርነት የጸጥታ ዋስትና ነው።"
+      ]
+    },
+    {
+      "category": "አፍሪካ · ኢትዮጵያ",
+      "color": "#FF6B5B",
+      "icon": "🏕️",
+      "headline": "በሞያሌ ግጭት ሳቢያ በሺዎች የሚቆጠሩ ወደ ኬንያ ተሰደዱ",
+      "body": "በኦሮሚያ እና በሶማሌ ክልሎች መካከል ባለ ውጥረት በሞያሌ አካባቢ የተቀሰቀሰው ግጭት ብዙዎችን አፈናቅሏል። UNHCR ወደ 36,000 የሚጠጉ ኢትዮጵያውያን ኬንያ መግባታቸውን አረጋግጧል።",
+      "stats": [
+        [
+          "~36,000",
+          "ወደ ኬንያ የተሻገሩ (UNHCR)"
+        ],
+        [
+          "$8.9M",
+          "የተመድ የእርዳታ ጥሪ"
+        ]
+      ],
+      "note": "የአካባቢው ባለሥልጣናት ቁጥሩን እስከ 50,000 ያደርሱታል፤ ምግብ፣ ውሃ እና መጠለያ በአስቸኳይ ያስፈልጋል።",
+      "sources": "UNHCR · The EastAfrican · Al Jazeera",
+      "image": {
+        "file": "images/moyale.jpg",
+        "credit": "Photo: george kaguangi / Wikimedia Commons · CC BY-SA 2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Moyale_road.jpg",
+        "position": "center 60%"
+      },
+      "speech": [
+        "በሞያሌ ግጭት ሳቢያ፣ በሺዎች የሚቆጠሩ ወደ ኬንያ ተሰደዱ።",
+        "በኦሮሚያ እና በሶማሌ ክልሎች መካከል ባለ ውጥረት፣ በሞያሌ አካባቢ የተቀሰቀሰው ግጭት ብዙዎችን አፈናቅሏል። የተባበሩት መንግሥታት የስደተኞች ኮሚሽን፣ ወደ ሠላሳ ስድስት ሺህ የሚጠጉ ኢትዮጵያውያን ኬንያ መግባታቸውን አረጋግጧል።"
+      ]
+    },
+    {
+      "category": "የአየር ንብረት",
+      "color": "#3DDC97",
+      "icon": "🌡️",
+      "headline": "የተመድ የአየር ንብረት ጉባኤ COP31 በቱርክ ተከፈተ",
+      "body": "ጉባኤው ከጥቅምት 30 እስከ ኅዳር 11 በአንታሊያ ይካሄዳል፤ የዓለም መሪዎች ኅዳር 2–3 ይገናኛሉ። ከፓሪሱ ስምምነት የወጣችው አሜሪካ ይፋዊ ተደራዳሪ ልዑክ አልላከችም።",
+      "stats": [],
+      "note": "ለምን ያገባናል? ኢትዮጵያ በድርቅና በጎርፍ ክፉኛ ከሚጎዱ ሀገራት አንዷ ናት፤ የአየር ንብረት ፋይናንስ ዋና አጀንዳ ነው።",
+      "sources": "UNFCCC · CFR · Türkiye Today",
+      "image": {
+        "file": "images/antalya_expo.jpg",
+        "credit": "Photo: Hendric Stattmann / Wikimedia Commons · CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Expo_2016_Antalya_-_West_View.jpg",
+        "position": "center"
+      },
+      "speech": [
+        "ሠላሳ አንደኛው የተመድ የአየር ንብረት ጉባኤ፣ በቱርክ ተከፈተ።",
+        "ጉባኤው ከጥቅምት ሠላሳ እስከ ኅዳር አሥራ አንድ በአንታሊያ ይካሄዳል፤ የዓለም መሪዎች ደግሞ ከኅዳር ሁለት እስከ ሦስት ይገናኛሉ። ከፓሪሱ ስምምነት የወጣችው አሜሪካ፣ ይፋዊ ተደራዳሪ ልዑክ አልላከችም።"
+      ]
+    },
+    {
+      "category": "መካከለኛው ምሥራቅ",
+      "color": "#B48CFF",
+      "icon": "🌐",
+      "headline": "ትራምፕ የኢራን ጦርነት በተግባር ማብቃቱን ተናገሩ",
+      "body": "ፕሬዚዳንት ትራምፕ ከኳታር ጠቅላይ ሚኒስትር ጋር ከተወያዩ በኋላ ጦርነቱ በወታደራዊ መልኩ በተግባር ማብቃቱን ተናግረዋል። የኢራን ባለሥልጣናት ግን አስተያየቱን ውድቅ አድርገዋል።",
+      "stats": [],
+      "note": "ኳታር ጦርነቱን ለማቆም ከኢራን የቀረበ ማዕቀፍ ለትራምፕ ማቅረቧ ተዘግቧል።",
+      "sources": "AP · Al Jazeera · Arab News",
+      "image": {
+        "file": "images/white_house.jpg",
+        "credit": "Photo: Daniel Schwen / Wikimedia Commons · CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:White_House_lawn.jpg",
+        "position": "center 55%"
+      },
+      "speech": [
+        "ትራምፕ፣ የኢራን ጦርነት በተግባር ማብቃቱን ተናገሩ።",
+        "ፕሬዚዳንት ትራምፕ ከኳታር ጠቅላይ ሚኒስትር ጋር ከተወያዩ በኋላ፣ ጦርነቱ በወታደራዊ መልኩ በተግባር ማብቃቱን ተናግረዋል። የኢራን ባለሥልጣናት ግን፣ አስተያየቱን ውድቅ አድርገዋል።"
+      ]
+    },
+    {
+      "category": "ቱርክ",
+      "color": "#FFC53D",
+      "icon": "🏭",
+      "headline": "በቱርክ የብረት ፋብሪካ ፍንዳታ ቢያንስ 16 ሰዎች ሞቱ",
+      "body": "ጥቅምት 30 በኢዝሚር አቅራቢያ አሊያጋ በሚገኝ የብረት ፋብሪካ ክሬን ቀልጦ በሚፈስ ብረት ምድጃ ላይ ወድቆ ፍንዳታ ደርሷል። ፕሬዚዳንት ኤርዶአን ምርመራ መጀመሩን አስታውቀዋል።",
+      "stats": [
+        [
+          "16+",
+          "የሞቱ ሰዎች"
+        ]
+      ],
+      "note": "የነፍስ አድን ሥራው በመቀጠሉ የሟቾች ቁጥር ሊለወጥ ይችላል።",
+      "sources": "CNN · Bianet · Türkiye Today",
+      "image": {
+        "file": "images/aliaga.jpg",
+        "credit": "Photo: aokaratekin / Wikimedia Commons · CC BY-SA 3.0 · Aliağa town",
+        "source": "https://commons.wikimedia.org/wiki/File:Alia%C4%9Fa_-_www.alto.org.tr_-_panoramio.jpg",
+        "position": "center"
+      },
+      "speech": [
+        "በቱርክ የብረት ፋብሪካ በደረሰ ፍንዳታ፣ ቢያንስ አሥራ ስድስት ሰዎች ሞቱ።",
+        "ጥቅምት ሠላሳ፣ በኢዝሚር አቅራቢያ አሊያጋ በሚገኝ የብረት ፋብሪካ፣ ክሬን ቀልጦ በሚፈስ ብረት ምድጃ ላይ ወድቆ ፍንዳታ ደርሷል። ፕሬዚዳንት ኤርዶአን ምርመራ መጀመሩን አስታውቀዋል።"
+      ]
+    }
+  ],
+  "cover_speech": [
+    "ዓለም ዛሬ። ኅዳር አንድ፣ ሁለት ሺህ አሥራ ዘጠኝ ዓመተ ምሕረት።",
+    "የዕለቱ አምስት ዋና ዋና የዓለም ዜናዎች።"
+  ]
+}

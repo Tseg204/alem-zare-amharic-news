@@ -1,0 +1,140 @@
+{
+  "brand": "ዓለም ዛሬ",
+  "tagline": "ዕለታዊ የዓለም ዜና በአማርኛ",
+  "date_et": "ጥቅምት 30, 2019 ዓ.ም",
+  "date_gc": "9 Nov 2026",
+  "cover_title": "የሳምንቱ 5 ዋና ዋና የዓለም ዜናዎች",
+  "cta_lines": [
+    "ይከተሉን",
+    "ያጋሩ",
+    "አስተያየት ይስጡ"
+  ],
+  "lead": 2,
+  "stories": [
+    {
+      "category": "ዓለም አቀፍ",
+      "color": "#4FA3FF",
+      "icon": "🕊️",
+      "headline": "የዩክሬን–ሩሲያ የሰላም ድርድር በአቡ ዳቢ ሊካሄድ ነው",
+      "body": "አሜሪካ በምታሸማግለው ድርድር የዩክሬን እና የሩሲያ ልዑካን ኅዳር 1–2 በአቡ ዳቢ ይገናኛሉ። የክሬምሊን ተቃውሞ ቢኖርም የአውሮፓ ባለሥልጣናትም እንደሚሳተፉ ፈረንሳይ አስታውቃለች።",
+      "stats": [
+        [
+          "9",
+          "ወራት ከተቋረጠ በኋላ"
+        ],
+        [
+          "2",
+          "ቀናት የሚቆይ ድርድር"
+        ]
+      ],
+      "note": "ጦርነቱን ማስቆም እና የድህረ-ጦርነት የጸጥታ ዋስትና በአጀንዳው ተካተዋል።",
+      "sources": "Reuters · Axios · NPR",
+      "image": {
+        "file": "images/abudhabi.jpg",
+        "credit": "Photo: AdnanDekedek / Wikimedia Commons · CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Abu_Dhabi_Skyline_from_a_boat_tour.jpg",
+        "position": "center 45%"
+      }
+    },
+    {
+      "category": "ጤና · አፍሪካ",
+      "color": "#FF6B5B",
+      "icon": "🦠",
+      "headline": "በኮንጎ የኢቦላ ተጠቂዎች ቁጥር ከ10,000 በላይ ደረሰ",
+      "body": "በዲሞክራቲክ ሪፐብሊክ ኮንጎ የተከሰተው የኢቦላ (ቡንዲቡጂዮ) ወረርሽኝ ከ5,300 በላይ ሰዎችን ሕይወት ቀጥፏል። በኬንያ 9፣ በናይጄሪያ 1 ተጠቂ ተረጋግጧል።",
+      "stats": [
+        [
+          "10,800+",
+          "የተረጋገጡ ተጠቂዎች"
+        ],
+        [
+          "5,300+",
+          "የሞቱ ሰዎች"
+        ]
+      ],
+      "note": "ለምን ያገባናል? ኬንያ የኢትዮጵያ ጎረቤት ናት፤ የጤና ባለሥልጣናት ቁጥጥርና ቅድመ ጥንቃቄ እንዲጠናከር እያሳሰቡ ነው።",
+      "sources": "WHO · CDC · Al Jazeera",
+      "image": {
+        "file": "images/ebola.jpg",
+        "credit": "Photo: CDC / Cynthia Goldsmith · Public domain",
+        "source": "https://commons.wikimedia.org/wiki/File:Ebola_virus_virion.jpg",
+        "position": "center"
+      }
+    },
+    {
+      "category": "አውሮፓ · ፖላንድ",
+      "color": "#B48CFF",
+      "icon": "🕯️",
+      "headline": "በፖላንድ ክራኮው አደባባይ በተከፈተ ተኩስ 6 ሰዎች ተገደሉ",
+      "body": "ጥቅምት 28 አንድ የ24 ዓመት ታጣቂ በክራኮው ጥንታዊ ከተማ ዋና አደባባይ ላይ ተኩስ ከፍቶ 6 ሰዎችን ገድሎ 15 አቁስሏል። በፖሊስ ተመትቶ ሆስፒታል የገባው ታጣቂው ዛሬ ሕይወቱ አልፏል።",
+      "stats": [
+        [
+          "6",
+          "የሞቱ ሰዎች"
+        ],
+        [
+          "15",
+          "የቆሰሉ ሰዎች"
+        ]
+      ],
+      "note": "ሦስት የታጣቂው ቤተሰብ አባላትም በቤታቸው ሞተው ተገኝተዋል፤ ዐቃቤ ሕግ የጥቃቱን መነሻ እየመረመረ ነው።",
+      "sources": "AP · NBC News · CBS News",
+      "image": {
+        "file": "images/krakow.jpg",
+        "credit": "Photo: Ввласенко / Wikimedia Commons · CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Carriages_at_Rynek_G%C5%82%C3%B3wny._Krakow,_Poland.jpg",
+        "position": "center 40%"
+      }
+    },
+    {
+      "category": "አፍሪካ · ደቡብ አፍሪካ",
+      "color": "#3DDC97",
+      "icon": "📊",
+      "headline": "ኤኤንሲ በታሪኩ ዝቅተኛውን የምርጫ ውጤት አስመዘገበ",
+      "body": "ከአፓርታይድ ማብቂያ ጀምሮ ደቡብ አፍሪካን የመራው ኤኤንሲ ጥቅምት 25 በተካሄደው የአካባቢ ምርጫ 30.8% ድምፅ ብቻ አግኝቷል። ተቃዋሚው ዲኤ (DA) 24.6% በማግኘት ሁለተኛ ወጥቷል።",
+      "stats": [
+        [
+          "30.8%",
+          "የኤኤንሲ ድምፅ"
+        ],
+        [
+          "24.6%",
+          "የዲኤ ድምፅ"
+        ]
+      ],
+      "note": "ካለፈው የአካባቢ ምርጫ 14 ነጥብ ገደማ ቀንሷል፤ በብዙ ከተሞች የጥምር መንግሥት ድርድር ይጠበቃል።",
+      "sources": "Reuters · CNBC Africa · The Citizen",
+      "image": {
+        "file": "images/sa_vote.jpg",
+        "credit": "Photo: Husskeyy / Wikimedia Commons · CC BY-SA 4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Voting_Station_Signage_in_Cape_Town,_for_the_2026_Local_Government_Elections.jpg",
+        "position": "center 35%"
+      }
+    },
+    {
+      "category": "ስፖርት",
+      "color": "#FFC53D",
+      "icon": "⚽",
+      "headline": "ሮናልዶ ከፖርቹጋል ብሔራዊ ቡድን ተሰናበተ",
+      "body": "የ41 ዓመቱ ኮከብ ከ23 ዓመታት የብሔራዊ ቡድን ቆይታ በኋላ ጡረታ መውጣቱን ጥቅምት 26 አስታውቋል። ለክለቡ አል-ናስር መጫወቱን ይቀጥላል።",
+      "stats": [
+        [
+          "146",
+          "ጎሎች"
+        ],
+        [
+          "234",
+          "ጨዋታዎች"
+        ]
+      ],
+      "note": "ሁለቱም ቁጥሮች በወንዶች ዓለም አቀፍ እግር ኳስ የዓለም ሪከርድ ናቸው።",
+      "sources": "ESPN · Forbes · Reuters",
+      "image": {
+        "file": "images/ronaldo.jpg",
+        "credit": "Photo: Ludovic Péron / Wikimedia Commons · CC BY-SA 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Argentine_-_Portugal_-_Cristiano_Ronaldo.jpg",
+        "position": "center 25%"
+      }
+    }
+  ]
+}
