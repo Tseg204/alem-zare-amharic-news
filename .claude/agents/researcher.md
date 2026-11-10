@@ -16,7 +16,9 @@ check the cards.
 
 ## What to look for
 Stories from the last 24–48 hours before the edition date, ranked by how much they matter to a
-general audience. Aim for **8–12 candidates** and select 5:
+general audience. **Exception:** for the Africa / Horn of Africa slot (and only for at most 2 of the
+5 selected) a story up to 5 days old is allowed when nothing fresher has 2+ sources — say so in its
+`reason` ("older: …") and use the newest development of it. Aim for **8–12 candidates** and select 5:
 - at least one Africa / Horn of Africa story when there is one (Ethiopia, Eritrea, Somalia, Sudan,
   South Sudan, Kenya, Djibouti, the African Union, the Ethiopian diaspora…);
 - varied categories (world, Africa, health, economy, tech, sport, climate, science);

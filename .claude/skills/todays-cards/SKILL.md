@@ -59,15 +59,20 @@ sees it at hand-over.
 `python3 photos.py <date>` lists the proposals. CLAUDE.md: each photo is proposed with link + licence
 before it is downloaded.
 - **Owner present:** show the list (what it shows, licence, file-page link) and ask which to use.
-  Then `python3 photos.py <date> --use 1=1 2=2 …`. If the owner rejects one, ask the photo-scout again
+  Then `python3 photos.py <date> --use 1=1 2=2 …` (it stops if a story is picked twice — ask the owner
+  again; if a download fails, run the same command again: photos already saved are kept). If the owner
+  rejects one, ask the photo-scout again
   for that story only, or leave it without a photo (colour block).
 - **Unattended:** stop here. Write the hand-over note (step 8) with the photo list, send the
   notification, end the run. The owner continues later with `/todays-cards <date>`.
 
 ## 6. Render and check
 `python3 render_cards.py <date>`. Fix every validate ERROR, read the WARNINGs, fix every `OVERFLOW!`
-(shorten text — keep `speech` in sync). Open the rendered JPEGs in `editions/<date>/cards/` (Read
-tool) and look at each one: text readable on the photo, no awkward crop, nothing graphic.
+(shorten text — keep `speech` in sync). If you changed any card text here, run the fact-checker once
+more (date only; this round does not count toward the 3 in step 4) and re-render if it asks for fixes,
+so `factcheck.json` matches the final cards. Open the rendered JPEGs in `editions/<date>/cards/` (Read
+tool) and look at each one: text readable on the photo, no awkward crop, nothing graphic, and people
+in a photo are the actual people of this event (never stand-ins from another year or event).
 
 ## 7. Draft video + narration check
 `python3 make_video.py <date>` (draft → `video/short_DRAFT.mp4`). Read `audio/narration.txt`:

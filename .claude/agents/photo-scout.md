@@ -26,7 +26,11 @@ story's photo full-bleed. You only **propose**; the owner approves before anythi
 For each story, look for 1–2 candidates. Good choices: the place (city, landmark, building where
 it happened), the institution (headquarters, logo-free building), an official portrait of a named
 person, or a fitting generic scene. A real photo of the actual event is best only if it is freely
-licensed. Prefer landscape or square images ≥ 1600 px wide, sharp, not dark, without
+licensed. **People shown must be the actual people of this event, at this event** (e.g. this
+year's winners at this year's race). Never use people from another year or another event as
+stand-ins (no runners from an older marathon, no crowd from a different protest). If no free photo
+of the real people exists, propose a related image without people as the subject: the venue, the
+landmark, the course, the institution's building. Prefer landscape or square images ≥ 1600 px wide, sharp, not dark, without
 watermarks or large text.
 Open each Commons **file page** (`https://commons.wikimedia.org/wiki/File:…`) and read the licence,
 author and size from the page itself — never guess a licence from a search snippet. Take the

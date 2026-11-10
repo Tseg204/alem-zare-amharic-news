@@ -7,8 +7,9 @@ Two sources go into editions/YYYY-MM-DD/run_log.json:
    draft saved, approve.
 2. "claude" — collected from Claude Code's own session records (~/.claude/projects/…/*.jsonl):
    tokens, web searches (queries) and pages fetched, subagents, and Claude Code's own cost estimate.
-   A session counts for an edition when it started that edition (render_cards.py --new DATE) or
-   wrote its stories.json / research.json / factcheck.json.
+   A session counts for an edition when it ran /todays-cards DATE, started that edition
+   (render_cards.py --new DATE) or wrote its stories.json / research.json / factcheck.json
+   (itself or through a subagent).
 
 Usage:
     python3 runlog.py               report for the latest edition (collects Claude usage first)
@@ -80,6 +81,8 @@ def _tool_uses(e):
 
 def _belongs(name, inp, date):
     """Does this tool call work on this edition?"""
+    if name == "Skill":                                  # /todays-cards DATE
+        return inp.get("skill") == "todays-cards" and date in str(inp.get("args") or "")
     if name == "Bash":
         return re.search(rf"render_cards\.py\s+--new\s+{date}\b", inp.get("command", "")) is not None
     if name in ("Write", "Edit"):
@@ -87,9 +90,34 @@ def _belongs(name, inp, date):
     return False
 
 
+# API list prices in US$ per million tokens (input, output, cache read). Cache writes cost
+# 1.25× input (5-minute cache) or 2× input (1-hour cache). Check the prices at
+# https://www.anthropic.com/pricing when they change. Unknown models → no estimate.
+PRICES = {
+    "claude-opus-5-5": (4.00, 20.00, 0.20),
+    "claude-sonnet-5-5": (2.00, 10.00, 0.10),
+    "claude-haiku-5-5": (0.10, 0.50, 0.01),
+    "claude-fable-5-2": (8.00, 40.00, 0.20),
+}
+
+
+def _price(model, u):
+    """Estimated US$ for one API message's usage, or None if the model's price is unknown."""
+    p = PRICES.get(re.sub(r"-\d{8}$", "", model or ""))
+    if p is None:
+        return None
+    inp, out, read = p
+    cc = u.get("cache_creation") or {}
+    w1h = cc.get("ephemeral_1h_input_tokens", 0)
+    w5m = cc.get("ephemeral_5m_input_tokens", u.get("cache_creation_input_tokens", 0) - w1h)
+    return (u.get("input_tokens", 0) * inp + u.get("output_tokens", 0) * out
+            + u.get("cache_read_input_tokens", 0) * read + w5m * inp * 1.25 + w1h * inp * 2) / 1e6
+
+
 def _usage(paths):
-    """Token totals and tool activity in some transcript files (each API message counted once)."""
+    """Token totals, cost estimate and tool activity in some transcript files (each API message counted once)."""
     seen, tok = set(), Counter()
+    cost, unpriced = 0.0, set()
     searches, fetches, agents, first, last = [], [], [], None, None
     for p in paths:
         for e in _entries(p):
@@ -104,6 +132,14 @@ def _usage(paths):
                 tok["output"] += u.get("output_tokens", 0)
                 tok["cache_read"] += u.get("cache_read_input_tokens", 0)
                 tok["cache_write"] += u.get("cache_creation_input_tokens", 0)
+                c = _price(m.get("model"), u)
+                if c is None:
+                    unpriced.add(m.get("model"))
+                else:
+                    cost += c
+                tok["cost_usd"] = round(cost, 4)
+                if unpriced:
+                    tok["unpriced_models"] = sorted(map(str, unpriced))
             for name, inp in _tool_uses(e):
                 if name == "WebSearch":
                     searches.append(inp.get("query"))
@@ -120,9 +156,10 @@ def collect_claude(edition):
         return None
     sessions = []
     for main in sorted(CLAUDE_DIR.glob("*.jsonl")):
-        if not any(_belongs(n, i, edition.name) for e in _entries(main) for n, i in _tool_uses(e)):
-            continue
         sub = sorted((CLAUDE_DIR / main.stem / "subagents").glob("*.jsonl"))
+        # The session itself or one of its subagents (who write the hand-off files) worked on the edition
+        if not any(_belongs(n, i, edition.name) for p in [main, *sub] for e in _entries(p) for n, i in _tool_uses(e)):
+            continue
         tok, searches, fetches, agents, first, last = _usage([main])
         stok, ssearch, sfetch, _, _, _ = _usage(sub)
         cost, by_model = None, None
@@ -133,11 +170,16 @@ def collect_claude(edition):
                                 "cache_read": u.get("cacheReadInputTokens", 0),
                                 "cache_write": u.get("cacheCreationInputTokens", 0)}
                             for m, u in (e.get("modelUsage") or {}).items()}
+        cost_source = "claude-code"
+        if cost is None and not (tok.get("unpriced_models") or stok.get("unpriced_models")):
+            # Desktop-app transcripts have no cost-state entry: estimate from tokens × list price
+            cost, cost_source = tok.get("cost_usd", 0) + stok.get("cost_usd", 0), "tokens × price list"
         sessions.append({
             "session": main.stem, "from": first, "to": last,
             "tokens": tok, "subagent_tokens": stok, "tokens_by_model": by_model,
             "web_searches": searches + ssearch, "pages_fetched": len(fetches) + len(sfetch),
             "subagents": agents, "cost_estimate_usd": round(cost, 2) if cost is not None else None,
+            "cost_source": cost_source if cost is not None else None,
         })
     return sessions
 
@@ -178,7 +220,13 @@ def report(edition):
         print(f"    web searches: {len(s['web_searches'])} · pages fetched: {s['pages_fetched']} · "
               f"subagents: {', '.join(s['subagents']) or 'none'}")
         if s["cost_estimate_usd"] is not None:
-            print(f"    Claude Code's cost estimate (whole session, at API prices): ${s['cost_estimate_usd']}")
+            if s.get("cost_source") == "tokens × price list":
+                print(f"    cost estimate (whole session incl. subagents, tokens × API list price): "
+                      f"${s['cost_estimate_usd']}")
+            else:
+                print(f"    Claude Code's cost estimate (whole session, at API prices): ${s['cost_estimate_usd']}")
+        else:
+            print("    cost estimate: none (a model has no price in PRICES in runlog.py)")
     print(f"  saved → {(edition / LOG).relative_to(ROOT)}")
 
 

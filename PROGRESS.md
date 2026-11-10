@@ -91,6 +91,26 @@ what recruiters look at.
       `reports/quality.md`, `eval.json`, `factcheck.json`, `run_log.json`.
       👤 Upload an approved `short.mp4` to YouTube (Shorts) and send Claude the link for the README.
 
+## Phase 10 — Fixes from the first real run (10 Nov 2026)
+
+The first real `/todays-cards` run worked end to end (34 claims, all verified after 3+1 fact-check rounds;
+7 cards; 127 s draft video). It found these problems:
+
+- [x] 10.1 `runlog.py` found no session: subagents write the hand-off files, the coordinator edits with Bash.
+      Now also matches `/todays-cards DATE` and looks inside the session's subagent transcripts.
+- [x] 10.2 `validate.py` gave 8 false "no longer on the card" warnings: the fact-checker writes stat claims as
+      "value — label". That form is now accepted.
+- [x] 10.3 Cost estimate is empty: desktop-app transcripts have no `cost-state` entry. Compute it from tokens × price list.
+- [x] 10.4 `photos.py`: Wikimedia HTTP 429 on the 4th download crashed the script and saved no `image` entries.
+      Retry with back-off, write each entry as soon as its file is saved, skip files already there.
+- [x] 10.5 `photos.py`: a duplicate pick (`4=1 4=2`) is silently accepted — make it an error.
+- [x] 10.6 `amharic-writer` doesn't check fit: 3 of 5 cards overflowed. Give it a length budget or a fit check.
+- [x] 10.7 SKILL.md: shortening text in step 6 happens after the last fact-check — re-run the checker once after it.
+- [x] 10.8 `fact-checker` not stable between rounds (passed claims later flagged): re-check all claims every round;
+      single-source facts → `unclear`.
+- [x] 10.9 `researcher` picked 2 stories older than 48 h — make the rule explicit (e.g. Horn story up to 5 days if nothing fresher).
+      Document that `story` = card number in research.json.
+
 ---
 
 ## Git cheat-sheet (everyday routine)
@@ -207,3 +227,15 @@ Never `git add` the `.env` file (`.gitignore` already blocks it).
   checks, licensing, text for the ear, measuring the AI), "How it was built", updated folder layout and daily usage.
   9.2 partly: Results section with metrics marked *pending* — no approved edition with a saved draft exists yet
   (`evaluate.py --summary` confirms). Next: fill it after the first real `/todays-cards` edition; owner uploads a video.
+- 10 Nov 2026 — First real `/todays-cards 2026-11-10` run (separate session, owner present): redid the hand-made
+  10 Nov edition through all stages, ~50 min incl. owner's photo pick. 57 web searches, 151 pages fetched, 7 subagent
+  runs; Azure 1,743 characters. Draft saved (`stories.draft.json`), not approved. 9 problems found → Phase 10;
+  10.1 + 10.2 fixed and checked (validate now 0 warnings; runlog finds the session). Next: owner reviews + approves
+  10 Nov → fill README Results (9.2); then Phase 10.3 onwards.
+- 10 Nov 2026 — Phase 10.3–10.9 done (in the 10 Nov edition session, at the owner's request): runlog.py estimates
+  cost from tokens × price list when there is no cost-state ($12.04 for that session — includes the fixing work);
+  photos.py retries on HTTP 429, saves each photo's entry at once, skips files already there, rejects a story
+  picked twice; amharic-writer has a length budget + render fit check; SKILL.md step 6 re-runs the fact-checker
+  after shortening; fact-checker re-checks everything each round, single-source = unclear; researcher may use
+  ≤ 5-day-old Horn stories (max 2). New owner rule (CLAUDE.md + photo-scout): people in a photo must be the
+  real people of this event, never stand-ins from another year — story 5 now uses the Panathenaic Stadium.

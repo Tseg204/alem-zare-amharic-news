@@ -362,7 +362,8 @@ def check_factcheck(edition, stories, r):
         # Was the card edited after the check? (compare without spaces/punctuation differences)
         s = stories[n - 1]
         card = " ".join([s.get("headline") or "", s.get("body") or "", s.get("note") or ""]
-                        + [x for st in s.get("stats") or [] if isinstance(st, list) for x in st])
+                        + [x for st in s.get("stats") or [] if isinstance(st, list) for x in st]
+                        + [" — ".join(map(str, st)) for st in s.get("stats") or [] if isinstance(st, list)])
         if is_text(c.get("text")) and c["text"].strip() not in card:
             r.warn(w, f"text {c['text']!r} is no longer on the card — re-check after editing")
     for i, s in enumerate(stories, 1):

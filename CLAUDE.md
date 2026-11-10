@@ -112,7 +112,10 @@ Stages and hand-off files are described in `docs/pipeline.md`; each stage reads 
   edition's `images/`; `source` = the Commons/licence page URL).
   Only freely licensed images: Wikimedia Commons CC0/CC BY/CC BY-SA (no NC), US-gov public
   domain, Unsplash/Pexels for generic scenes. Never agency/news-site photos or realistic AI
-  images of real events. Always fill `credit` (author · source · licence). Propose each photo
+  images of real events. Always fill `credit` (author · source · licence). People in a photo must be
+  the actual people at this event (e.g. this year's winners); never people from another year or event
+  as stand-ins — otherwise use a related image without people as the subject (venue, landmark,
+  building). Propose each photo
   (link + licence) to the owner before downloading; nothing graphic, no identifiable victims.
 - Video music: only royalty-free tracks (YouTube Audio Library, Pixabay Music) listed in
   `music/tracks.json` with source + licence (+ attribution text if required). Never commercial

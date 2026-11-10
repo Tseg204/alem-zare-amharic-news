@@ -24,7 +24,7 @@ neutral Amharic news style — not a word-for-word translation of English.
 - `category` — Amharic category line (e.g. ዓለም አቀፍ, አፍሪካ, ጤና, ኢኮኖሚ, ቴክኖሎጂ, ስፖርት, አየር ንብረት).
 - `color` — accent hex like `#4FA3FF`; one per category, not Ethiopian-flag green/yellow/red together.
 - `icon` — one generic emoji; **no flag emoji**.
-- `headline` — ≤ ~8 words, the news in one line.
+- `headline` — ≤ ~8 words, the news in one line (≤ ~35 characters keeps it to 2 lines on the card).
 - `body` — exactly 2 sentences: what happened + the key context/number.
 - `stats` — `[]` unless the story has a strong number; then 1–2 items `["number", "short label"]`.
 - `note` — 1 sentence of useful context. Start it with `ለምን ያገባናል?` only when there is a real,
@@ -33,6 +33,10 @@ neutral Amharic news style — not a word-for-word translation of English.
 - `speech` — `[headline, body]` rewritten for the ear: every number, date, % and acronym in Amharic
   words (የአፍሪካ ኅብረት, not AU; ሃያ አምስት በመቶ, not 25%), full sentences, attribution kept, close to the
   card text, no extra facts. No Latin letters, no digits, no symbols. The note is never narrated.
+**Fit budget.** All story cards have the same panel. As a rule of thumb (Ethiopic characters incl. spaces):
+headline ≤ ~35, note ≤ ~90, body ≤ ~140 when the story has stats, ≤ ~170 without. In the first real
+run 3 of 5 cards overflowed with 180–220-character bodies. Keep the facts that matter most; drop
+place details, secondary names and lists first.
 Top level: `date_gc`, `date_et` from etdate.py; `cover_title` (e.g. የዕለቱ 5 ዋና ዋና የዓለም ዜናዎች);
 `cover_speech` = [`"ዓለም ዛሬ። " + date_et_spoken + "።"`, cover title in words]; `lead` = the story
 number whose photo is likely strongest and not graphic (default 1).
@@ -51,5 +55,9 @@ number whose photo is likely strongest and not graphic (default 1).
 Run `python3 validate.py <date>`. Fix every ERROR in stories.json. Ignore warnings about missing
 photos and missing factcheck.json (later stages). Read the other warnings and fix what is yours
 (long headline, body not 2 sentences, Latin letters in speech).
+Then check the fit: run `python3 render_cards.py <date>` (cards without photos have the same panel
+size, so the fit is the same). For every card marked `OVERFLOW!`, shorten that story (cut details,
+add nothing) and update its `speech` to match; repeat until no card overflows.
 Reply with: the 5 headlines, which story is the lead, and any fact from research.json you left out
-on purpose. Do not run render_cards.py, make_video.py, evaluate.py or approve.py.
+on purpose, and anything you cut to make a card fit. Do not run make_video.py, evaluate.py or approve.py
+(render_cards.py only as the fit check above).

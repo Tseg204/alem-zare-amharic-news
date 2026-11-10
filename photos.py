@@ -11,8 +11,11 @@ is downloaded until the owner has looked at them. Then:
     python3 photos.py 2026-11-11 --use all=1     option 1 for every story that has one
 
 Only https links on upload.wikimedia.org, images.unsplash.com and images.pexels.com are downloaded.
+A photo whose file is already in images/ is not downloaded again; each story's "image" is saved as soon
+as its photo is in place. On "too many requests" (HTTP 429) it waits and retries; if a photo still
+fails, run the same command again later. A story picked twice (e.g. 4=1 4=2) is an error.
 """
-import io, json, sys, urllib.request
+import io, json, sys, time, urllib.error, urllib.request
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -24,6 +27,8 @@ ALLOWED_HOSTS = {"upload.wikimedia.org", "images.unsplash.com", "images.pexels.c
 MAX_SIDE = 2400
 # Wikimedia asks automated clients for a descriptive User-Agent (no personal details here).
 UA = "AlemZareCards/1.0 (Amharic news cards; photo download after manual approval)"
+TRIES = 5                      # attempts per photo when the server says "too many requests"
+PAUSE = 2                      # seconds between downloads, to stay under Wikimedia's rate limit
 
 
 def load(ed):
@@ -44,8 +49,19 @@ def download(url, dest):
     if u.scheme != "https" or u.hostname not in ALLOWED_HOSTS:
         sys.exit(f"refusing to download from {url} (allowed: {', '.join(sorted(ALLOWED_HOSTS))})")
     req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        data = r.read()
+    for attempt in range(1, TRIES + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                data = r.read()
+            break
+        except urllib.error.HTTPError as e:
+            # 429 = "too many requests" (Wikimedia rate limit), 5xx = server trouble: wait and try again
+            if (e.code != 429 and e.code < 500) or attempt == TRIES:
+                raise
+            wait = e.headers.get("Retry-After")
+            wait = int(wait) if wait and wait.isdigit() else 5 * 2 ** (attempt - 1)
+            print(f"   HTTP {e.code} — waiting {wait} s, then trying again ({attempt}/{TRIES - 1})")
+            time.sleep(min(wait, 120))
     im = Image.open(io.BytesIO(data))
     im = im.convert("RGB")
     im.thumbnail((MAX_SIDE, MAX_SIDE), Image.LANCZOS)
@@ -71,14 +87,28 @@ def use(ed, picks):
         if u.scheme != "https" or u.hostname not in ALLOWED_HOSTS:
             sys.exit(f"story {s}: refusing to download from {p['download']} "
                      f"(allowed: {', '.join(sorted(ALLOWED_HOSTS))})")
-    for s, n in sorted(picks.items()):
+    failed = []
+    for k, (s, n) in enumerate(sorted(picks.items())):
         p = props[s][n - 1]
         dest = ed / p["file"]
-        size = download(p["download"], dest)
+        if dest.exists():                       # already downloaded (e.g. an earlier run that stopped)
+            size, note = Image.open(dest).size, " (already there)"
+        else:
+            if k:
+                time.sleep(PAUSE)
+            try:
+                size, note = download(p["download"], dest), ""
+            except (urllib.error.URLError, OSError) as e:
+                print(f"story {s}: download FAILED ({e}) — run the same command again later")
+                failed.append(s)
+                continue
         d["stories"][s - 1]["image"] = {"file": p["file"], "credit": p["credit"],
                                         "source": p["page"], "position": p.get("position", "center")}
-        print(f"story {s}: {p['file']} {size[0]}×{size[1]} — {p['credit']}")
-    path.write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        # save after every photo, so a later failure doesn't lose the ones already done
+        path.write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(f"story {s}: {p['file']} {size[0]}×{size[1]}{note} — {p['credit']}")
+    if failed:
+        sys.exit(f"{len(failed)} photo(s) not downloaded: stories {', '.join(map(str, failed))}")
 
 
 def main(args):
@@ -90,9 +120,17 @@ def main(args):
     if "--use" not in args:
         return show(ed)
     picks = {}
-    for a in args[args.index("--use") + 1:]:
+    for a in " ".join(args[args.index("--use") + 1:]).replace(",", " ").split():
         k, _, v = a.partition("=")
-        picks[k if k == "all" else int(k)] = int(v or 1)
+        try:
+            key, val = (k if k == "all" else int(k)), int(v or 1)
+        except ValueError:
+            sys.exit(f"can't read the pick {a!r} — write story=option, e.g. 1=1 2=2")
+        if key in picks:
+            sys.exit(f"story {key} is picked twice ({key}={picks[key]} and {a}) — check the story numbers")
+        picks[key] = val
+    if not picks:
+        sys.exit("no picks after --use — e.g. --use 1=1 2=2 3=1")
     use(ed, picks)
 
 

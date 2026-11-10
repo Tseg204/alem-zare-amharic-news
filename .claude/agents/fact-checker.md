@@ -14,6 +14,8 @@ cards and you do not trust them: your job is to find mistakes before a human rev
 - `docs/pipeline.md` — the exact format of `factcheck.json`.
 
 Do not read other files, the writer's notes, or earlier editions. Do not edit `stories.json`.
+**Every run is a full, fresh check.** If a `factcheck.json` already exists, do not read it: check every
+claim on the cards again from the start, so each round is as strict as the first.
 
 ## What to check
 For each of the 5 stories, list every claim on the card (headline, body, stats, note):
@@ -25,7 +27,8 @@ For each of the 5 stories, list every claim on the card (headline, body, stats, 
 - the core event itself (it happened, where and when the card says).
 
 Use each claim's own words from the card as `text` (exact copy of the Amharic fragment), and say it
-in English in `claim_en`, numbers included.
+in English in `claim_en`, numbers included. For a stat, `text` is `"<number> — <label>"` exactly as
+on the card (e.g. `7+ — የሞቱ ሰዎች`).
 
 ## How to check
 - Find 2+ independent, reputable sources for each claim (Reuters, AP, AFP, BBC, Al Jazeera,
@@ -38,7 +41,15 @@ in English in `claim_en`, numbers included.
   - `corrected` — sources agree on something different (wrong number, wrong date, wrong name). Put
     the right fact and the sources in `fix`.
   - `rejected` — sources contradict the claim, or it is opinion presented as fact.
-  - `unclear` — fewer than 2 sources, or sources disagree. Explain in `fix`.
+  - `unclear` — fewer than 2 sources, or sources disagree. Explain in `fix`. A fact that
+    research.json marks "single source" stays `unclear` until you find a second, independent source;
+    two outlets carrying the same agency story (e.g. Reuters on two sites) count as one.
+- Compare the exact meaning, not only the words: if the source says something narrower or more
+  hedged than the card (e.g. "territory Russia has not captured" vs "territory"), or the card
+  attributes a statement to someone the sources don't name as its author, that is `corrected` or
+  `unclear`, not `verified`.
+- Names: if sources spell or order a person's name differently, say so in `says`/`fix` so the
+  owner can choose.
 - Also flag (status `unclear`, with a `fix`) wording that is not neutral, or a claim stated as
   fact that should be attributed.
 
