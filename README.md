@@ -11,17 +11,21 @@ the rules and produce the media; **a human editor approves every edition before 
 
 Fast, reliable world news in Amharic is scarce, especially in short, visual formats for
 mobile. This project uses AI agents to do the research, fact-checking and drafting, so a
-single native-speaker editor can publish a verified daily edition in minutes instead of hours —
+single native-speaker editor can publish a verified weekly edition in minutes instead of hours —
 without giving up editorial control.
+
+It started as a daily edition; after the first real run showed what each edition costs in tokens
+(~$8–9 at API prices, half of it fact-checking), it became a weekly edition with cheaper research and
+photo agents, targeted fact-check re-runs and a reusable photo library.
 
 ## Architecture
 
 ```mermaid
 flowchart TB
-    T([Scheduled morning run<br/>or /todays-cards]) --> O
+    T([Scheduled weekly run<br/>or /todays-cards]) --> O
 
     subgraph Agents["AI agents (Claude Code subagents) — judgment"]
-        R[researcher<br/>web search, last 24–48 h]
+        R[researcher<br/>web search, past 7 days]
         W[amharic-writer<br/>cards + spoken script]
         F[fact-checker<br/>independent, sees only the files]
         P[photo-scout<br/>free licences only]
@@ -71,7 +75,7 @@ Formats: [`docs/pipeline.md`](docs/pipeline.md).
 
 The whole run is one command, the Claude Code skill
 [`/todays-cards`](.claude/skills/todays-cards/SKILL.md). It resumes at the first missing stage, so a
-half-finished day can be picked up in a new session. A scheduled morning run does stages 1–4 and stops
+half-finished edition can be picked up in a new session. A scheduled Sunday-morning run does stages 1–4 and stops
 at the photo gate with a notification; it never downloads, approves, posts or pushes.
 
 ## Design decisions
@@ -170,7 +174,7 @@ Code: MIT (see [`LICENSE`](LICENSE)). Photos keep their own licences (see each e
 ```
 amharic-news/
 ├── .claude/
-│   ├── skills/todays-cards/  the daily workflow as one command
+│   ├── skills/todays-cards/  the weekly workflow as one command
 │   └── agents/               researcher, amharic-writer, fact-checker, photo-scout
 ├── validate.py          checks a day's files against the rules (runs before every render)
 ├── render_cards.py      makes the cards (+ runs share.py)

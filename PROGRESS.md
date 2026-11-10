@@ -111,6 +111,19 @@ The first real `/todays-cards` run worked end to end (34 claims, all verified af
 - [x] 10.9 `researcher` picked 2 stories older than 48 h — make the rule explicit (e.g. Horn story up to 5 days if nothing fresher).
       Document that `story` = card number in research.json.
 
+## Phase 11 — Weekly edition (save tokens), 10 Nov 2026
+
+The owner switched from daily to weekly editions (one edition ≈ $8–9 at API prices; half was fact-checking).
+- [x] 11.1 `"cadence": "weekly"` in stories.json → cover chip/label, follow card and narration say weekly;
+      old editions stay daily. validate.py warns about leftover daily wording in a weekly edition.
+- [x] 11.2 researcher: past 7 days, 6–8 candidates, runs on Sonnet. Writer sets the weekly tagline/cover title.
+- [x] 11.3 fact-checker: later rounds keep still-verified claims and re-check only changed/open ones.
+- [x] 11.4 Photo library `photo_library.json` (filled by `photos.py --use`, seeded with 10 Nov's picks);
+      photo-scout proposes library photos first and runs on Sonnet; photos.py copies a library photo from an
+      earlier edition instead of downloading it.
+- [x] 11.5 Scheduled task → "ዓለም ዛሬ weekly draft", Sundays 06:30. SKILL.md, CLAUDE.md, README updated.
+- [ ] 11.6 First weekly run: compare its run_log cost with 10 Nov's (~$8–9 per edition).
+
 ---
 
 ## Git cheat-sheet (everyday routine)

@@ -14,7 +14,13 @@ Only https links on upload.wikimedia.org, images.unsplash.com and images.pexels.
 A photo whose file is already in images/ is not downloaded again; each story's "image" is saved as soon
 as its photo is in place. On "too many requests" (HTTP 429) it waits and retries; if a photo still
 fails, run the same command again later. A story picked twice (e.g. 4=1 4=2) is an error.
+
+Photo library (photo_library.json): every photo the owner picks is remembered there (licence already
+checked), so the photo-scout can propose it again for a story at the same place instead of searching
+the web. A library photo that is already in another edition's images/ is copied, not downloaded.
+    python3 photos.py --library                  list the library
 """
+import shutil
 import io, json, sys, time, urllib.error, urllib.request
 from pathlib import Path
 from urllib.parse import urlparse
@@ -27,6 +33,7 @@ ALLOWED_HOSTS = {"upload.wikimedia.org", "images.unsplash.com", "images.pexels.c
 MAX_SIDE = 2400
 # Wikimedia asks automated clients for a descriptive User-Agent (no personal details here).
 UA = "AlemZareCards/1.0 (Amharic news cards; photo download after manual approval)"
+LIBRARY = ROOT / "photo_library.json"
 TRIES = 5                      # attempts per photo when the server says "too many requests"
 PAUSE = 2                      # seconds between downloads, to stay under Wikimedia's rate limit
 
@@ -70,6 +77,47 @@ def download(url, dest):
     return im.size
 
 
+def load_library():
+    if LIBRARY.exists():
+        return json.loads(LIBRARY.read_text(encoding="utf-8"))
+    return {"note": "Photos the owner picked before (licence checked). Written by photos.py --use.",
+            "photos": []}
+
+
+def remember(p, ed, story_title):
+    """Add a picked photo to the library (or note one more use)."""
+    lib = load_library()
+    for e in lib["photos"]:
+        if e["page"] == p["page"]:
+            if ed.name not in e["used"]:
+                e["used"].append(ed.name)
+            break
+    else:
+        lib["photos"].append({k: p[k] for k in ("page", "download", "author", "licence", "credit")}
+                             | {"file": Path(p["file"]).name, "size": p.get("size", ""),
+                                "position": p.get("position", "center"), "shows": p.get("why", ""),
+                                "first_story": story_title, "used": [ed.name]})
+    LIBRARY.write_text(json.dumps(lib, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def show_library():
+    lib = load_library()["photos"]
+    if not lib:
+        print("photo library is empty (it fills up as photos are picked with --use)")
+    for n, e in enumerate(lib, 1):
+        print(f"{n:2}. {e['shows']}\n    {e['licence']} · {e['author']} · used {', '.join(e['used'])}\n    {e['page']}")
+
+
+def copy_from_other_edition(name, dest):
+    """A library photo already saved by an earlier edition: copy it instead of downloading again."""
+    for f in sorted(EDITIONS.glob(f"*/images/{name}"), reverse=True):
+        if f != dest:
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(f, dest)
+            return f
+    return None
+
+
 def use(ed, picks):
     props = {st["story"]: st.get("proposals", []) for st in load(ed)["stories"]}
     if "all" in picks:
@@ -93,6 +141,8 @@ def use(ed, picks):
         dest = ed / p["file"]
         if dest.exists():                       # already downloaded (e.g. an earlier run that stopped)
             size, note = Image.open(dest).size, " (already there)"
+        elif (src := copy_from_other_edition(dest.name, dest)):
+            size, note = Image.open(dest).size, f" (copied from {src.parent.parent.name})"
         else:
             if k:
                 time.sleep(PAUSE)
@@ -106,6 +156,7 @@ def use(ed, picks):
                                         "source": p["page"], "position": p.get("position", "center")}
         # save after every photo, so a later failure doesn't lose the ones already done
         path.write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        remember(p, ed, d["stories"][s - 1].get("headline", ""))
         print(f"story {s}: {p['file']} {size[0]}×{size[1]}{note} — {p['credit']}")
     if failed:
         sys.exit(f"{len(failed)} photo(s) not downloaded: stories {', '.join(map(str, failed))}")
@@ -114,6 +165,8 @@ def use(ed, picks):
 def main(args):
     if not args:
         sys.exit(__doc__)
+    if args[0] == "--library":
+        return show_library()
     ed = EDITIONS / args[0]
     if not (ed / "photos.json").exists():
         sys.exit(f"no photos.json in {ed} — run the photo-scout subagent first")

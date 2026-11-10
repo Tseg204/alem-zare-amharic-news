@@ -19,7 +19,10 @@ VOICES = {"mekdes": "am-ET-MekdesNeural", "ameha": "am-ET-AmehaNeural"}
 DEFAULT_VOICE = "ameha"
 SENTENCE_PAUSE_MS = 450    # pause after each sentence
 HEADLINE_PAUSE_MS = 900    # gap between headline/title and what follows
-FOLLOW_TEXT ="ለዕለታዊ የዓለም ዜና {brand}ን ይከተሉ። ዜናውን ያጋሩ፣ አስተያየትዎንም ይስጡን።"
+FOLLOW_TEXT = {   # by stories.json "cadence" (old editions: daily)
+    "daily": "ለዕለታዊ የዓለም ዜና {brand}ን ይከተሉ። ዜናውን ያጋሩ፣ አስተያየትዎንም ይስጡን።",
+    "weekly": "ለሳምንታዊ የዓለም ዜና {brand}ን ይከተሉ። ዜናውን ያጋሩ፣ አስተያየትዎንም ይስጡን።",
+}
 
 
 def load_env():
@@ -79,7 +82,7 @@ def scripts(d, card_names):
         if kind == "cover":
             parts = d.get("cover_speech") or [f"{d['brand']}። {d['date_et']}።", f"{d.get('cover_title', '')}።"]
         elif kind == "follow":
-            parts = [FOLLOW_TEXT.format(brand=d["brand"])]
+            parts = [FOLLOW_TEXT.get(d.get("cadence", "daily"), FOLLOW_TEXT["daily"]).format(brand=d["brand"])]
         else:
             s = next(stories)
             # "speech" = [headline, body] written for the ear (numbers/acronyms in words);

@@ -1,0 +1,80 @@
+{
+  "note": "Photos the owner picked before (licence checked). Written by photos.py --use.",
+  "photos": [
+    {
+      "page": "https://commons.wikimedia.org/wiki/File:Skyline_of_Abu_Dhabi_at_sunset.jpg",
+      "download": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Skyline_of_Abu_Dhabi_at_sunset.jpg",
+      "author": "Robert Haandrikman",
+      "licence": "CC BY 2.0",
+      "credit": "Photo: Robert Haandrikman / Wikimedia Commons · CC BY 2.0",
+      "file": "abu-dhabi-skyline-sunset.jpg",
+      "size": "6720×3270",
+      "position": "center 45%",
+      "shows": "Abu Dhabi skyline at sunset (2016, long exposure), the city hosting the talks; Flickr licence review passed",
+      "first_story": "የዩክሬን–ሩሲያ ድርድር በአቡ ዳቢ ተጀመረ",
+      "used": [
+        "2026-11-10"
+      ]
+    },
+    {
+      "page": "https://commons.wikimedia.org/wiki/File:Sunset_on_the_rising_city,_Addis_Ababa_-_Flickr_-_jeanotr.jpg",
+      "download": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Sunset_on_the_rising_city%2C_Addis_Ababa_-_Flickr_-_jeanotr.jpg",
+      "author": "Jean Rebiffé",
+      "licence": "CC BY 2.0",
+      "credit": "Photo: Jean Rebiffé / Wikimedia Commons · CC BY 2.0",
+      "file": "addis-ababa-skyline.jpg",
+      "size": "3936×2214",
+      "position": "center 50%",
+      "shows": "Addis Ababa at sunset with new buildings and tower cranes (2015): a growing economy; Flickr review confirmed CC BY 2.0",
+      "first_story": "የኢትዮጵያ ኢኮኖሚ በአዲስ ስሌት 201 ቢሊዮን ዶላር ደረሰ",
+      "used": [
+        "2026-11-10"
+      ]
+    },
+    {
+      "page": "https://commons.wikimedia.org/wiki/File:Sudan_Envoy_-_IDP_camp.jpg",
+      "download": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Sudan_Envoy_-_IDP_camp.jpg",
+      "author": "Sudan Envoy",
+      "licence": "CC BY 2.0",
+      "credit": "Photo: Sudan Envoy / Wikimedia Commons · CC BY 2.0",
+      "file": "geneina-idp-camp.jpg",
+      "size": "1024×680",
+      "position": "center 50%",
+      "shows": "A path through an IDP camp in El Geneina, West Darfur (2009, US Special Envoy to Sudan); Flickr review passed. Only 1024 px wide: fallback",
+      "first_story": "በሱዳን 15.4 ሚሊዮን ሰዎች መጠለያ እንደሚያስፈልጋቸው ተመድ አስታወቀ",
+      "used": [
+        "2026-11-10"
+      ]
+    },
+    {
+      "page": "https://commons.wikimedia.org/wiki/File:Egypt_ENR_EMD_G22W_AC.JPG",
+      "download": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Egypt_ENR_EMD_G22W_AC.JPG",
+      "author": "Ad Meskens",
+      "licence": "CC BY-SA 3.0",
+      "credit": "Photo: Ad Meskens / Wikimedia Commons · CC BY-SA 3.0",
+      "file": "egypt-train-nile.jpg",
+      "size": "2560×2062",
+      "position": "center 50%",
+      "shows": "Egyptian National Railways passenger train on the Cairo–Aswan line beside the Nile (2011): the line where the crash happened, no wreckage shown",
+      "first_story": "በካይሮ አቅራቢያ በባቡር ግጭት ቢያንስ 7 ሰዎች ሞቱ",
+      "used": [
+        "2026-11-10"
+      ]
+    },
+    {
+      "page": "https://commons.wikimedia.org/wiki/File:The_Panathenaic_Stadium_on_April_22,_2021.jpg",
+      "download": "https://upload.wikimedia.org/wikipedia/commons/a/ad/The_Panathenaic_Stadium_on_April_22%2C_2021.jpg",
+      "author": "George E. Koronaios",
+      "licence": "CC BY-SA 4.0",
+      "credit": "Photo: George E. Koronaios / Wikimedia Commons · CC BY-SA 4.0",
+      "file": "panathenaic-stadium.jpg",
+      "size": "6000×4000",
+      "position": "center 45%",
+      "shows": "The marble Panathenaic Stadium in Athens, where the Athens Marathon finishes; no runners, sharp and bright, strong for the cover (lead story)",
+      "first_story": "ኢትዮጵያውያን የአቴንስ ማራቶንን በክብረ ወሰን አሸነፉ",
+      "used": [
+        "2026-11-10"
+      ]
+    }
+  ]
+}

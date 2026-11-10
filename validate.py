@@ -77,6 +77,15 @@ def check_structure(d, edition, r):
     for f in ["brand", "tagline", "date_et", "date_gc", "cover_title"]:
         if f in d and not is_text(d[f]):
             r.error("top", f"'{f}' must be non-empty text")
+    cadence = d.get("cadence", "daily")
+    if cadence not in ("daily", "weekly"):
+        r.error("top.cadence", "must be 'daily' or 'weekly'")
+    elif cadence == "weekly":   # wording left over from the daily editions
+        for f in ("tagline", "cover_title"):
+            if is_text(d.get(f)) and any(w in d[f] for w in ("ዕለታዊ", "የዕለቱ")):
+                r.warn(f"top.{f}", f"says daily (ዕለታዊ/የዕለቱ) but cadence is weekly: {d[f]!r}")
+        if any(w in " ".join(map(str, d.get("cover_speech") or [])) for w in ("ዕለታዊ", "የዕለቱ")):
+            r.warn("top.cover_speech", "says daily (ዕለታዊ/የዕለቱ) but cadence is weekly")
     if "cta_lines" in d and not (isinstance(d["cta_lines"], list) and all(is_text(c) for c in d["cta_lines"])):
         r.error("top", "'cta_lines' must be a list of text lines")
 

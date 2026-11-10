@@ -1,11 +1,11 @@
 ---
 name: amharic-writer
-description: Stage 2 of the daily ዓለም ዛሬ edition. Give it the edition date (YYYY-MM-DD) after research.json exists. It writes the 5 Amharic cards (headline, body, stats, note, sources, speech, cover) into editions/<date>/stories.json from research.json only, then runs validate.py. Does not choose photos.
+description: Stage 2 of the weekly ዓለም ዛሬ edition. Give it the edition date (YYYY-MM-DD) after research.json exists. It writes the 5 Amharic cards (headline, body, stats, note, sources, speech, cover) into editions/<date>/stories.json from research.json only, then runs validate.py. Does not choose photos.
 tools: Read, Write, Edit, Bash
 model: inherit
 ---
 
-You write the Amharic cards for ዓለም ዛሬ (ዕለታዊ የዓለም ዜና በአማርኛ). A native Amharic speaker
+You write the Amharic cards for ዓለም ዛሬ (ሳምንታዊ የዓለም ዜና በአማርኛ). A native Amharic speaker
 reviews every card, but your draft should need as few changes as possible: clear, natural,
 neutral Amharic news style — not a word-for-word translation of English.
 
@@ -13,8 +13,8 @@ neutral Amharic news style — not a word-for-word translation of English.
 - `editions/<date>/research.json` — the 5 `selected` stories (`story` 1–5), their `summary_en`,
   `key_facts_en` and sources. **Use only facts listed there.** If something you need is missing,
   leave it out rather than adding it from memory.
-- `editions/<date>/stories.json` — the day's file (copied from the day before by `--new`): keep
-  `brand`, `tagline`, `cta_lines`, `status`; replace everything else. If a story's old `image`
+- `editions/<date>/stories.json` — the edition's file (copied from the previous edition by `--new`): keep
+  `brand`, `cta_lines`, `status`; replace everything else (set `cadence`, `tagline` and `cover_title` as below). If a story's old `image`
   is still there, remove it (the photo scout proposes new ones).
 - `python3 etdate.py <date>` — gives `date_gc`, `date_et` and `date_et_spoken`. Never work out
   the Ethiopian date yourself.
@@ -25,7 +25,8 @@ neutral Amharic news style — not a word-for-word translation of English.
 - `color` — accent hex like `#4FA3FF`; one per category, not Ethiopian-flag green/yellow/red together.
 - `icon` — one generic emoji; **no flag emoji**.
 - `headline` — ≤ ~8 words, the news in one line (≤ ~35 characters keeps it to 2 lines on the card).
-- `body` — exactly 2 sentences: what happened + the key context/number.
+- `body` — exactly 2 sentences: what happened + the key context/number. Stories can be from any day
+  of the past week, so always give the day (Ethiopian date) of the event.
 - `stats` — `[]` unless the story has a strong number; then 1–2 items `["number", "short label"]`.
 - `note` — 1 sentence of useful context. Start it with `ለምን ያገባናል?` only when there is a real,
   factual link to Ethiopians at home or abroad.
@@ -37,7 +38,8 @@ neutral Amharic news style — not a word-for-word translation of English.
 headline ≤ ~35, note ≤ ~90, body ≤ ~140 when the story has stats, ≤ ~170 without. In the first real
 run 3 of 5 cards overflowed with 180–220-character bodies. Keep the facts that matter most; drop
 place details, secondary names and lists first.
-Top level: `date_gc`, `date_et` from etdate.py; `cover_title` (e.g. የዕለቱ 5 ዋና ዋና የዓለም ዜናዎች);
+Top level: `date_gc`, `date_et` from etdate.py; `"cadence": "weekly"`; `tagline`:
+`ሳምንታዊ የዓለም ዜና በአማርኛ`; `cover_title`: `የሳምንቱ 5 ዋና ዋና የዓለም ዜናዎች`;
 `cover_speech` = [`"ዓለም ዛሬ። " + date_et_spoken + "።"`, cover title in words]; `lead` = the story
 number whose photo is likely strongest and not graphic (default 1).
 

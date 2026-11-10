@@ -1,14 +1,17 @@
 ---
 name: todays-cards
-description: Make the day's ዓለም ዛሬ edition — research, Amharic cards, fact-check, photo proposals, render, draft video, hand-over for human review. Use when the owner asks for "today's cards", a new edition, or to continue a half-finished day. Arguments - optional date YYYY-MM-DD (default today) and --unattended for the scheduled morning run.
+description: Make the weekly ዓለም ዛሬ edition (the 5 biggest stories of the past 7 days) — research, Amharic cards, fact-check, photo proposals, render, draft video, hand-over for human review. Use when the owner asks for "today's cards", a new edition, or to continue a half-finished edition. Arguments - optional date YYYY-MM-DD (default today) and --unattended for the scheduled weekly run.
 argument-hint: "[YYYY-MM-DD] [--unattended]"
 ---
 
-# /todays-cards — the daily edition
+# /todays-cards — the weekly edition
+
+One edition per week (default: Sunday), covering the 7 days up to its date. The name
+`/todays-cards` stayed so existing commands and the schedule keep working.
 
 Arguments: `$ARGUMENTS`
 - Date: the `YYYY-MM-DD` in the arguments, else today's local date (`date +%F`).
-- `--unattended`: started by the morning schedule, nobody is watching. Never ask questions; stop at
+- `--unattended`: started by the weekly schedule, nobody is watching. Never ask questions; stop at
   the photo gate (step 5) and notify. Without it, the owner is here: show results and wait where marked.
 
 You are the **coordinator**. The heavy work happens in subagents that get **only the date** as their
@@ -32,8 +35,8 @@ Look in `editions/<date>/` and start at the first step whose output is missing o
 Tell the owner in one line where you are resuming.
 
 ## 1. Start the edition
-`python3 render_cards.py --new <date>` (copies yesterday's file as a draft; the date check in
-validate.py will fail until step 3 — that's expected). Never overwrite an existing day.
+`python3 render_cards.py --new <date>` (copies the previous edition's file as a draft; the date check in
+validate.py will fail until step 3 — that's expected). Never overwrite an existing edition.
 
 ## 2. Research — subagent `researcher`
 Agent tool, `subagent_type: "researcher"`, prompt: just the date. It writes `research.json`.
@@ -52,7 +55,8 @@ Start both in **one message** (they only read stories.json/research.json):
 Then apply every `corrected` / `rejected` / `unclear` fix to stories.json yourself: change the card
 text **and** its `speech`, keep the meaning neutral, never add facts the sources don't give. Run
 the fact-checker again (date only) until every claim is `verified` (max 3 rounds; if a claim still
-can't be verified, drop that detail from the card). Keep a list of what had to be fixed — the owner
+can't be verified, drop that detail from the card). Later rounds are cheap: the checker keeps claims
+that are still verified and word-for-word on the card, and re-checks only the rest. Keep a list of what had to be fixed — the owner
 sees it at hand-over.
 
 ## 5. Photo gate (owner decides)

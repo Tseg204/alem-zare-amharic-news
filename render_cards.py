@@ -164,16 +164,28 @@ def cover(d, total, edition):
         inside = img_tag(s, f) if f else s['icon']
         thumbs += f"<div class='th'>{inside}<b>{i + 2:02d}</b></div>"
     month, day, year = et_date_parts(d)
+    ct = cadence_text(d)
     inner = f"""{bg}<div class="shade"></div>
-{top(d, '<div class="chip">DAILY · AMHARIC</div>')}
+{top(d, f'<div class="chip">{ct["chip"]}</div>')}
 <div class="bottom">
   <div class="date"><span class="d">{esc(day)}</span><span class="m amh bold">{esc(month)}</span>
     <span class="y amh">{esc(year)}<br>{esc(d['date_gc'])}</span></div>
-  <div class="lab amh"><i></i>የዕለቱ ዋና ዜና</div>
+  <div class="lab amh"><i></i>{ct['lead']}</div>
   <div class="lead-hl amh xbold">{esc(L['headline'])}</div>
   <div class="thumbs">{thumbs}<div class="more amh"><b>+{len(d['stories']) - 1}</b>ዜናዎች<br>ያንሸራትቱ →</div></div>
 </div>"""
     return page(inner, "cover")
+
+
+# Wording that depends on how often editions come out: stories.json "cadence" (old editions: daily)
+CADENCE_TEXT = {
+    "daily":  {"chip": "DAILY · AMHARIC",  "lead": "የዕለቱ ዋና ዜና",   "kick": "FOLLOW FOR DAILY NEWS"},
+    "weekly": {"chip": "WEEKLY · AMHARIC", "lead": "የሳምንቱ ዋና ዜና", "kick": "FOLLOW FOR WEEKLY NEWS"},
+}
+
+
+def cadence_text(d):
+    return CADENCE_TEXT.get(d.get("cadence", "daily"), CADENCE_TEXT["daily"])
 
 
 def keep_ranges(t):
@@ -221,10 +233,11 @@ def follow(d, total, edition):
     lf = image_path(L, edition)
     bg = img_tag(L, lf, "blur") if lf else ""
     chips = "".join(f"<span class='amh'>{esc(c)}</span>" for c in d['cta_lines'])
+    ct = cadence_text(d)
     inner = f"""{bg}
-{top(d, '<div class="chip">DAILY · AMHARIC</div>')}
+{top(d, f'<div class="chip">{ct["chip"]}</div>')}
 <div class="inner">
-  <div class="kick">FOLLOW FOR DAILY NEWS</div>
+  <div class="kick">{ct['kick']}</div>
   <div class="big amh xbold">{esc(d['brand'])}</div>
   <div class="tagline amh">{esc(d['tagline'])}</div>
   <div class="ctas">{chips}</div>

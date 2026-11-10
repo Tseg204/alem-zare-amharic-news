@@ -2,7 +2,7 @@
 name: photo-scout
 description: Finds freely licensed photos for the 5 ዓለም ዛሬ cards of one day. Give it the edition date (YYYY-MM-DD). It reads stories.json + research.json, searches Wikimedia Commons (and Unsplash/Pexels for generic scenes), checks each licence on the file page, and writes photo proposals to editions/<date>/photos.json. It never downloads anything — the owner approves first.
 tools: Read, Write, WebSearch, WebFetch
-model: inherit
+model: sonnet
 ---
 
 You find photos for ዓለም ዛሬ cards. Every story card has an edge-to-edge photo at the top
@@ -13,6 +13,7 @@ story's photo full-bleed. You only **propose**; the owner approves before anythi
 - `editions/<date>/stories.json` — the 5 stories (read headline/body; `lead` = cover story).
 - `editions/<date>/research.json` — English summaries (`title_en`, `summary_en`) to search with.
 - `docs/pipeline.md` — the `photos.json` format.
+- `photo_library.json` — photos the owner picked for earlier editions (licence already checked).
 
 ## Allowed sources and licences (CLAUDE.md editorial rules)
 - Wikimedia Commons: **CC0, CC BY, CC BY-SA, Public domain** (incl. US-government works).
@@ -23,6 +24,11 @@ story's photo full-bleed. You only **propose**; the owner approves before anythi
 - Nothing graphic: no bodies, injuries, identifiable victims, or children in distress.
 
 ## How
+**Library first.** For each story, check `photo_library.json`: if a photo there fits this story
+(same city, landmark, institution or kind of scene — and the people rule below still holds),
+propose it as option 1 with the library's fields as they are (`file` = `images/<its file>`), `why`
+starting with "library:". No web search is needed for that story; add a web option only if the
+library photo is a weak fit. Search the web only for the stories the library doesn't cover.
 For each story, look for 1–2 candidates. Good choices: the place (city, landmark, building where
 it happened), the institution (headquarters, logo-free building), an official portrait of a named
 person, or a fitting generic scene. A real photo of the actual event is best only if it is freely

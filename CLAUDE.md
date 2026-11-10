@@ -1,6 +1,9 @@
 # ዓለም ዛሬ — Amharic world-news cards
 
-Project: produce daily global-news carousels in Amharic for Instagram / TikTok.
+Project: produce a **weekly** global-news carousel in Amharic for Instagram / TikTok (the 5 biggest
+stories of the past 7 days; usually on Sunday). Until 10 Nov 2026 editions were daily; the owner switched
+to weekly to save tokens. `"cadence": "weekly"` in stories.json makes the cover, follow card and narration
+say weekly (ሳምንታዊ / የሳምንቱ); old editions without it stay daily.
 The owner is a native Amharic speaker who reviews every card and posts manually.
 
 ## Ongoing upgrade — read PROGRESS.md
@@ -9,7 +12,7 @@ When the owner says "continue", read it, resume at the first unchecked step, tic
 session-log line as steps finish. The owner is new to Git: explain each command in plain words.
 
 ## How it works
-- `editions/YYYY-MM-DD/` — one folder per day (Gregorian date). Never overwrite a past day.
+- `editions/YYYY-MM-DD/` — one folder per edition (Gregorian date). Never overwrite a past edition.
   - `stories.json` — brand, dates (Ethiopian + Gregorian), 5 stories (category, accent color,
     emoji icon, headline, body, 0–2 stats, note, sources, optional image,
     `speech` = [headline, body] rewritten for the ear: numbers/acronyms in words, full sentences,
@@ -52,9 +55,13 @@ session-log line as steps finish. The owner is new to Git: explain each command 
   `cover_speech`. Never work out the Ethiopian date by hand; validate.py checks `date_et` against it.
 - `photos.py` — `photos.json` (photo-scout proposals) → `python3 photos.py DATE` lists them;
   after the owner picks, `--use 1=1 2=2 …` downloads (Commons/Unsplash/Pexels only, ≤ 2400 px) and fills `image`.
-- `.claude/skills/todays-cards/` — the `/todays-cards [DATE] [--unattended]` skill: the whole daily workflow
+  Every picked photo is remembered in `photo_library.json` (`python3 photos.py --library`); the photo-scout
+  proposes library photos first, so repeat places need no new search.
+- `.claude/skills/todays-cards/` — the `/todays-cards [DATE] [--unattended]` skill: the whole weekly workflow
   below, resumable at any stage. `.claude/agents/` — subagents `researcher`, `amharic-writer`, `fact-checker`,
   `photo-scout`; each gets only the date as its prompt.
+  Token saving: researcher and photo-scout run on Sonnet (`model: sonnet` in their agent file); the writer and
+  fact-checker inherit the session's model. Later fact-check rounds re-check only changed or open claims.
 - `card.css` — the card style. Change the look here, not in Python.
 - `docs/` — style options and mock-ups the owner chose from (reference only).
 
@@ -72,12 +79,12 @@ Run:
   Narration reads: brand + date + cover_title, then headline + body of each story, then a
   "follow us" line (`FOLLOW_TEXT` in narrate.py).
 
-## Daily workflow (what Claude should do when asked for "today's cards")
+## Weekly workflow (what Claude should do when asked for "today's cards" / this week's edition)
 Run the `/todays-cards` skill — it carries out the steps below with the subagents (researcher → amharic-writer →
 fact-checker + photo-scout in parallel → photo gate → render → video → hand-over).
 Stages and hand-off files are described in `docs/pipeline.md`; each stage reads the previous file.
 1. Research: start the edition with `--new`, search the web for the most important world stories of the
-   last 24–48h and write `research.json` (more candidates than needed, each with 2+ source links from
+   past 7 days and write `research.json` (more candidates than needed, each with 2+ source links from
    different websites; mark 5 `selected` with their card number and a reason). Include at least one
    Africa/Horn of Africa story when there is one; vary categories (world, Africa, health, economy, tech, sport).
 2. Verify the facts you use against 2+ reputable sources (Reuters, AP, BBC, Al Jazeera, Africanews…)
