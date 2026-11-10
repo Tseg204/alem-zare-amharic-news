@@ -141,7 +141,7 @@ Sample video: *link coming (YouTube Shorts)*.
 <p>
   <img src="showcase/01_cover.jpg" width="24%" alt="Cover card">
   <img src="showcase/02_story.jpg" width="24%" alt="Story card">
-  <img src="showcase/04_story.jpg" width="24%" alt="Story card">
+  <img src="showcase/03_story.jpg" width="24%" alt="Story card">
   <img src="showcase/07_follow.jpg" width="24%" alt="Follow card">
 </p>
 
