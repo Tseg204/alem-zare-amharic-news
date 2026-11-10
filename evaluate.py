@@ -118,6 +118,8 @@ def snapshot(edition, force=False):
         print(f"{target.relative_to(ROOT)} already exists — the first draft is kept as it was.")
         return
     shutil.copy(edition / "stories.json", target)
+    from runlog import log
+    log(edition, "draft saved")
     print(f"Saved the AI draft → {target.relative_to(ROOT)} (compare after approval: python3 evaluate.py {edition.name})")
 
 

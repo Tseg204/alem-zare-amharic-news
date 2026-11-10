@@ -117,8 +117,12 @@ def tts(text, voice, out_mp3, env):
     try:
         with urllib.request.urlopen(req, timeout=60) as r:
             out_mp3.write_bytes(r.read())
+        return len(ssml)          # characters sent to Azure (what the voice service counts)
     except urllib.error.HTTPError as e:
         raise SystemExit(f"Azure text-to-speech failed ({e.code} {e.reason}) — check .env key/region")
+
+
+STATS = {"new_clips": 0, "cached_clips": 0, "chars_sent": 0}   # read by make_video.py for the run log
 
 
 def narrate(edition, d, card_names, voice):
@@ -137,7 +141,10 @@ def narrate(edition, d, card_names, voice):
         if not mp3.exists():
             for old in adir.glob(f"{name}_{voice}_*.mp3"):
                 old.unlink()
-            tts(text, voice, mp3, env)
+            STATS["chars_sent"] += tts(text, voice, mp3, env)
+            STATS["new_clips"] += 1
+        else:
+            STATS["cached_clips"] += 1
         clips.append(mp3)
     (adir / "narration.txt").write_text(
         f"Voice: {VOICES[voice]}\n\n" + "\n\n".join(f"[{n}]\n{t}" for n, t in zip(card_names, texts)) + "\n",

@@ -87,6 +87,8 @@ def approve(edition):
     d["approved_at"] = datetime.now().strftime("%Y-%m-%d %H:%M")
     d["approved_hash"] = fingerprint(edition, d)
     save(edition, d)
+    from runlog import log
+    log(edition, "approve", fingerprint=d["approved_hash"])
     print(f"Approved {edition.name}.")
     from evaluate import evaluate          # how much was changed vs the AI draft (Phase 5)
     if evaluate(edition, quiet=True):
@@ -97,6 +99,8 @@ def approve(edition):
 def revoke(edition):
     d = json.loads((edition / "stories.json").read_text(encoding="utf-8"))
     save(edition, set_draft(d))
+    from runlog import log
+    log(edition, "revoke")
     print(f"{edition.name} is a draft again.")
 
 

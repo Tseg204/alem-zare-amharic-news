@@ -15,7 +15,7 @@ Usage:
                                             stories.json as a starting point)
 Every render first runs validate.py (the project's rules) and stops if it finds errors.
 """
-import json, re, sys, html, os, shutil, tempfile, colorsys
+import json, re, sys, html, os, shutil, tempfile, colorsys, time
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 from validate import validate   # rule checks (validate.py) run before every render
@@ -311,8 +311,11 @@ def render_layers(pg, name, tmp, layers):
 
 
 def render(edition):
+    from runlog import log
+    t0 = time.time()
     report = validate(edition)
     report.print(edition.name)
+    log(edition, "validate", errors=report.errors, warnings=len(report.warnings))
     if report.errors:
         sys.exit("Fix the errors above, then render again.")
     d = json.loads((edition / "stories.json").read_text(encoding='utf-8'))
@@ -332,7 +335,7 @@ def render(edition):
         pages.append((f"{i:02d}_story", story(d, s, i, total, edition)))
     pages.append((f"{total:02d}_follow", follow(d, total, edition)))
 
-    problems = 0
+    problems, overflow = 0, []
     with sync_playwright() as p, tempfile.TemporaryDirectory() as tmp:
         chrome = os.environ.get("CHROME_PATH")
         if chrome:
@@ -352,6 +355,8 @@ def render(edition):
                 .some(e => e.getBoundingClientRect().bottom > {H} - 20)
               || [...document.querySelectorAll('.sheet')].some(e => e.scrollHeight > e.clientHeight + 1)""")
             problems += over
+            if over:
+                overflow.append(name)
             if Image is not None:
                 shot = Path(tmp) / f"{name}.png"
                 pg.screenshot(path=str(shot))
@@ -369,6 +374,7 @@ def render(edition):
     print(f"\n{len(pages)} cards → {cards.relative_to(ROOT)}/   credits → {(edition / 'credits.md').relative_to(ROOT)}")
     if problems:
         print(f"{problems} card(s) overflow — fix before posting.")
+    log(edition, "render", seconds=round(time.time() - t0, 1), cards=len(pages), overflow=overflow)
 
 
 def main(args):

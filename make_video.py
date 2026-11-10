@@ -28,7 +28,7 @@ Needs ffmpeg: comes with the imageio-ffmpeg package (pip install -r requirements
 Set FFMPEG=/path/to/ffmpeg to use a different one.
 Render the cards first (python3 render_cards.py).
 """
-import math, json, os, re, shutil, subprocess, sys, tempfile
+import math, json, os, re, shutil, subprocess, sys, tempfile, time
 from datetime import date
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
@@ -36,6 +36,7 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 from render_cards import ROOT, EDITIONS, latest_edition
 import narrate
 from approve import approval_state
+from runlog import log
 
 MUSIC = ROOT / "music"
 VW, VH = 1080, 1920          # video frame
@@ -137,6 +138,7 @@ def draft_banner(out_png):
 
 
 def make_video(edition, silent=False, voice=None, no_voice=False, out_name="short.mp4"):
+    started = time.time()
     d = json.loads((edition / "stories.json").read_text(encoding="utf-8"))
     state = approval_state(edition, d)
     draft = state != "approved"
@@ -291,6 +293,10 @@ def make_video(edition, silent=False, voice=None, no_voice=False, out_name="shor
         subprocess.run(args, check=True)
 
     write_credits(edition, info, voice)
+    log(edition, "video", seconds=round(time.time() - started, 1), file=out.name, draft=draft,
+        length_s=round(total, 1), voice=voice or "none", music=(info or {}).get("title", "none"),
+        tts_new_clips=narrate.STATS["new_clips"], tts_cached_clips=narrate.STATS["cached_clips"],
+        tts_chars_sent=narrate.STATS["chars_sent"])
     print(f"video → {out}" + ("   (DRAFT — do not post)" if draft else ""))
     if info:
         print(f"music: {info.get('title')} — {info.get('artist')} ({info.get('licence')})")

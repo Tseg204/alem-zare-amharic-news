@@ -24,6 +24,8 @@ session-log line as steps finish. The owner is new to Git: explain each command 
   - `factcheck.json` — stage 3 hand-off: every number/name/date/attribution on the cards → 2+ sources →
     verified / corrected / rejected / unclear. Written by the `fact-checker` subagent.
   - `stories.draft.json` — the AI's finished draft, saved at hand-over before the owner edits (never overwritten).
+  - `run_log.json` — run log: script events (validate, render, video incl. Azure voice characters, draft saved,
+    approve) + the Claude Code sessions that made the edition (tokens, web searches, subagents, cost estimate).
   - `eval.json` — draft vs approved: what the owner changed (written by approve.py via `evaluate.py`).
 - `render_cards.py` — renders an edition via HTML → headless Chrome (Playwright).
   Warns `OVERFLOW!` if text doesn't fit a card.
@@ -38,6 +40,9 @@ session-log line as steps finish. The owner is new to Git: explain each command 
   approve.py and never edits `status` / `approved_*` by hand** — approval is the owner's act.
 - `evaluate.py` — measures draft quality. `--snapshot DATE` saves the draft; `evaluate.py DATE` compares
   draft vs approved (runs automatically on approval); `--summary` writes the weekly table `reports/quality.md`.
+- `runlog.py` — `python3 runlog.py [YYYY-MM-DD]` collects Claude Code usage for the edition (sessions that ran
+  `render_cards.py --new DATE` or wrote its stories/research/factcheck JSON) into `run_log.json` and prints it.
+  Scripts log their own events automatically. Do each day's edition in its own session so usage is attributed cleanly.
 - `card.css` — the card style. Change the look here, not in Python.
 - `docs/` — style options and mock-ups the owner chose from (reference only).
 
@@ -76,7 +81,8 @@ Stages and hand-off files are described in `docs/pipeline.md`; each stage reads 
    and read `audio/narration.txt` for anything the voice would read badly (abbreviations,
    symbols, Latin-letter names — spell those in Amharic in the headline/body if needed).
 6. Save the draft: `python3 evaluate.py --snapshot YYYY-MM-DD` (after all fact-check fixes, before the owner
-   edits anything — this is what draft quality is measured against). Then hand over for human review (the draft video is `video/short_DRAFT.mp4`). Never present AI text as final
+   edits anything — this is what draft quality is measured against) and `python3 runlog.py YYYY-MM-DD`
+   (show the owner time, searches and cost). Then hand over for human review (the draft video is `video/short_DRAFT.mp4`). Never present AI text as final
    without review. Tell the owner: after checking, run `python3 approve.py YYYY-MM-DD`, then
    `python3 make_video.py YYYY-MM-DD` to make the final `short.mp4` for posting.
 

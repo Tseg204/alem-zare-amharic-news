@@ -67,11 +67,11 @@ what recruiters look at.
 - [x] 5.2 Script comparing draft vs approved → % of headlines/bodies changed, kinds of fixes.
 - [x] 5.3 Weekly summary table (great for the portfolio).
 
-## Phase 6 — Run log (observability) ← *next*
+## Phase 6 — Run log (observability) ✅ done
 
-- [ ] 6.1 `run_log.json` per edition: searches, sources, validation failures, time, cost (tokens + Azure TTS).
+- [x] 6.1 `run_log.json` per edition: searches, sources, validation failures, time, cost (tokens + Azure TTS).
 
-## Phase 7 — Packaging & automation
+## Phase 7 — Packaging & automation ← *next*
 
 - [ ] 7.1 Claude Code skill `/todays-cards` for the daily workflow.
 - [ ] 7.2 Subagents: researcher, fact-checker, Amharic writer, photo scout.
@@ -105,6 +105,7 @@ Run these in Terminal from the project folder (`cd ~/Documents/Claude/amharic-ne
 
 After reviewing a day: `python3 approve.py YYYY-MM-DD` (type yes), then `python3 make_video.py YYYY-MM-DD`.
 Weekly quality table: `python3 evaluate.py --summary` → `reports/quality.md`.
+What a day took and cost: `python3 runlog.py YYYY-MM-DD` → `run_log.json`.
 Before rendering, `python3 validate.py` checks the day's `stories.json` (also runs automatically).
 
 Good commit messages: start with a verb, say *what* changed — "Add validate.py for editorial rules",
@@ -164,3 +165,10 @@ Never `git add` the `.env` file (`.gitignore` already blocks it).
   rewording / rewrite / story replaced). `--summary` → `reports/quality.md`, weekly + per-day table of approved days.
   Tested on copies with 4 planted edits (all labelled right; unapproved day left out). No real data yet: 9 + 10 Nov
   have no saved draft; measuring starts with the next edition. Next: Phase 6, step 6.1.
+- 10 Nov 2026 — Phase 6 done: `runlog.py` + `run_log.json` per edition. Scripts log events automatically (validate
+  errors/warnings, render time + overflowing cards, video time / draft or final / length / voice / music / Azure
+  characters sent + new vs re-used clips, draft saved, approve/revoke). `python3 runlog.py DATE` adds the Claude Code
+  sessions that made the edition, read from Claude Code's own session records: tokens per model, web-search queries,
+  pages fetched, subagents, and Claude Code's cost estimate (at API prices — not what a subscription pays). Checked
+  against a real session: 19 searches matched exactly. 9 + 10 Nov were made before this, so no session is linked to
+  them; tracking starts with the next edition (one session per day keeps the numbers clean). Next: Phase 7, step 7.1.

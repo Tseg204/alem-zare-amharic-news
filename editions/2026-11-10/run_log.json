@@ -1,0 +1,22 @@
+{
+  "edition": "2026-11-10",
+  "events": [
+    {
+      "time": "2026-11-10 16:12:00",
+      "stage": "validate",
+      "errors": [],
+      "warnings": 2
+    },
+    {
+      "time": "2026-11-10 16:12:16",
+      "stage": "render",
+      "seconds": 15.8,
+      "cards": 7,
+      "overflow": []
+    }
+  ],
+  "claude": {
+    "collected_at": "2026-11-10 16:16",
+    "sessions": []
+  }
+}
