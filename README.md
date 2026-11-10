@@ -5,7 +5,7 @@ A multi-agent workflow (Claude Code) that turns the day's most important world n
 Specialised AI agents research, write, fact-check and find photos; deterministic scripts check
 the rules and produce the media; **a human editor approves every edition before it is published.**
 
-![One day's edition: cover, five story cards and follow card](showcase/edition_2026-11-10.jpg)
+![One day's edition: cover, five story cards and follow card](showcase/edition_2026-11-10_pipeline.jpg)
 
 ## Why
 
@@ -139,10 +139,10 @@ The weekly table lives in [`reports/quality.md`](reports/quality.md) once the fi
 Sample video: *link coming (YouTube Shorts)*.
 
 <p>
-  <img src="showcase/01_cover.jpg" width="24%" alt="Cover card">
-  <img src="showcase/02_story.jpg" width="24%" alt="Story card">
-  <img src="showcase/03_story.jpg" width="24%" alt="Story card">
-  <img src="showcase/07_follow.jpg" width="24%" alt="Follow card">
+  <img src="showcase/2026-11-10_01_cover.jpg" width="24%" alt="Cover card">
+  <img src="showcase/2026-11-10_02_story.jpg" width="24%" alt="Story card">
+  <img src="showcase/2026-11-10_03_story.jpg" width="24%" alt="Story card">
+  <img src="showcase/2026-11-10_07_follow.jpg" width="24%" alt="Follow card">
 </p>
 
 ## Tech stack
