@@ -82,10 +82,14 @@ what recruiters look at.
 - [x] 8.1 `digest.md` per day — longer summaries + links, for reading yourself.
 - [x] 8.2 `captions.txt` per day — ready-to-paste caption, hashtags, credits per platform.
 
-## Phase 9 — Portfolio ← *next*
+## Phase 9 — Portfolio ← *next: 9.2 once the first full-pipeline edition is approved*
 
-- [~] 9.1 README: architecture diagram, design decisions (why human review, why separate checker…).
+- [x] 9.1 README: architecture diagram, design decisions (why human review, why separate checker…).
 - [~] 9.2 Quality numbers from Phase 5 + a sample video / screenshots.
+      Done: screenshots, Results section with the metrics table (values *pending*).
+      To do: after the first edition made with `/todays-cards` is approved, fill the table from
+      `reports/quality.md`, `eval.json`, `factcheck.json`, `run_log.json`.
+      👤 Upload an approved `short.mp4` to YouTube (Shorts) and send Claude the link for the README.
 
 ---
 
@@ -197,3 +201,9 @@ Never `git add` the `.env` file (`.gitignore` already blocks it).
   5 hashtags from the categories, character count vs each platform limit; DRAFT warning until approved, reminder to
   switch on the AI label). Runs automatically after every render (both files) and every video (captions, music).
   Tested on 10 Nov (no research.json → Amharic + outlets only) and a temp copy with research + factcheck. Next: Phase 9.
+- 10 Nov 2026 — 9.1 done: README rewritten as the portfolio front page — architecture diagram (agents, hand-off
+  files, scripts, the two human gates, measurement), stage table linking each agent/script, 8 design decisions
+  (LLM decides/scripts execute, approval enforced in code, independent fact-checker, hand-off files, guardrails as
+  checks, licensing, text for the ear, measuring the AI), "How it was built", updated folder layout and daily usage.
+  9.2 partly: Results section with metrics marked *pending* — no approved edition with a saved draft exists yet
+  (`evaluate.py --summary` confirms). Next: fill it after the first real `/todays-cards` edition; owner uploads a video.
