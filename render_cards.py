@@ -13,10 +13,12 @@ Usage:
     python3 render_cards.py --new 2026-11-11
                                             start a new edition (copies the latest
                                             stories.json as a starting point)
+Every render first runs validate.py (the project's rules) and stops if it finds errors.
 """
 import json, re, sys, html, os, shutil, tempfile, colorsys
 from pathlib import Path
 from playwright.sync_api import sync_playwright
+from validate import validate   # rule checks (validate.py) run before every render
 
 try:
     from PIL import Image          # used to pick each photo's main colour for the card frame
@@ -307,6 +309,10 @@ def render_layers(pg, name, tmp, layers):
 
 
 def render(edition):
+    report = validate(edition)
+    report.print(edition.name)
+    if report.errors:
+        sys.exit("Fix the errors above, then render again.")
     d = json.loads((edition / "stories.json").read_text(encoding='utf-8'))
     if Image is None:
         print("  NOTE: Pillow not installed (pip install -r requirements.txt) — card frames use the story colour.")

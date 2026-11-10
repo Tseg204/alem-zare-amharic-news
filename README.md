@@ -29,6 +29,7 @@ flowchart LR
 | Stage | Who does it | How |
 |---|---|---|
 | Research, verification, Amharic writing, photo search | AI agent (Claude Code) | Follows the operating rules in [`CLAUDE.md`](CLAUDE.md) |
+| Rule checks | Deterministic script | [`validate.py`](validate.py) — structure, no direct quotes, no flag emoji, photo licences (no NC/ND), nothing unspeakable in the narration text; blocks the render on errors |
 | Card rendering | Deterministic script | [`render_cards.py`](render_cards.py) — HTML/CSS → headless Chrome (Playwright), overflow detection |
 | Narration | Deterministic script | [`narrate.py`](narrate.py) — Azure neural TTS with a separate, ear-friendly script per story |
 | Video | Deterministic script | [`make_video.py`](make_video.py) — photo-only zoom on layered cards, crossfades, music bed |
@@ -57,7 +58,7 @@ Azure AI Speech (neural TTS) · ffmpeg
 ## Roadmap
 
 Work in progress, tracked step by step in [`PROGRESS.md`](PROGRESS.md):
-validation of editorial rules in code, a separate fact-checker agent with saved evidence,
+a separate fact-checker agent with saved evidence,
 an approval gate, quality measurement (AI draft vs approved text), run logs, and a
 scheduled morning draft.
 
@@ -74,6 +75,7 @@ Code: MIT (see [`LICENSE`](LICENSE)). Photos keep their own licences (see each e
 ```
 amharic-news/
 ├── render_cards.py      makes the cards
+├── validate.py          checks stories.json against the rules (runs before every render)
 ├── make_video.py        makes the vertical video (Shorts / Reels / TikTok) from the cards
 ├── narrate.py           Amharic AI narration for the video (Azure voice; key in .env)
 ├── .env                 your Azure key — private, never share (copy .env.example)
@@ -106,7 +108,8 @@ from fonts.google.com. Without them, the Mac's built-in Amharic font "Kefa" is u
    or just ask Claude Code: "make today's cards".
 2. Edit `editions/2026-11-11/stories.json`; put photos in its `images/` folder.
 3. Render: `python3 render_cards.py` (latest edition) or `python3 render_cards.py 2026-11-11`.
-   It prints `OVERFLOW!` if any card's text is too long.
+   It first runs `validate.py` (stops on rule errors), then prints `OVERFLOW!` if any card's text is too long.
+   Check without rendering: `python3 validate.py 2026-11-11`.
 4. Review `editions/2026-11-11/cards/`, then post.
 5. Video for YouTube Shorts / Instagram Reels / TikTok: `python3 make_video.py`
    (or `python3 make_video.py 2026-11-11`) → `editions/2026-11-11/video/short.mp4`

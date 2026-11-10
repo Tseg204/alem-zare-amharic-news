@@ -41,15 +41,15 @@ what recruiters look at.
 - [x] 1.10 Learn the daily routine: `git status` → `git add` → `git commit` → `git push`
        (Claude will do it with you a few times; cheat-sheet goes here when done).
 
-## Phase 2 — Rules checked by code (`validate.py`) ← *next*
+## Phase 2 — Rules checked by code (`validate.py`) ✅ done
 
-- [ ] 2.1 Check `stories.json` structure (5 stories, required fields, 0–2 stats).
-- [ ] 2.2 Editorial rules: no «…» / quotation marks, headline ≤ ~8 words, no flag emoji.
-- [ ] 2.3 Photo rules: credit + source URL present, licence in the allowed list (no NC).
-- [ ] 2.4 Narration rules: no Latin letters or digits left in `speech`.
-- [ ] 2.5 Run it automatically at the start of `render_cards.py`.
+- [x] 2.1 Check `stories.json` structure (5 stories, required fields, 0–2 stats).
+- [x] 2.2 Editorial rules: no «…» / quotation marks, headline ≤ ~8 words, no flag emoji.
+- [x] 2.3 Photo rules: credit + source URL present, licence in the allowed list (no NC).
+- [x] 2.4 Narration rules: no Latin letters or digits left in `speech`.
+- [x] 2.5 Run it automatically at the start of `render_cards.py`.
 
-## Phase 3 — Clear pipeline stages with saved hand-offs
+## Phase 3 — Clear pipeline stages with saved hand-offs ← *next*
 
 - [ ] 3.1 `research.json` — candidate stories + source links (research step output).
 - [ ] 3.2 `factcheck.json` — each claim (number/name/date) → 2+ sources → verified / rejected.
@@ -103,6 +103,8 @@ Run these in Terminal from the project folder (`cd ~/Documents/Claude/amharic-ne
 | History | `git log --oneline` | Lists snapshots, newest first (press `q` to exit). |
 | Undo a pick | `git restore --staged FILE` | Takes a file back out of the next snapshot (keeps your edits). |
 
+Before rendering, `python3 validate.py` checks the day's `stories.json` (also runs automatically).
+
 Good commit messages: start with a verb, say *what* changed — "Add validate.py for editorial rules",
 "Fix overflow on story cards". One topic per commit.
 Never `git add` the `.env` file (`.gitignore` already blocks it).
@@ -133,3 +135,9 @@ Never `git add` the `.env` file (`.gitignore` already blocks it).
   Next: step 1.10 — practise the daily save routine (status → add → commit → push).
 - 10 Nov 2026 — Owner ran status/add/commit/push themselves (cheat-sheet commit). Phase 1 complete.
   Next session: Phase 2, step 2.1.
+- 10 Nov 2026 — Phase 2 done: `validate.py` checks structure (+ date_gc = folder date, stories not still
+  copied from yesterday), editorial rules (no quotation marks, no flag emoji, headline ≤ 8 words and 2-sentence
+  body as warnings), photos (file exists, https source, licence CC0/CC BY/CC BY-SA/PD/Unsplash/Pexels, no NC/ND —
+  ND added because we crop + tone-adjust), narration (no Latin letters/digits/symbols in `speech`).
+  `render_cards.py` runs it first and stops on errors. Tested: 10 Nov passes; 9 Nov passes with 6 warnings
+  (made before `speech` existed); a broken test copy triggered all 12 planted errors. Next: Phase 3, step 3.1.

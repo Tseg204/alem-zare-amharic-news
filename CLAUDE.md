@@ -22,6 +22,10 @@ session-log line as steps finish. The owner is new to Git: explain each command 
   - `credits.md` — news sources + photo credits/links. Generated.
 - `render_cards.py` — renders an edition via HTML → headless Chrome (Playwright).
   Warns `OVERFLOW!` if text doesn't fit a card.
+- `validate.py` — checks `stories.json` against the rules below (structure, 0–2 stats, no quotation marks,
+  no flag emoji, headline length, photo credit/source/licence — no NC/ND, no Latin letters/digits/symbols in
+  `speech`, date_gc = folder date, stories not still copied from yesterday). Runs at the start of every
+  render; ERRORs stop it, WARNINGs don't. Run alone: `python3 validate.py [YYYY-MM-DD]`.
 - `card.css` — the card style. Change the look here, not in Python.
 - `docs/` — style options and mock-ups the owner chose from (reference only).
 
@@ -50,7 +54,7 @@ Run:
    Optional "ለምን ያገባናል?" note linking the story to Ethiopians at home/abroad.
    Use Ethiopian calendar dates in Amharic text.
 4. Start the edition with `--new`, rewrite its `stories.json` (date_et / date_gc too),
-   propose photos (step below), render, fix any OVERFLOW, look at the PNGs, then make the video
+   propose photos (step below), render (fix any validate.py ERRORs, read its WARNINGs), fix any OVERFLOW, look at the PNGs, then make the video
    and read `audio/narration.txt` for anything the voice would read badly (abbreviations,
    symbols, Latin-letter names — spell those in Amharic in the headline/body if needed).
 5. Hand over for human review. Never present AI text as final without review.
