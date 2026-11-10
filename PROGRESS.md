@@ -77,12 +77,12 @@ what recruiters look at.
 - [x] 7.2 Subagents: researcher, fact-checker, Amharic writer, photo scout.
 - [x] 7.3 Morning scheduled run that prepares a *draft* and notifies the owner (never auto-posts).
 
-## Phase 8 — Personal use & sharing extras ← *next*
+## Phase 8 — Personal use & sharing extras ✅ done
 
-- [ ] 8.1 `digest.md` per day — longer summaries + links, for reading yourself.
-- [ ] 8.2 `captions.txt` per day — ready-to-paste caption, hashtags, credits per platform.
+- [x] 8.1 `digest.md` per day — longer summaries + links, for reading yourself.
+- [x] 8.2 `captions.txt` per day — ready-to-paste caption, hashtags, credits per platform.
 
-## Phase 9 — Portfolio
+## Phase 9 — Portfolio ← *next*
 
 - [~] 9.1 README: architecture diagram, design decisions (why human review, why separate checker…).
 - [~] 9.2 Quality numbers from Phase 5 + a sample video / screenshots.
@@ -104,6 +104,7 @@ Run these in Terminal from the project folder (`cd ~/Documents/Claude/amharic-ne
 | Undo a pick | `git restore --staged FILE` | Takes a file back out of the next snapshot (keeps your edits). |
 
 After reviewing a day: `python3 approve.py YYYY-MM-DD` (type yes), then `python3 make_video.py YYYY-MM-DD`.
+Captions to paste: `editions/DATE/captions.txt` · reading version: `digest.md` (`python3 share.py DATE` remakes both).
 Weekly quality table: `python3 evaluate.py --summary` → `reports/quality.md`.
 What a day took and cost: `python3 runlog.py YYYY-MM-DD` → `run_log.json`.
 Before rendering, `python3 validate.py` checks the day's `stories.json` (also runs automatically).
@@ -189,3 +190,10 @@ Never `git add` the `.env` file (`.gitignore` already blocks it).
   Owner then opens a new session: `/todays-cards DATE` → pick photos → render → video → review → approve.py.
   Watch the first real run (tomorrow): runlog may not find the scheduled session if it runs outside the project folder.
   Next: Phase 8, step 8.1.
+- 10 Nov 2026 — Phase 8 done: `share.py` builds two files per edition only from existing checked data (no new AI text):
+  `digest.md` (Amharic card text + English summary, key facts, fact-checked claims with source links, read-more links,
+  stories left out and why) and `captions.txt` (YouTube title ≤ 100, Instagram, TikTok, YouTube description:
+  numbered headlines, outlets, photo credits — with Commons links on YouTube —, music credit, AI-disclosure line,
+  5 hashtags from the categories, character count vs each platform limit; DRAFT warning until approved, reminder to
+  switch on the AI label). Runs automatically after every render (both files) and every video (captions, music).
+  Tested on 10 Nov (no research.json → Amharic + outlets only) and a temp copy with research + factcheck. Next: Phase 9.

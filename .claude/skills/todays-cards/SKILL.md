@@ -85,6 +85,8 @@ Tell the owner, short and in this order:
    `video/short_DRAFT.mp4`, edit stories.json if needed, then
    `python3 approve.py <date>` → `python3 make_video.py <date>` → post manually, with the platform's
    AI-generated label switched on.
+   Captions to paste are in `editions/<date>/captions.txt` (remade by make_video after approval);
+   `digest.md` is the longer reading version with links.
 Never present the text as final.
 
 **Unattended runs:** end with the `PushNotification` tool (if available), one line under 200

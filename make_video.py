@@ -293,6 +293,8 @@ def make_video(edition, silent=False, voice=None, no_voice=False, out_name="shor
         subprocess.run(args, check=True)
 
     write_credits(edition, info, voice)
+    import share
+    share.write_captions(edition)     # refresh captions.txt (music credit, approval state)
     log(edition, "video", seconds=round(time.time() - started, 1), file=out.name, draft=draft,
         length_s=round(total, 1), voice=voice or "none", music=(info or {}).get("title", "none"),
         tts_new_clips=narrate.STATS["new_clips"], tts_cached_clips=narrate.STATS["cached_clips"],

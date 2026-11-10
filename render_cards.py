@@ -371,7 +371,10 @@ def render(edition):
         b.close()
     (layers / "layers.json").write_text(json.dumps(boxes, indent=2), encoding="utf-8")
     write_credits(d, edition)
-    print(f"\n{len(pages)} cards → {cards.relative_to(ROOT)}/   credits → {(edition / 'credits.md').relative_to(ROOT)}")
+    import share
+    share.write_all(edition)          # digest.md + captions.txt (Phase 8)
+    print(f"\n{len(pages)} cards → {cards.relative_to(ROOT)}/   credits → {(edition / 'credits.md').relative_to(ROOT)}"
+          f"   + digest.md, captions.txt")
     if problems:
         print(f"{problems} card(s) overflow — fix before posting.")
     log(edition, "render", seconds=round(time.time() - t0, 1), cards=len(pages), overflow=overflow)
