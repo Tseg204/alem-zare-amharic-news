@@ -30,9 +30,14 @@ what recruiters look at.
       (for privacy you can later use GitHub's "noreply" email instead — see 1.8).
 - [x] 1.5 Turn the folder into a Git repository (`git init`) and check that `.env` is ignored.
 - [x] 1.6 First commit (the first saved snapshot).
-- [ ] 1.7 👤 Create a free account on github.com (skip if you have one).
-- [ ] 1.8 👤 Create an empty repository on GitHub (name e.g. `alem-zare-amharic-news`, Public or Private).
-- [ ] 1.9 Connect the folder to GitHub and upload ("push"). Install GitHub CLI (`gh`) and log in.
+- [x] 1.7 👤 GitHub account (owner already has one).
+- [ ] 1.8 👤 Install GitHub CLI (`gh`, the GitHub command-line tool) from https://cli.github.com (macOS installer),
+      then log in from Terminal: `gh auth login` → GitHub.com → HTTPS → Yes (authenticate Git) →
+      Login with a web browser. (No Homebrew on this Mac, so use the installer.)
+      Optional privacy: github.com/settings/emails → tick "Keep my email addresses private".
+- [ ] 1.9 Switch commits to GitHub's private "noreply" email (the 7 local commits currently carry the
+      personal email; rewrite them *before* the first upload), then create the repository on GitHub with
+      `gh repo create` (owner picks name + Public/Private) and upload ("push").
 - [ ] 1.10 Learn the daily routine: `git status` → `git add` → `git commit` → `git push`
        (Claude will do it with you a few times; cheat-sheet goes here when done).
 
@@ -102,3 +107,5 @@ what recruiters look at.
   tech stack), `showcase/` sample cards, MIT `LICENSE`; `.vscode/` now ignored.
   Made the first 6 commits, grouped by topic. Next: step 1.7 (GitHub account).
   To-do for 9.2: upload a sample video to YouTube and link it in the README (videos are too big for Git).
+- 10 Nov 2026 — Step 1.7 done (has GitHub account). No `gh`, Homebrew or SSH key on the Mac; plan: install gh
+  via the official installer, `gh auth login`, switch to noreply email, then create repo + push.
