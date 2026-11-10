@@ -70,6 +70,8 @@ def approve(edition):
         sys.exit("Not approved: fix the errors above first.")
     if not (edition / "factcheck.json").exists():
         print("  NOTE: there is no factcheck.json — the facts were not independently checked.")
+    if not (edition / "stories.draft.json").exists():
+        print("  NOTE: there is no stories.draft.json — your edits can't be measured for this day.")
     print("\nStories to approve:")
     for i, s in enumerate(d.get("stories", []), 1):
         print(f"  {i}. {s.get('headline')}")
@@ -85,7 +87,11 @@ def approve(edition):
     d["approved_at"] = datetime.now().strftime("%Y-%m-%d %H:%M")
     d["approved_hash"] = fingerprint(edition, d)
     save(edition, d)
-    print(f"Approved {edition.name}. Now run: python3 make_video.py {edition.name}")
+    print(f"Approved {edition.name}.")
+    from evaluate import evaluate          # how much was changed vs the AI draft (Phase 5)
+    if evaluate(edition, quiet=True):
+        print("  weekly table: python3 evaluate.py --summary")
+    print(f"\nNow run: python3 make_video.py {edition.name}")
 
 
 def revoke(edition):

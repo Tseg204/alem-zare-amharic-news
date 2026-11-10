@@ -61,13 +61,13 @@ what recruiters look at.
 - [x] 4.1 `"status": "draft" | "approved"` in `stories.json`.
 - [x] 4.2 `make_video.py` / exports refuse to run on a draft.
 
-## Phase 5 — Measuring quality (evaluation) ← *next*
+## Phase 5 — Measuring quality (evaluation) ✅ done
 
-- [ ] 5.1 Save the AI's first draft (`stories.draft.json`) before the owner edits.
-- [ ] 5.2 Script comparing draft vs approved → % of headlines/bodies changed, kinds of fixes.
-- [ ] 5.3 Weekly summary table (great for the portfolio).
+- [x] 5.1 Save the AI's first draft (`stories.draft.json`) before the owner edits.
+- [x] 5.2 Script comparing draft vs approved → % of headlines/bodies changed, kinds of fixes.
+- [x] 5.3 Weekly summary table (great for the portfolio).
 
-## Phase 6 — Run log (observability)
+## Phase 6 — Run log (observability) ← *next*
 
 - [ ] 6.1 `run_log.json` per edition: searches, sources, validation failures, time, cost (tokens + Azure TTS).
 
@@ -104,6 +104,7 @@ Run these in Terminal from the project folder (`cd ~/Documents/Claude/amharic-ne
 | Undo a pick | `git restore --staged FILE` | Takes a file back out of the next snapshot (keeps your edits). |
 
 After reviewing a day: `python3 approve.py YYYY-MM-DD` (type yes), then `python3 make_video.py YYYY-MM-DD`.
+Weekly quality table: `python3 evaluate.py --summary` → `reports/quality.md`.
 Before rendering, `python3 validate.py` checks the day's `stories.json` (also runs automatically).
 
 Good commit messages: start with a verb, say *what* changed — "Add validate.py for editorial rules",
@@ -157,3 +158,9 @@ Never `git add` the `.env` file (`.gitignore` already blocks it).
   removes a stale short.mp4. `--new` always starts a draft. Claude is told never to run approve.py.
   Tested on a copy of 10 Nov: no → stays draft, yes → approved → short.mp4; edit → changed → draft video with banner.
   Existing 9 + 10 Nov editions count as drafts until approved. Next: Phase 5, step 5.1.
+- 10 Nov 2026 — Phase 5 done: `evaluate.py`. `--snapshot` saves `stories.draft.json` at hand-over (never overwritten);
+  on approval, approve.py compares draft vs approved → `eval.json`: per story which fields changed (headline, body,
+  note, stats, narration, photo), share of words changed, kind of fix (punctuation / numbers / small wording /
+  rewording / rewrite / story replaced). `--summary` → `reports/quality.md`, weekly + per-day table of approved days.
+  Tested on copies with 4 planted edits (all labelled right; unapproved day left out). No real data yet: 9 + 10 Nov
+  have no saved draft; measuring starts with the next edition. Next: Phase 6, step 6.1.
