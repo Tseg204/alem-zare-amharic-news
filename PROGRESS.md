@@ -49,14 +49,14 @@ what recruiters look at.
 - [x] 2.4 Narration rules: no Latin letters or digits left in `speech`.
 - [x] 2.5 Run it automatically at the start of `render_cards.py`.
 
-## Phase 3 — Clear pipeline stages with saved hand-offs ← *next*
+## Phase 3 — Clear pipeline stages with saved hand-offs ✅ done
 
-- [ ] 3.1 `research.json` — candidate stories + source links (research step output).
-- [ ] 3.2 `factcheck.json` — each claim (number/name/date) → 2+ sources → verified / rejected.
-- [ ] 3.3 Separate fact-checker (a Claude Code subagent that only sees the draft + sources).
-- [ ] 3.4 Write the stages + hand-off files into CLAUDE.md.
+- [x] 3.1 `research.json` — candidate stories + source links (research step output).
+- [x] 3.2 `factcheck.json` — each claim (number/name/date) → 2+ sources → verified / rejected.
+- [x] 3.3 Separate fact-checker (a Claude Code subagent that only sees the draft + sources).
+- [x] 3.4 Write the stages + hand-off files into CLAUDE.md.
 
-## Phase 4 — Human approval gate
+## Phase 4 — Human approval gate ← *next*
 
 - [ ] 4.1 `"status": "draft" | "approved"` in `stories.json`.
 - [ ] 4.2 `make_video.py` / exports refuse to run on a draft.
@@ -141,3 +141,11 @@ Never `git add` the `.env` file (`.gitignore` already blocks it).
   ND added because we crop + tone-adjust), narration (no Latin letters/digits/symbols in `speech`).
   `render_cards.py` runs it first and stops on errors. Tested: 10 Nov passes; 9 Nov passes with 6 warnings
   (made before `speech` existed); a broken test copy triggered all 12 planted errors. Next: Phase 3, step 3.1.
+- 10 Nov 2026 — Phase 3 done: stages + hand-off formats in `docs/pipeline.md` (research.json → stories.json →
+  factcheck.json → validate → render → human review). `validate.py` now checks both files: 5 selected stories
+  with 2+ sources from different websites; claims verified by 2+ websites; open claims (corrected / rejected /
+  unclear) are errors; every number on a card must be covered by a verified claim; warns if the card text changed
+  after the check. Missing files = warnings (old editions have none). Fact-checker subagent:
+  `.claude/agents/fact-checker.md` (sees only stories.json + research.json, can search the web, writes
+  factcheck.json, never edits cards). Daily workflow in CLAUDE.md updated. Tested on a broken copy: all 7 planted
+  problems reported. Not yet tried on a real day — first real run with the next edition. Next: Phase 4, step 4.1.

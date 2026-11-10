@@ -7,6 +7,8 @@ The rules come from CLAUDE.md; here they are checked by code so nothing slips th
 Usage:
     python3 validate.py               check the latest edition
     python3 validate.py 2026-11-10    check that date's edition
+It also checks the pipeline hand-off files when they exist (docs/pipeline.md):
+research.json (stage 1) and factcheck.json (stage 3).
 Exit code 0 = no errors, 1 = errors found (handy for scripts and automation later).
 """
 import json, re, sys
@@ -235,6 +237,140 @@ def check_narration(d, stories, r):
             r.warn(where, f"contains '{WHY_TAG}' — that note is never narrated")
 
 
+# ---------- 3.1 / 3.2 hand-off files (format: docs/pipeline.md) ----------
+NUMBER = re.compile(r"\d(?:[\d,.]*\d)?")
+FACT_STATUS = {"verified", "corrected", "rejected", "unclear"}
+FACT_FIELDS = {"headline", "body", "stats", "note"}
+
+
+def site(url):
+    """'https://www.bbc.com/news/x' → 'bbc.com' (to tell sources from different websites apart)."""
+    m = re.match(r"https://(?:www\.)?([^/]+)", url or "")
+    return m.group(1).lower() if m else None
+
+
+def numbers(text):
+    """All numbers in a text, commas removed: '~36,000 and 1–2' → {'36000', '1', '2'}."""
+    return {n.replace(",", "").rstrip(".") for n in NUMBER.findall(text or "")}
+
+
+def check_sources(where, sources, r, need=2):
+    if not isinstance(sources, list):
+        r.error(where, "'sources' must be a list")
+        return
+    for k, src in enumerate(sources, 1):
+        url = src.get("url") if isinstance(src, dict) else None
+        if not site(url):
+            r.error(where, f"source {k} needs a https:// 'url'")
+    sites = {site(s.get("url")) for s in sources if isinstance(s, dict)} - {None}
+    if len(sites) < need:
+        r.error(where, f"{len(sites)} different website(s) among the sources — need {need}+")
+
+
+def load_json(path, r):
+    try:
+        d = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        r.error(path.name, f"not valid JSON — line {e.lineno}, column {e.colno}: {e.msg}")
+        return None
+    if not isinstance(d, dict):
+        r.error(path.name, "must be an object { … }")
+        return None
+    return d
+
+
+def check_research(edition, r):
+    path = edition / "research.json"
+    if not path.exists():
+        r.warn("research.json", "missing — no record of the candidate stories and their sources")
+        return
+    d = load_json(path, r)
+    if d is None:
+        return
+    cands = d.get("candidates")
+    if not isinstance(cands, list) or not cands:
+        r.error("research.json", "'candidates' must be a non-empty list")
+        return
+    picked = []
+    for c in cands:
+        if not isinstance(c, dict):
+            r.error("research.json", "each candidate must be an object { … }")
+            continue
+        w = f"research {c.get('id', '?')}"
+        for f in ["id", "title_en", "summary_en", "category"]:
+            if not is_text(c.get(f)):
+                r.error(w, f"missing or empty '{f}'")
+        if c.get("selected"):
+            picked.append(c)
+            check_sources(w, c.get("sources"), r)
+            if c.get("story") not in range(1, N_STORIES + 1):
+                r.error(w, f"selected, so 'story' must be the card number 1–{N_STORIES}")
+    if len(picked) != N_STORIES:
+        r.error("research.json", f"{len(picked)} candidates selected — expected {N_STORIES}")
+    nums = [c.get("story") for c in picked]
+    if len(set(nums)) != len(nums):
+        r.error("research.json", f"two selected candidates share a story number: {nums}")
+    horn = [c for c in cands if isinstance(c, dict) and c.get("horn_of_africa")]
+    if not horn:
+        r.warn("research.json", "no Horn of Africa candidate found — was there really none?")
+    elif not any(c.get("selected") for c in horn):
+        r.warn("research.json", "a Horn of Africa candidate exists but none was selected")
+
+
+def check_factcheck(edition, stories, r):
+    path = edition / "factcheck.json"
+    if not path.exists():
+        r.warn("factcheck.json", "missing — the numbers, names and dates on the cards are not fact-checked")
+        return
+    d = load_json(path, r)
+    if d is None:
+        return
+    claims = d.get("claims")
+    if not isinstance(claims, list) or not claims:
+        r.error("factcheck.json", "'claims' must be a non-empty list")
+        return
+    checked = {i: set() for i in range(1, len(stories) + 1)}   # numbers covered, per story
+    for k, c in enumerate(claims, 1):
+        w = f"factcheck claim {k}"
+        if not isinstance(c, dict):
+            r.error(w, "must be an object { … }")
+            continue
+        n = c.get("story")
+        if n not in checked:
+            r.error(w, f"'story' must be a card number 1–{len(stories)}, got {n!r}")
+            continue
+        w = f"factcheck story {n} claim {k}"
+        if c.get("field") not in FACT_FIELDS:
+            r.error(w, f"'field' must be one of {sorted(FACT_FIELDS)}")
+        for f in ["text", "claim_en"]:
+            if not is_text(c.get(f)):
+                r.error(w, f"missing or empty '{f}'")
+        status = c.get("status")
+        if status not in FACT_STATUS:
+            r.error(w, f"'status' must be one of {sorted(FACT_STATUS)}")
+        elif status == "verified":
+            check_sources(w, c.get("sources"), r)
+            checked[n] |= numbers(c.get("text")) | numbers(c.get("claim_en"))
+        else:
+            r.error(w, f"{status}: {c.get('claim_en')} — fix: {c.get('fix') or '(no fix given)'}")
+        # Was the card edited after the check? (compare without spaces/punctuation differences)
+        s = stories[n - 1]
+        card = " ".join([s.get("headline") or "", s.get("body") or "", s.get("note") or ""]
+                        + [x for st in s.get("stats") or [] if isinstance(st, list) for x in st])
+        if is_text(c.get("text")) and c["text"].strip() not in card:
+            r.warn(w, f"text {c['text']!r} is no longer on the card — re-check after editing")
+    for i, s in enumerate(stories, 1):
+        on_card = set()
+        for f in ["headline", "body", "note"]:
+            on_card |= numbers(s.get(f))
+        for st in s.get("stats") or []:
+            if isinstance(st, list):
+                on_card |= numbers(" ".join(x for x in st if isinstance(x, str)))
+        missing = sorted(on_card - checked[i], key=lambda x: (len(x), x))
+        if missing:
+            r.error(f"story {i}", f"number(s) not fact-checked: {', '.join(missing)}")
+
+
 # ---------- run ----------
 def validate(edition):
     """Check an edition folder. Returns a Report (r.errors / r.warnings)."""
@@ -252,6 +388,8 @@ def validate(edition):
     check_editorial(d, stories, r)
     check_photos(edition, stories, r)
     check_narration(d, stories, r)
+    check_research(edition, r)
+    check_factcheck(edition, stories, r)
     return r
 
 
