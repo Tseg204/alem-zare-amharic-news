@@ -252,3 +252,9 @@ Never `git add` the `.env` file (`.gitignore` already blocks it).
   after shortening; fact-checker re-checks everything each round, single-source = unclear; researcher may use
   ≤ 5-day-old Horn stories (max 2). New owner rule (CLAUDE.md + photo-scout): people in a photo must be the
   real people of this event, never stand-ins from another year — story 5 now uses the Panathenaic Stadium.
+- 10 Nov 2026 — Owner approved the 10 Nov edition; final short.mp4 made; edition + Phase 10 fixes committed and
+  pushed. README showcase now shows the 10 Nov pipeline cards (renamed files so GitHub's image cache updates).
+  Owner switched to a WEEKLY edition to save tokens → Phase 11 done (cadence field, researcher 7 days + Sonnet,
+  targeted fact-check re-runs, photo_library.json, photo-scout on Sonnet, scheduled run Sundays 06:30).
+  Note: Phase 10.8 "full re-check every round" was replaced by targeted re-checks (11.3) for cost.
+  Next: first weekly run on Sunday → check its cost (11.6); fill README Results (9.2); owner uploads a video.
