@@ -42,7 +42,7 @@ flowchart TB
     subgraph Scripts["Deterministic scripts — repeatable"]
         V[validate.py<br/>rules + every number fact-checked]
         RC[render_cards.py<br/>HTML → headless Chrome]
-        MV[make_video.py + narrate.py<br/>Azure TTS · ffmpeg]
+        MV[make_video.py + motion.py + narrate.py<br/>HyperFrames · Azure TTS · ffmpeg]
         SH[share.py<br/>digest.md · captions.txt]
     end
 
@@ -68,7 +68,7 @@ Formats: [`docs/pipeline.md`](docs/pipeline.md).
 | 3. Fact-check | [`fact-checker`](.claude/agents/fact-checker.md) agent | `factcheck.json` — every number, name, date and attribution → 2+ sources → verdict |
 | 4. Photos | [`photo-scout`](.claude/agents/photo-scout.md) agent → editor picks | `photos.json` → [`photos.py`](photos.py) downloads only the picks |
 | 5. Rule check | [`validate.py`](validate.py) | blocks rendering on errors (see guardrails below) |
-| 6. Cards + video | [`render_cards.py`](render_cards.py), [`make_video.py`](make_video.py), [`narrate.py`](narrate.py) | 7 cards (2160×2700), ~100 s narrated 1080×1920 video |
+| 6. Cards + video | [`render_cards.py`](render_cards.py), [`make_video.py`](make_video.py), [`narrate.py`](narrate.py) | 7 cards (2160×2700), ~2 min narrated, animated 1080×1350 video |
 | 7. Sharing kit | [`share.py`](share.py) | `captions.txt` per platform, `digest.md` reading version |
 | 8. Approval | Human editor, [`approve.py`](approve.py) | `status: approved` + fingerprint; only then the final video |
 | 9. Measure | [`evaluate.py`](evaluate.py), [`runlog.py`](runlog.py) | what the editor changed; time, tokens, searches, cost |
@@ -152,7 +152,7 @@ Sample video: *link coming (YouTube Shorts)*.
 ## Tech stack
 
 Python · Claude Code (skills, subagents, scheduled tasks) · Playwright / headless Chrome · HTML/CSS ·
-Pillow · Azure AI Speech (neural TTS) · ffmpeg · Git/GitHub
+Pillow · HyperFrames + GSAP (motion) · Azure AI Speech (neural TTS) · ffmpeg · Git/GitHub
 
 ## How it was built
 
@@ -178,7 +178,8 @@ amharic-news/
 │   └── agents/               researcher, amharic-writer, fact-checker, photo-scout
 ├── validate.py          checks a day's files against the rules (runs before every render)
 ├── render_cards.py      makes the cards (+ runs share.py)
-├── make_video.py        makes the vertical video from the cards
+├── make_video.py        makes the narrated video from the cards
+├── motion.py, motion/   animates the cards (HyperFrames + GSAP, "portal" style)
 ├── narrate.py           Amharic AI narration (Azure voice; key in .env)
 ├── approve.py           the editor's approval (only a human runs it)
 ├── evaluate.py          draft vs approved → eval.json, reports/quality.md

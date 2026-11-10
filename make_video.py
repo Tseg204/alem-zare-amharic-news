@@ -1,10 +1,13 @@
-"""Turn an edition's rendered cards into a vertical video (1080×1920 MP4) for
-YouTube Shorts / Instagram Reels / TikTok, with Amharic narration and royalty-free
-background music.
+"""Turn an edition's cards into a video for YouTube Shorts / Instagram Reels / TikTok, with
+Amharic narration and royalty-free background music.
 
-Each card is centred on a blurred copy of itself, with a slow zoom and a soft
-crossfade to the next card. With narration, each card stays on screen as long as
-its narration (+ short pauses) and the music plays quietly underneath.
+Default (chosen by the owner 10 Nov 2026): the animated "portal" video, 1080×1350 like the cards
+themselves (no blurred fill), made with HyperFrames by motion.py — the panel opens as a circle,
+a band of light runs through headline and sentences as the voice reads them, stats count up.
+--still (or when Node/HyperFrames/ffmpeg are missing): the older video, each card centred on a
+blurred copy of itself (1080×1920), slow zoom, soft crossfades.
+With narration, each card stays on screen as long as its narration (+ short pauses) and the
+music plays quietly underneath.
 
     editions/2026-11-10/video/short.mp4     (written by this script)
 
@@ -22,7 +25,7 @@ Music: tracks in music/, listed in music/tracks.json. Pick one per day with
 Usage:
     python3 make_video.py                         latest edition
     python3 make_video.py 2026-11-10              that date's edition
-    options:  --voice ameha   --no-voice   --silent (no music)   --out name.mp4
+    options:  --voice ameha   --no-voice   --silent (no music)   --out name.mp4   --still (no animation)
 
 Needs ffmpeg: comes with the imageio-ffmpeg package (pip install -r requirements.txt).
 Set FFMPEG=/path/to/ffmpeg to use a different one.
@@ -35,6 +38,7 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 
 from render_cards import ROOT, EDITIONS, latest_edition
 import narrate
+import motion
 from approve import approval_state
 from runlog import log
 
@@ -137,8 +141,12 @@ def draft_banner(out_png):
     im.save(out_png)
 
 
-def make_video(edition, silent=False, voice=None, no_voice=False, out_name="short.mp4"):
+def make_video(edition, silent=False, voice=None, no_voice=False, out_name="short.mp4", still=False):
     started = time.time()
+    animate = not still and motion.available()
+    if not still and not animate:
+        print("  NOTE: animation needs Node.js, ffmpeg and motion/node_modules (cd motion && npm ci) — "
+              "making the still-card video instead")
     d = json.loads((edition / "stories.json").read_text(encoding="utf-8"))
     state = approval_state(edition, d)
     draft = state != "approved"
@@ -173,9 +181,10 @@ def make_video(edition, silent=False, voice=None, no_voice=False, out_name="shor
         start = 0.0
         for i, c in enumerate(clips):
             fade_in = FADE if i else 0.0
-            need = fade_in + VOICE_LEAD + audio_seconds(exe, c) + VOICE_TAIL + FADE
+            lead = motion.STORY_LEAD if animate and names[i].endswith("_story") else VOICE_LEAD
+            need = fade_in + lead + audio_seconds(exe, c) + VOICE_TAIL + FADE
             durs[i] = max(need, 3.0)
-            voice_at.append(start + fade_in + VOICE_LEAD)
+            voice_at.append(start + fade_in + lead)
             start += durs[i] - FADE
     total = sum(durs) - FADE * (len(cards) - 1)
 
@@ -192,7 +201,18 @@ def make_video(edition, silent=False, voice=None, no_voice=False, out_name="shor
         layers = edition / "layers"
         boxes = json.loads((layers / "layers.json").read_text()) if (layers / "layers.json").exists() else {}
         k = 0                                     # index of the next ffmpeg input
+        if animate:
+            starts = [sum(durs[:i]) - FADE * i for i in range(len(cards))]
+            scenes = [{"start": s, "dur": dur, "voice": voice_at[i] if clips else None,
+                       "clip": clips[i] if clips else None} for i, (s, dur) in enumerate(zip(starts, durs))]
+            anim = Path(tmp) / "motion.mp4"
+            motion.render(edition, d, names, scenes, total, FADE, anim, exe)
+            args += ["-i", str(anim)]
+            chains.append("[0:v]setsar=1,format=yuv420p[anim]")
+            k = 1
         for i, (c, dur) in enumerate(zip(cards, durs)):
+            if animate:
+                break
             fp = Path(tmp) / f"{i:02d}.png"
             frame(c, fp)
             n = round(dur * FPS)
@@ -224,8 +244,8 @@ def make_video(edition, silent=False, voice=None, no_voice=False, out_name="shor
                 f"zoompan=z='1+{ZOOM}*on/{n}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
                 f":d={n}:s={VW}x{VH}:fps={FPS},setsar=1,format=yuv420p[v{i}]")
             k += 1
-        prev, offset = "v0", 0.0
-        for i in range(1, len(cards)):
+        prev, offset = ("anim" if animate else "v0"), 0.0
+        for i in range(1, 0 if animate else len(cards)):
             offset += durs[i - 1] - FADE
             chains.append(f"[{prev}][v{i}]xfade=transition=fade:duration={FADE}:offset={offset:.3f}[x{i}]")
             prev = f"x{i}"
@@ -233,7 +253,8 @@ def make_video(edition, silent=False, voice=None, no_voice=False, out_name="shor
             banner = Path(tmp) / "draft.png"
             draft_banner(banner)
             args += ["-loop", "1", "-framerate", str(FPS), "-t", f"{total:.3f}", "-i", str(banner)]
-            chains.append(f"[{prev}][{k}:v]overlay=x=(W-w)/2:y=70:shortest=1[wm]")
+            y = "H*0.27" if animate else "70"        # animated video has no blurred band: put it over the photo
+            chains.append(f"[{prev}][{k}:v]overlay=x=(W-w)/2:y={y}:shortest=1[wm]")
             prev = "wm"
             k += 1
 
@@ -288,7 +309,7 @@ def make_video(edition, silent=False, voice=None, no_voice=False, out_name="shor
             args += ["-map", "[aout]", "-c:a", "aac", "-b:a", "192k"]
         args += ["-t", f"{total:.3f}", "-c:v", "libx264", "-preset", "medium", "-crf", "18",
                  "-pix_fmt", "yuv420p", "-r", str(FPS), "-movflags", "+faststart", str(out)]
-        print(f"Making video from {len(cards)} cards ({total:.0f} s)"
+        print(f"Making {'animated ' if animate else ''}video from {len(cards)} cards ({total:.0f} s)"
               + (f", narration: {narrate.VOICES[voice]}" if voice else "") + "…")
         subprocess.run(args, check=True)
 
@@ -296,6 +317,7 @@ def make_video(edition, silent=False, voice=None, no_voice=False, out_name="shor
     import share
     share.write_captions(edition)     # refresh captions.txt (music credit, approval state)
     log(edition, "video", seconds=round(time.time() - started, 1), file=out.name, draft=draft,
+        style="animated 1080x1350" if animate else "still 1080x1920",
         length_s=round(total, 1), voice=voice or "none", music=(info or {}).get("title", "none"),
         tts_new_clips=narrate.STATS["new_clips"], tts_cached_clips=narrate.STATS["cached_clips"],
         tts_chars_sent=narrate.STATS["chars_sent"])
@@ -311,11 +333,12 @@ def make_video(edition, silent=False, voice=None, no_voice=False, out_name="shor
 
 
 def main(args):
-    opts = {"silent": False, "voice": None, "no_voice": False, "out_name": "short.mp4"}
+    opts = {"silent": False, "voice": None, "no_voice": False, "out_name": "short.mp4", "still": False}
     rest, it = [], iter(args)
     for a in it:
         if a == "--silent": opts["silent"] = True
         elif a == "--no-voice": opts["no_voice"] = True
+        elif a == "--still": opts["still"] = True
         elif a == "--voice": opts["voice"] = next(it, None)
         elif a == "--out": opts["out_name"] = next(it, "short.mp4")
         else: rest.append(a)

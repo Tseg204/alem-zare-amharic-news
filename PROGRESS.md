@@ -124,6 +124,17 @@ The owner switched from daily to weekly editions (one edition ≈ $8–9 at API 
 - [x] 11.5 Scheduled task → "ዓለም ዛሬ weekly draft", Sundays 06:30. SKILL.md, CLAUDE.md, README updated.
 - [ ] 11.6 First weekly run: compare its run_log cost with 10 Nov's (~$8–9 per edition).
 
+## Phase 12 — Animated video ("portal" style), 10 Nov 2026
+
+The owner tried HyperFrames (HeyGen's open-source HTML → video tool) and chose the "portal" look after
+three prototypes (plain, dust, portal); prototypes stay in `prototypes/` (not in Git).
+- [x] 12.1 Install Node.js + ffmpeg (Homebrew); `motion/` pins HyperFrames 0.8.206 + GSAP 3.14.2 (`npm ci`), telemetry off.
+- [x] 12.2 `motion.py` + `motion/motion.js`: all 7 cards from their own HTML at 1080×1350 (no blurred fill);
+      panel opens as a circle, light sweep through headline/sentences timed to the narration pauses,
+      stats ripple + count up, note tag ripple; cover and follow card animated to match. No glow at the start.
+- [x] 12.3 `make_video.py` uses it by default (`--still` = old 1080×1920 video); music, voice, DRAFT banner unchanged.
+- [ ] 12.4 Owner watches `editions/2026-11-10/video/short_motion.mp4`; first weekly run uses the animated video.
+
 ---
 
 ## Git cheat-sheet (everyday routine)
@@ -258,3 +269,5 @@ Never `git add` the `.env` file (`.gitignore` already blocks it).
   targeted fact-check re-runs, photo_library.json, photo-scout on Sonnet, scheduled run Sundays 06:30).
   Note: Phase 10.8 "full re-check every round" was replaced by targeted re-checks (11.3) for cost.
   Next: first weekly run on Sunday → check its cost (11.6); fill README Results (9.2); owner uploads a video.
+- 10 Nov 2026 — Phase 12: animated "portal" video built into make_video.py via HyperFrames (motion.py, motion/).
+  Test on 10 Nov: 130 s, 1080×1350, rendered in ~2.5 min, no AI cost per render. Next: owner review (12.4).

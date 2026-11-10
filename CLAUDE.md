@@ -68,10 +68,15 @@ session-log line as steps finish. The owner is new to Git: explain each command 
 Run:
 - `python3 render_cards.py --new YYYY-MM-DD` — start a day (copies the latest stories.json)
 - `python3 render_cards.py [YYYY-MM-DD]` — render (default: latest edition)
-- `python3 make_video.py [YYYY-MM-DD] [--voice ameha|mekdes] [--no-voice] [--silent] [--out x.mp4]`
+- `python3 make_video.py [YYYY-MM-DD] [--voice ameha|mekdes] [--no-voice] [--silent] [--out x.mp4] [--still]`
   — approved edition → `video/short.mp4`; draft (or changed since approval) → `video/short_DRAFT.mp4`
-  with a red DRAFT banner, for review only. 1080×1920 MP4 for YouTube Shorts / Reels / TikTok from the rendered cards (card on blurred
-  background, slow zoom, crossfades), with Amharic AI narration (Azure neural TTS, `narrate.py`)
+  with a red DRAFT banner, for review only. Default: **animated** "portal" video, 1080×1350 like the cards
+  (no blurred fill), made with HyperFrames by `motion.py` + `motion/motion.js` (owner's choice 10 Nov 2026): the
+  frosted panel opens as a growing circle, a band of light runs through the headline and each body sentence as
+  the voice reaches it (pauses found in the narration clip), stats burst from a thin ring and count up, the note
+  tag pops out of a ripple; no glow at the start. Needs Node.js + ffmpeg (Homebrew) and `cd motion && npm ci`
+  (HyperFrames 0.8.206 + GSAP 3.14.2 pinned, telemetry off). `--still` (or missing tools) = the older
+  1080×1920 video from the rendered cards (card on blurred background, slow zoom, crossfades). Both have Amharic AI narration (Azure neural TTS, `narrate.py`)
   and quiet background music (default voice: Ameha, chosen by the owner 10 Nov 2026). Each card lasts as long as its narration (~100 s total).
   Writes `video/short.mp4`, `audio/` (clips + `narration.txt` = what is read) and a
   "Video audio" section in `credits.md`. Azure key/region live in `.env` (never print, copy or

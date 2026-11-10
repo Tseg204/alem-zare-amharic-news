@@ -1,0 +1,15 @@
+{
+  "name": "alem-zare-motion",
+  "version": "1.0.0",
+  "description": "HyperFrames setup for the animated weekly video (motion.py). Versions pinned.",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "gsap": "3.14.2",
+    "hyperframes": "0.8.206"
+  },
+  "private": true
+}

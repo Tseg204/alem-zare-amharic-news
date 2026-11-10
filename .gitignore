@@ -22,3 +22,9 @@ music/*.wav
 
 # Editor settings (personal)
 .vscode/
+
+# Animation (motion/): installed packages are re-created with `cd motion && npm ci`
+motion/node_modules/
+.hyperframes/
+# Early animation experiments (not part of the pipeline)
+prototypes/
